@@ -126,6 +126,9 @@ export default {
   watch: {
     product () {
       this.tempProduct = this.product
+      if (!this.tempProduct.images) {
+        this.tempProduct.images = []
+      }
     }
   },
   data () {

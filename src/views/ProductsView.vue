@@ -19,10 +19,10 @@
         <td>{{ item.category }}</td>
         <td>{{ item.title }}</td>
         <td class="text-right">
-          {{ item.origin_price }}
+          {{ $filters.currency(item.origin_price) }}
         </td>
         <td class="text-right">
-          {{ item.price }}
+          {{ $filters.currency(item.price) }}
         </td>
         <td>
           <span class="text-success" v-if="item.is_enabled">啟用</span>
@@ -37,6 +37,7 @@
       </tr>
     </tbody>
   </table>
+  <PagiNation :pages="pagination" @emit-page="getProducts"></PagiNation>
   <ProductModal ref="productModal" :product="tempProduct" @update-product="updateProduct"></ProductModal>
   <DelModal ref="delModal" :item="tempProduct" @del-item="delProduct"></DelModal>
 </template>
@@ -44,6 +45,7 @@
 <script>
 import ProductModal from '@/components/ProductModal.vue'
 import DelModal from '@/components/DelModal.vue'
+import PagiNation from '@/components/PagiNation.vue'
 
 export default {
   data () {
@@ -57,12 +59,13 @@ export default {
   },
   components: {
     ProductModal,
-    DelModal
+    DelModal,
+    PagiNation
   },
-  inject: ['emitter'],
+  inject: ['emitter', '$httpMessageState'],
   methods: {
-    getProducts () {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products`
+    getProducts (page = 1) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`
       this.isLoading = true
       this.$http.get(api)
         .then(res => {
@@ -98,6 +101,7 @@ export default {
           console.log(res)
           productComponent.hideModal()
           this.getProducts()
+          this.$httpMessageState(res, '更新')
         })
     },
     openDelProductModal (item) {
@@ -107,8 +111,11 @@ export default {
     },
     delProduct () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
-      this.$http.delet(url)
+      this.isLoading = true
+      this.$http.delete(url)
         .then(res => {
+          this.isLoading = false
+          this.$httpMessageState(res, '刪除商品')
           const delComponent = this.$refs.delModal
           delComponent.hideModal()
           this.getProducts()
