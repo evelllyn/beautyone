@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">BEAUTY</a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link to="/dashboard/products" class="nav-link">123</router-link>
+          <router-link to="/dashboard/products" class="nav-link">所有商品</router-link>
           <router-link to="/dashboard/orders" class="nav-link">訂單</router-link>
           <router-link to="/dashboard/coupons" class="nav-link">優惠券</router-link>
         </div>
