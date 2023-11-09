@@ -15,6 +15,7 @@ import App from './App.vue'
 import router from './router'
 import { currency, date } from './methods/filters'
 import $httpMessageState from './methods/pushMessageState'
+import { createPinia } from 'pinia'
 
 defineRule('required', required)
 defineRule('email', email)
@@ -25,12 +26,14 @@ configure({
 })
 setLocale('zh_TW')
 
+const pinia = createPinia()
 const app = createApp(App)
 app.config.globalProperties.$filters = {
   currency,
   date
 }
 app.provide('$httpMessageState', $httpMessageState)
+app.use(pinia)
 app.use(VueAxios, axios)
 app.use(router)
 app.component('LoaDing', Loading)

@@ -2,33 +2,25 @@
   <LoaDing :avtive="isLoading"></LoaDing>
   <div class="container">
     <div class="row mt-4">
-      <div class="col-md-8">
-        <table class="table align-middle">
-          <thead>
-            <tr>
-              <th>圖片</th>
-              <th>商品名稱</th>
-              <th>價格</th>
-            </tr>
-          </thead>
-          <tbody v-for="item in products" :key="item.id">
-            <tr style="width: 200px">
-              <td style="height: 100px; background-size: cover; background-position: center" :style="{ backgroundImage: `url(${item.imageUrl})` }"></td>
-              <td><a href="#">{{ item.title }}</a></td>
-              <td>
-                <div v-if="!item.price">{{ item.origin_price }}元</div>
-                <del v-if="item.price">原價{{ item.origin_price }}元</del>
-                <div v-if="item.price">{{ item.price }}元</div>
-              </td>
-              <td>
-                <div class="btn-group btn-group-sm">
-                  <button type="button" class="btn btn-outline-secondary" @click="getProduct(item.id)">查看更多</button>
-                  <button type="button" class="btn btn-outline-danger" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">加入購物車</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row row-cols-4">
+        <div class="col my-4" v-for="item in products" :key="item.id">
+          <div class="card">
+            <div style="height: 200px; background-size: cover; background-position: center" :style="{ backgroundImage: `url(${item.imageUrl})` }" class="card-img-top"></div>
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title }}
+                <span class="float-end">
+                  <div v-if="!item.price">{{ item.origin_price }}元</div>
+                  <del style="font-size: 15px" v-if="item.price">原價{{ item.origin_price }}元</del>
+                  <div v-if="item.price">{{ item.price }}元</div>
+                </span>
+              </h5>
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-dark" @click="getProduct(item.id)">查看更多</button>
+                <button type="button" class="btn btn-outline-danger" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">加入購物車</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- 購物車列表 -->
       <div col-md-5>
