@@ -1,0 +1,113 @@
+.check-out{
+  width: 75.7%;
+  margin-top: 150px;
+  .flow-container{
+    margin-bottom: 5%;
+    .flow-nav{
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding-left: 0;
+      .flow-item{
+        color: $doubleopacity;
+        padding: 0 6% 1% 6%;
+        border-bottom: 6px solid $doubleopacity;
+        .flow-content{
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+        }
+        .location{
+          color: $maincolor;
+          font-weight: bold;
+        }
+      }
+      .current{
+        border-bottom: 6px solid $maincolor;
+      }
+    }
+  }
+  .gratitude{
+    text-align: center;
+    background-color: $backgroundcolor;
+    .gratitude-content{
+      padding-top: 5%;
+      padding-bottom: 5%;
+      h2{
+        color: $maincolor;
+        font-weight: bold;
+      }
+      p{
+        color: $maincolor;
+        font-weight: bold;
+      }
+    }
+  }
+  .payment-list{
+    text-align: center;
+    margin-bottom: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-weight: bold;
+    color: $listcolor;
+    background-color: $maincolor;
+    border-radius: 3px;
+  }
+  .checkout-form{
+    display: flex;
+    .goods-list{
+      margin-right: 5%;
+      .detail{
+        padding: 3% 41%;
+        color: $maincolor;
+        font-weight: bold;
+      }
+      th{
+        background-color: $backgroundcolor;
+        border: none;
+      }
+      td{
+        border: none;
+      }
+      .top-line{
+        border-top: 3px solid $dividedcolor;
+      }
+      tfoot{
+        td{
+          font-weight: bold;
+        }
+      }
+    }
+    .contact-information{
+      .customer{
+        padding: 3% 38.5%;
+        font-weight: bold;
+        color: $listcolor;
+        background-color: $maincolor;
+        border-radius: 3px;
+      }
+      table{
+        th{
+          border: 18px solid $backgroundcolor;
+          background-color: $backgroundcolor;
+        }
+        td{
+          border: 18px solid $backgroundcolor;
+          background-color: $backgroundcolor;
+          span{
+            font-weight: bold;
+          }
+        }
+      }
+      .pay{
+        margin-bottom: 3%;
+        .pay-btn{
+          @include send-btn
+        }
+        .pay-btn:hover{
+          background-color: $maincolor;
+        }
+      }
+    }
+  }
+}

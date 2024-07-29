@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">BEAUTY</a>
+      <a class="navbar-brand" href="#">後台</a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link to="/dashboard/products" class="nav-link">商品</router-link>
@@ -11,7 +11,7 @@
       </div>
       <div id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link to="/user/cart" class="nav-link">
+          <router-link to="/cart" class="nav-link">
             購物車
             <span class="badge rounded-pill bg-danger">0</span>
           </router-link>

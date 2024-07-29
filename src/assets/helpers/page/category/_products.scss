@@ -1,0 +1,70 @@
+.goods{
+  .card:hover{
+    cursor: pointer;
+  }
+  .card:hover .card-img-top .more{
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+  }
+  .card{
+    cursor: default;
+    border: none;
+    .card-img-top{
+      height: 200px;
+      background-size: cover;
+      background-position:center;
+      border-radius: 6px;
+      .on{
+        color: $backgroundcolor;
+        font-weight: bold;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        transform: rotate(-45deg);
+      }
+      .sale{
+        color: $backgroundcolor;
+        font-weight: bold;
+        position: absolute;
+        top: 8%;
+        left: 6%;
+        transform: rotate(-45deg);
+      }
+      .sale-logo{
+        border: 45px solid;
+        border-color: red transparent transparent red;
+        position: absolute;
+      }
+      .more{
+        font-weight: bold;
+        color: $backgroundcolor;
+        background-color: $maincolor;
+        position: absolute;
+        top: 56%;
+        width: 100%;
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        border-radius: 0 0 6px 6px;
+        opacity: 0;
+      }
+    }
+    .card-body{
+      padding-left: 1%;
+      padding-right: 1%;
+      .card-title{
+        font-weight: bold;
+        color: $maincolor;
+      }
+      .product-price{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-left: 0.5%;
+        .del-price{
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

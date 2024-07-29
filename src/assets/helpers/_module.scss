@@ -1,0 +1,44 @@
+//ad
+.homeModal-dialog{
+  margin-top: 10%;
+  .homeModal-body{
+    background-image: url('https://images.unsplash.com/photo-1634449278077-820aacbf6aa4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 260px;
+    padding-left: 5%;
+    .title1{
+      margin-bottom: 28%;
+    }
+    span{
+      color: $emphaticcolor;
+    }
+  }
+  .homeModal-footer{
+    input{
+      border: none;
+      outline: none;
+    }
+    button{
+      width: 34%;
+      border: 1px solid $maincolor;
+    }
+  }
+}
+//分頁
+.page-item{
+  .page-link{
+    color: $maincolor;
+  }
+  .page-link:focus{
+    outline: 4px solid $gapcolor;
+  }
+}
+.page-item.active{
+  .page-link{
+    color: $backgroundcolor;
+    background-color: $maincolor;
+    border-color: $maincolor;
+  }
+}

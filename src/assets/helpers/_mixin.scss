@@ -1,0 +1,16 @@
+@mixin mark {
+  background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
+}
+@mixin button {
+  padding: 1% 5%;
+  color: $listcolor;
+  background-color: $mainopacity;
+  border-radius: 3px;
+  font-weight: bold;
+}
+@mixin send-btn {
+  color: $listcolor;
+  background-color: $doubleopacity;
+  border-radius: 3px;
+  margin: 2% auto;
+}

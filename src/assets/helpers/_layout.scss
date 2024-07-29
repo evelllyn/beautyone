@@ -1,0 +1,81 @@
+// 頁首
+marquee{
+  background-color: $maincolor;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.navbar{
+  position: fixed;
+  width: 100%;
+  top: 32px;
+  z-index: 999;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  .logo{
+    margin-left: 12.3%;
+    img{
+      height: 40px;
+    }
+  }
+  .nav-item{
+    .nav-link{
+      color: $mainopacity;
+      font-weight: bold;
+      transition: color 0.1s ease-in;
+    }
+    .nav-link.active{
+      color: $maincolor;
+      font-weight: bold;
+    }
+    .nav-link:hover{
+      color: $maincolor;
+    }
+  }
+  .right{
+    margin-right: 16.6%;
+    .nav-link{
+      position: relative;
+      padding: 0 15px;
+      i{
+        font-size: 30px;
+      }
+      .badge{
+        position: absolute;
+        left: 50%;
+      }
+    }
+  }
+}
+// 頁尾
+footer{
+  background-color: $maincolor;
+  .social{
+    text-align: center;
+    margin-top: 5%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    a{
+      font-size: 28px;
+    }
+  }
+  .credit{
+    position: absolute;
+    img{
+      float: right;
+    }
+  }
+  .contact{
+    text-align: center;
+    p{
+      display: inline-block;
+    }
+  }
+  .copyright{
+    text-align: center;
+    padding-top: 1.7%;
+    padding-bottom: 1%;
+    p{
+      display: inline-block;
+    }
+  }
+}

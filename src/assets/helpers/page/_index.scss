@@ -1,0 +1,145 @@
+.carousel-fade{
+  margin-top: 98px;
+  display: flex;
+  justify-content: center;
+  .carousel-inner{
+    width: 100%;
+    img{
+      height: 725px;
+      object-fit: cover;
+    }
+    .carousel-caption{
+      position: absolute;
+      top: 37%;
+    }
+  }
+}
+.aboutAs{
+  background-color: $backgroundcolor;
+  .aboutContent{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    .slogan{
+      text-align: center;
+      width: 50%;
+      h2{
+        color: $maincolor;
+      }
+      .dividedLine{
+        border: 2px solid $dividedcolor;
+        width: 70%;
+        margin: 2% auto;
+      }
+      .factor{
+        span{
+          padding: 1% 2%;
+          border: 2.5px solid $dividedcolor ;
+        }
+      }
+      .sloganBig{
+        font-size: 30px;
+        color: $maincolor;
+        span{
+          color: $maincolor;
+        }
+      }
+      .sloganSmall{
+        color: $maincolor;
+        margin-top: 5%;
+        text-align: left;
+      }
+      .sloganSmallSec{
+        color: $maincolor;
+        text-align: right;
+      }
+    }
+  }
+}
+.classic{
+  h5{
+    margin: 3% 0 0 6.5%;
+    span{
+      padding-right: 1%;
+      color: $maincolor;
+    }
+  }
+}
+.new{
+  h5{
+    margin: 3% 0 5% 6.5%;
+    span{
+      padding-right: 1%;
+      color: $maincolor;
+    }
+  }
+}
+.tips{
+  background-image: url(assets/face.jpg);
+  overflow: hidden;
+  width: 74%;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  .tipsBox{
+    padding: 3% 0 1.5% 0;
+    h2{
+      text-align: center;
+      .tipsTitle{
+        margin: 0 15px 0 15px;
+        border: 1px dotted white;
+      }
+    }
+    .tipsBoxBig{
+      padding: 0;
+      .tipsBoxSmall{
+        display: flex;
+        margin-bottom: 2%;
+        padding: 0;
+        .tipsBoxText{
+          width: 33%;
+          margin-right: 2%;
+          padding: 1% 5%;
+          h3{
+            margin-top: 5%;
+            padding-left: 13px;
+          }
+        }
+        .final-tips{
+          margin-right: 0;
+        }
+      }
+      .sec-tips{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+hr{
+  border-width: 10px;
+  border-color: $gapcolor;
+}
+.subscribe{
+  margin-top: 4%;
+  .subscribe-content{
+    margin-left: 5.6%;
+    margin-right: 4.1%;
+    label{
+      color: $maincolor;
+      span{
+        @include mark;
+      }
+    }
+    input{
+      border-radius: 5px 0 0 5px;
+      width: 79%;
+    }
+    button:hover{
+      background-color: $maincolor
+    }
+    button:not(:hover){
+      background-color: $maincolor
+    }
+  }
+}

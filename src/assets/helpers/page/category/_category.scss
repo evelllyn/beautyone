@@ -1,0 +1,41 @@
+.category{
+  width: 75.7%;
+  margin-top:125px;
+  .category-nav{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1%;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 3px dotted $dividedcolor;
+    .category-list{
+      padding-bottom: 1%;
+      .category-link{
+        background-color: #fff;
+        border: none;
+        h6{
+          color: $doubleopacity;
+          font-weight: bold;
+          transition: color 0.1s ease-in;
+        }
+      }
+      .category-link.active{
+        h6{
+          color: $maincolor;
+        }
+      }
+      .category-link:hover{
+        h6{
+          color: $mainopacity;
+        }
+      }
+      .category-link.active:hover{
+        h6{
+          color: $maincolor;
+        }
+      }
+    }
+  }
+}

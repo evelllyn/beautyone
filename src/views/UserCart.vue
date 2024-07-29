@@ -1,136 +1,82 @@
 <template>
   <LoaDing :avtive="isLoading"></LoaDing>
-  <div class="container">
-    <div class="row mt-4">
-      <div class="col-md-8">
+  <HomeNavbar></HomeNavbar>
+  <div class="container fill-in">
+    <div class="row cart">
+      <div v-if="cart.carts.length">
+        <h3>購物清單</h3>
         <table class="table align-middle">
           <thead>
             <tr>
-              <th>圖片</th>
-              <th>商品名稱</th>
-              <th>價格</th>
+              <th class="col-1">圖片</th>
+              <th class="col-8">商品名稱</th>
+              <th class="col-1">數量</th>
+              <th>單價</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody v-for="item in products" :key="item.id">
-            <tr style="width: 200px">
-              <td style="height: 100px; background-size: cover; background-position: center" :style="{ backgroundImage: `url(${item.imageUrl})` }"></td>
-              <td><a href="#">{{ item.title }}</a></td>
+          <tbody>
+            <tr v-for="item in cart.carts" :key="item.id">
+              <td class="list-pic" :style="{ backgroundImage: `url(${item.product.imageUrl})` }"></td>
               <td>
-                <div v-if="!item.price">{{ item.origin_price }}元</div>
-                <del v-if="item.price">原價{{ item.origin_price }}元</del>
-                <div v-if="item.price">{{ item.price }}元</div>
+                {{ item.product.title }}
               </td>
               <td>
-                <div class="btn-group btn-group-sm">
-                  <button type="button" class="btn btn-outline-secondary" @click="getProduct(item.id)">查看更多</button>
-                  <button type="button" class="btn btn-outline-danger" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">加入購物車</button>
+                <div class="input-group input-group-sm">
+                  <input type="number" class="form-control" min="1" :disabled="status.loadingItem === item.id" v-model.number="item.qty" @change="updateCart(item)">
+                  <div class="input-group-text">{{ item.product.unit }}</div>
                 </div>
+              </td>
+              <td>
+                <small v-if="cart.final_total !== cart.total">折扣價</small>
+                $ {{ $filters.currency(item.final_total) }}
+                <div class="text-danger" v-if="item.coupon">已套用優惠券</div>
+              </td>
+              <td class="text-end">
+                <button type="button" class="btn btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id" @click="removeCartItem(item.id)">
+                  <i class="bi bi-trash3"></i>
+                </button>
               </td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" class="text-end">總計</td>
+              <td class="text-end">$ {{ $filters.currency(cart.total)}}</td>
+            </tr>
+            <tr v-if="cart.final_total !== cart.total">
+              <td colspan="4" class="text-end text-danger">折扣價</td>
+              <td class="text-end text-danger">$ {{ $filters.currency(cart.final_total) }}</td>
+            </tr>
+          </tfoot>
         </table>
-      </div>
-      <!-- 購物車列表 -->
-      <div col-md-5>
-        <div class="sticky-top">
-          <table class="table align-middle">
-            <thead>
-              <tr>
-                <th class="col-1">圖片</th>
-                <th class="col-8">商品名稱</th>
-                <th class="col-1">數量</th>
-                <th>單價</th>
-              </tr>
-            </thead>
-            <tbody>
-              <template v-if="cart.carts">
-                <tr>
-                  <td colspan="2" class="bg-light p-3">
-                    <div>購物車尚未有任何商品</div>
-                  </td>
-                </tr>
-                <tr v-for="item in cart.carts" :key="item.id">
-                  <td style="height: 100px; background-size: cover; background-position: center" :style="{ backgroundImage: `url(${item.product.imageUrl})` }"></td>
-                  <td>
-                    {{ item.product.title }}
-                  </td>
-                  <td>
-                    <div class="input-group input-group-sm">
-                      <input type="number" class="form-control" min="1" :disabled="status.loadingItem === item.id" v-model.number="item.qty" @change="updateCart(item)">
-                      <div class="input-group-text">{{ item.product.unit }}</div>
-                    </div>
-                  </td>
-                  <td>
-                    <small v-if="cart.final_total !== cart.total">折扣價</small>
-                    {{ $filters.currency(item.final_total) }}
-                    <div class="text-success" v-if="item.coupon">已套用優惠券</div>
-                  </td>
-                  <td class="text-end">
-                    <button type="button" class="btn btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id" @click="removeCartItem(item.id)">
-                      <i class="bi bi-trash3"></i>
-                    </button>
-                  </td>
-                </tr>
-              </template>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="4" class="text-end">總計</td>
-                <td class="text-end">{{ $filters.currency(cart.total)}}</td>
-              </tr>
-              <tr v-if="cart.final_total !== cart.total">
-                <td colspan="4" class="text-end text-success">折扣價</td>
-                <td class="text-end text-success">{{ $filters.currency(cart.final_total) }}</td>
-              </tr>
-            </tfoot>
-          </table>
-            <div class="input-group input-group-sm mb-3">
-              <div class="col-8"></div>
-              <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
-              <div class="input-group-append">
-                <button type="button" class="btn btn-outline-secondary" @click="addCouponCode">
-                  套用優惠券
-                </button>
-              </div>
-            </div>
+        <div class="use-coupon input-group input-group-sm mb-3">
+          <div class="col-8"></div>
+          <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
+          <div class="input-group-append">
+            <button type="button" class="btn coupon-btn" @click="addCouponCode">
+              使用優惠券
+            </button>
+          </div>
+        </div>
+        <div class="go-pay text-end">
+          <router-link to="/fillin" class="btn go-btn">前往結帳</router-link>
         </div>
       </div>
-    </div>
-    <div class="my-5 row justify-content-center">
-      <VForm class="col-md-6" v-slot="{ errors }" @submit="createOrder">
-        <div class="mb-3">
-          <label for="name" class="form-label">收件人姓名</label>
-          <VField id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }" placeholder="請輸入姓名" rules="required" v-model="form.user.name"></VField>
-          <VErrorMessage name="姓名" class="invalid-feedback"></VErrorMessage>
-        </div>
-        <div class="mb-3">
-          <label for="tel" class="form-label">收件人電話</label>
-          <VField id="tel" name="電話" type="tel" class="form-control" :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話" rules="required" v-model="form.user.tel"></VField>
-          <VErrorMessage name="電話" class="invalid-feedback"></VErrorMessage>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <VField id="email" name="Email" type="email" class="form-control" :class="{ 'is-invalid': errors['Email'] }" placeholder="請輸入Email" rules="email|required" v-model="form.user.email"></VField>
-          <VErrorMessage name="Email" class="invalid-feedback"></VErrorMessage>
-        </div>
-        <div class="mb-3">
-          <label for="address" class="form-label">收件人地址</label>
-          <VField id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }" placeholder="請輸入地址" rules="required" v-model="form.user.address"></VField>
-          <VErrorMessage name="地址" class="invalid-feedback"></VErrorMessage>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">備註</label>
-          <textarea name="備註" id="message" cols="30" rows="10" class="form-control" v-model="form.message"></textarea>
-        </div>
-        <div class="text-end">
-          <button class="btn btn-primary">送出訂單</button>
-        </div>
-      </VForm>
+      <div v-else class="nothing">
+        <i class="bi bi-cart-dash"></i>
+        <div class="nothing-content fs-3">哎呀，購物車目前是空的喔</div>
+        <router-link to="/products" class="btn surf-btn">現在去逛逛</router-link>
+      </div>
     </div>
   </div>
+  <FooterNav></FooterNav>
 </template>
 
 <script>
+import HomeNavbar from '@/components/HomeNavbar.vue'
+import FooterNav from '@/components/FooterNav.vue'
+
 export default {
   data () {
     return {
@@ -139,18 +85,15 @@ export default {
       status: {
         loadingItem: ''
       },
-      cart: {},
-      coupon_code: '',
-      form: {
-        user: {
-          name: '',
-          email: '',
-          tel: '',
-          address: ''
-        },
-        message: ''
-      }
+      cart: {
+        carts: []
+      },
+      coupon_code: ''
     }
+  },
+  components: {
+    HomeNavbar,
+    FooterNav
   },
   inject: ['$httpMessageState'],
   methods: {
@@ -164,7 +107,7 @@ export default {
         })
     },
     getProduct (id) {
-      this.$router.push(`/user/product/${id}`)
+      this.$router.push(`/product/${id}`)
     },
     addCart (id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
@@ -176,7 +119,6 @@ export default {
       this.$http.post(url, { data: cart })
         .then(res => {
           this.status.loadingItem = ''
-          console.log(res)
         })
     },
     getCart () {
@@ -224,16 +166,6 @@ export default {
           this.$httpMessageState(res, '移除購物車商品')
           this.status.loadingItem = ''
           this.getCart()
-        })
-    },
-    createOrder () {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`
-      const order = this.form
-      this.isLoading = true
-      this.$http.post(url, { data: order })
-        .then(res => {
-          this.isLoading = false
-          console.log(res)
         })
     }
   },
