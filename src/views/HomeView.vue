@@ -6,7 +6,7 @@
       <div class="slogan">
         <h2 class="fw-bold">WHAT MAKES YOU BEAUTIFUL</h2>
         <div class="dividedLine"></div>
-        <p class="sloganBig fw-bold">讓 我 們 與 您 一 起 尋 找 <span>凍 齡</span> 的 秘 密111</p>
+        <p class="sloganBig fw-bold">讓 我 們 與 您 一 起 尋 找 <span>凍 齡</span> 的 秘 密</p>
         <div class="factor">
           <span class="fs-5">肌膚水嫩透亮</span>
           <span class="fs-5">肌底保有彈性</span>
