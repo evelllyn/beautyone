@@ -1,11 +1,12 @@
 .carousel-fade{
-  margin-top: 98px;
+  margin-top: 128px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   .carousel-inner{
-    width: 100%;
+    width: 74.1%;
     img{
-      height: 725px;
+      height: 665px;
       object-fit: cover;
     }
     .carousel-caption{
