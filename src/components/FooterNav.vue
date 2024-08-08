@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <div class="credit container">
+    <div class="credit">
       <img class="p-1" src="../assets/visa.png" alt="">
       <img class="p-1" src="../assets/mastercard.png" alt="">
       <img class="p-1" src="../assets/jcb.png" alt="">

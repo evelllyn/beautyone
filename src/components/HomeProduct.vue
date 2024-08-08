@@ -12,7 +12,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <div class="product-price">
-              <span class="text-danger fs-5" v-if="item.price">NT ${{ item.price }}</span>
+              <span class="text-danger" v-if="item.price">NT ${{ item.price }}</span>
               <span v-if="!item.price">{{ item.origin_price }}元</span>
               <del class="del-price float-end" v-if="item.price != item.origin_price">原價NT${{ item.origin_price }}</del>
             </div>

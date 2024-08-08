@@ -1,6 +1,9 @@
 .check-out{
   width: 75.7%;
   margin-top: 150px;
+  @include pad(){
+    margin-bottom: 33.6%;
+  }
   .flow-container{
     margin-bottom: 5%;
     .flow-nav{

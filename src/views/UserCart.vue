@@ -9,8 +9,8 @@
           <thead>
             <tr>
               <th class="col-1">圖片</th>
-              <th class="col-8">商品名稱</th>
-              <th class="col-1">數量</th>
+              <th class="col-5">商品名稱</th>
+              <th class="col-2">數量</th>
               <th>單價</th>
               <th></th>
             </tr>
@@ -51,7 +51,7 @@
           </tfoot>
         </table>
         <div class="use-coupon input-group input-group-sm mb-3">
-          <div class="col-8"></div>
+          <div class="col-7"></div>
           <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
           <div class="input-group-append">
             <button type="button" class="btn coupon-btn" @click="addCouponCode">

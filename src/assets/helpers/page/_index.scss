@@ -3,15 +3,33 @@
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
+  @include phone(){
+    margin-top: 110px;
+  }
   .carousel-inner{
     width: 74.1%;
+    @include phone(){
+      width: 72.5%;
+    }
     img{
       height: 665px;
       object-fit: cover;
+      @include pad(){
+        height: 465px;
+      }
+      @include phone(){
+        height: 365px;
+      }
     }
     .carousel-caption{
       position: absolute;
       top: 37%;
+      @include pad(){
+        top: 34%;
+      }
+      @include phone(){
+        top: 30%;
+      }
     }
   }
 }
@@ -25,6 +43,12 @@
     .slogan{
       text-align: center;
       width: 50%;
+      @include pad(){
+        width: 52%;
+      }
+      @include phone(){
+        width: 70%;
+      }
       h2{
         color: $maincolor;
       }
@@ -59,20 +83,60 @@
   }
 }
 .classic{
-  h5{
+  .words{
     margin: 3% 0 0 6.5%;
+    @include pad(){
+      margin: 3% 0 0 10.3%;
+    }
+    @include phone(){
+      margin: 3% 0 0 9.5%;
+    }
     span{
       padding-right: 1%;
       color: $maincolor;
     }
   }
+  .hotSale{
+    width: 88.4%;
+    height: 375px;
+    overflow: hidden;
+    padding: 0;
+    @include pad(){
+      width: 81.6%;
+      height: 325px;
+    }
+    @include phone(){
+      width: 84.1%;
+      height: 315px;
+    }
+  }
 }
 .new{
-  h5{
-    margin: 3% 0 5% 6.5%;
+  .words{
+    margin: 1% 0 0 6.5%;
+    @include pad(){
+      margin: 3% 0 0 10.3%;
+    }
+    @include phone(){
+      margin: 3% 0 0 9.5%;
+    }
     span{
       padding-right: 1%;
       color: $maincolor;
+    }
+  }
+  .newArrival{
+    width: 88.4%;
+    height: 375px;
+    overflow: hidden;
+    padding: 0;
+    @include pad(){
+      width: 81.6%;
+      height: 325px;
+    }
+    @include phone(){
+      width: 84.1%;
+      height: 325px;
     }
   }
 }
@@ -102,9 +166,25 @@
           width: 33%;
           margin-right: 2%;
           padding: 1% 5%;
+          @include pad(){
+            padding: 1% 0;
+          }
+          @include phone(){
+            padding: 0;
+          }
           h3{
             margin-top: 5%;
             padding-left: 13px;
+            @include phone(){
+              font-size: 16px;
+            }
+          }
+          ul{
+            li{
+              @include phone(){
+                font-size: 14px;
+              }
+            }
           }
         }
         .final-tips{
@@ -125,16 +205,35 @@ hr{
   margin-top: 4%;
   .subscribe-content{
     margin-left: 5.6%;
-    margin-right: 4.1%;
+    margin-right: 4.2%;
+    @include pad(){
+      margin-left: 8.5%;
+    }
+    @include phone(){
+      margin-left: 7%;
+    }
     label{
+      font-size: 32px;
       color: $maincolor;
+      @include pad(){
+        font-size: 20px;
+      }
+      @include phone(){
+        font-size: 18px
+      }
       span{
         @include mark;
       }
     }
     input{
       border-radius: 5px 0 0 5px;
-      width: 79%;
+      width: 83%;
+      @include pad(){
+        width: 67.5%;
+      }
+      @include phone(){
+        width: 66%;
+      }
     }
     button:hover{
       background-color: $maincolor

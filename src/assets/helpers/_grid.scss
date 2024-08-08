@@ -1,0 +1,10 @@
+@mixin pad{
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content
+  }
+}
+@mixin phone{
+  @media (max-width: 768px) {
+    @content
+  }
+}

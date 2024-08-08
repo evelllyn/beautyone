@@ -21,53 +21,58 @@
         width: 100%;
         height: 495px;
         object-fit: cover;
-      }
-    }
-    article{
-      color: $maincolor;
-      h2{
-        padding-bottom: 5%;
-        font-weight: bold;
-        border-bottom: 3px solid $dividedcolor;
-      }
-      .description{
-        margin: 10% auto;
-      }
-    }
-    .discount{
-      color: $maincolor;
-      margin-top: 10%;
-      margin-bottom: 13%;
-      padding-top: 10%;
-      border-top: 3px solid $dividedcolor;
-      p{
-        padding-left: 2%;
-        border-left: 3px solid $maincolor;
-        span{
-          @include mark;
+        @include pad(){
+          height: 415px;
         }
       }
     }
-    .addCart{
-      display: flex;
-      .input-group{
-        width: 50%;
-        margin-right: 8%;
-        .num-btn{
+    .allContent{
+      article{
+        color: $maincolor;
+        h2{
+          padding-bottom: 5%;
+          font-weight: bold;
+          border-bottom: 3px solid $dividedcolor;
+        }
+        .description{
+          margin: 7% auto;
+        }
+      }
+      .discount{
+        color: $maincolor;
+        margin-top: 8%;
+        margin-bottom: 6%;
+        padding-top: 5%;
+        border-top: 3px solid $dividedcolor;
+        p{
+          padding-left: 2%;
+          border-left: 3px solid $maincolor;
+          span{
+            @include mark;
+          }
+        }
+      }
+      .addCart{
+        display: flex;
+        .input-group{
+          width: 50%;
+          margin-right: 8%;
+          .num-btn{
+            border-radius: 3px;
+            border: 1px solid $btnborder;
+          }
+          .num-btn:hover{
+            background-color: $listcolor;
+          }
+        }
+        .cart-btn{
+          color: $listcolor;
+          background-color: $mainopacity;
           border-radius: 3px;
-          border: 1px solid $btnborder;
         }
-        .num-btn:hover{
-          background-color: $listcolor;
+        .cart-btn:hover{
+          background-color: $maincolor;
         }
-      }
-      .cart-btn{
-        color: $listcolor;
-        background-color: $mainopacity;
-        border-radius: 3px;
-      }
-      .cart-btn:hover{
-        background-color: $maincolor;
       }
     }
     .tab-container{

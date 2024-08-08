@@ -26,20 +26,18 @@
     </div>
     <div class="cart-fill">
       <div class="buy-list w-100">
-        <div class="detail fs-4">購物清單</div>
+        <div class="detail">購物清單</div>
         <table class="table align-middle">
           <thead>
             <tr>
-              <th class="col-2">圖片</th>
-              <th class="col-3">商品名稱</th>
-              <th class="col-2">數量</th>
-              <th class="col-3">單價</th>
+              <th class="col-5">商品名稱</th>
+              <th class="col-3">數量</th>
+              <th class="col-2">單價</th>
               <div></div>
             </tr>
           </thead>
           <tbody>
             <tr v-for="item in cart.carts" :key="item.id">
-              <td style="height: 100px; background-size: cover; background-position: center" :style="{ backgroundImage: `url(${item.product.imageUrl})` }"></td>
               <td>
                 {{ item.product.title }}
               </td>
@@ -58,8 +56,8 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3" class="top-line"></td>
-              <td class="top-line">總計&emsp;${{ $filters.currency(cart.total)}}</td>
+              <td class="top-line"></td>
+              <td colspan="2" class="top-line text-end">總計&emsp;${{ $filters.currency(cart.total)}}</td>
             </tr>
             <tr v-if="cart.final_total !== cart.total">
               <td colspan="3"></td>
@@ -69,7 +67,7 @@
         </table>
       </div>
       <div class="contact-list w-100 justify-content-center">
-        <div class="customer fs-4">訂購人聯絡資訊</div>
+        <div class="customer">訂購人聯絡資訊</div>
         <VForm class="vform" v-slot="{ errors }" @submit="createOrder">
           <div class="mb-3">
             <label for="name" class="form-label">收件人姓名<span class="text-danger">*</span></label>

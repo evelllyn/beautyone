@@ -1,4 +1,12 @@
 .cart{
+  @include pad(){
+    margin-top: 20%;
+    margin-bottom: 90%;
+  }
+  @include phone(){
+    margin-top: 20%;
+    margin-bottom: 68%;
+  }
   h3{
     text-align: center;
     color: $maincolor;
@@ -14,6 +22,9 @@
         color: $maincolor;
         background-color: $backgroundcolor;
         border: none;
+        @include phone(){
+          font-size: 14px;
+        }
       }
     }
     tbody{
@@ -24,6 +35,12 @@
         height: 100px;
         background-size: cover;
         background-position: center;
+        @include pad(){
+          height: 80px;
+        }
+        @include phone(){
+          height: 60px;
+        }
       }
     }
     tfoot{
@@ -54,7 +71,7 @@
   .nothing{
     text-align: center;
     background-color: $backgroundcolor;
-    padding-top: 5%;
+    padding-top: 7%;
     padding-bottom: 8%;
     i{
       font-size: 64px;

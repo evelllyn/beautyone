@@ -18,12 +18,18 @@
     </div>
   </div>
   <div class="classic container">
-    <h5 class="fw-bold"><span class="fs-2">HOT SALE</span>經典熱銷</h5>
+    <h5 class="words fw-bold"><span class="fs-2">HOT SALE</span>經典熱銷</h5>
+    <div class="hotSale container">
+      <BodyProducts></BodyProducts>
+    </div>
   </div>
   <div class="new container">
-    <h5 class="fw-bold"><span class="fs-2">NEW ARRIVAL</span>新品上市</h5>
+    <h5 class="words fw-bold"><span class="fs-2">NEW ARRIVAL</span>新品上市</h5>
+    <div class="newArrival container">
+      <HeadProducts></HeadProducts>
+    </div>
   </div>
-  <div class="tips container my-3">
+  <div class="tips container">
     <div class="container text-light">
       <div class="tipsBox">
         <h2 class="py-3 bg-white bg-opacity-10">
@@ -88,10 +94,10 @@
   <div class="subscribe container">
     <form novalidate>
       <div class="subscribe-content row">
-        <div class="col-md-8">
-          <label for="email" class="fs-4 fw-bold">訂閱我們，取得<span>最新消息與優惠折扣 !</span></label>
+        <div class="col-md-7">
+          <label for="email" class="fw-bold">訂閱我們，取得<span>最新消息與優惠折扣 !</span></label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="input-group">
             <input type="email" id="email" name="email" placeholder="&nbsp;請輸入電子信箱" required>
             <div class="invalid-feedback">
@@ -103,15 +109,15 @@
       </div>
     </form>
   </div>
-  <HomeModal></HomeModal>
   <FooterNav></FooterNav>
 </template>
 
 <script>
 import HomeNavbar from '@/components/HomeNavbar.vue'
 import CarouSel from '@/components/CarouSel.vue'
+import BodyProducts from '@/components/BodyProducts.vue'
+import HeadProducts from '@/components/HeadProducts.vue'
 import FooterNav from '@/components/FooterNav.vue'
-import HomeModal from '@/components/HomeModal.vue'
 
 export default {
   data () {
@@ -122,8 +128,9 @@ export default {
   components: {
     HomeNavbar,
     CarouSel,
-    FooterNav,
-    HomeModal
+    BodyProducts,
+    HeadProducts,
+    FooterNav
   }
 }
 </script>

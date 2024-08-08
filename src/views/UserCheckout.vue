@@ -33,7 +33,7 @@
     <div class="payment-list fs-4" v-if="order.is_paid === true">訂單明細</div>
     <form class="checkout-form" @submit.prevent="payOrder">
       <div class="goods-list w-100">
-        <div class="detail fs-4" v-if="order.is_paid === false">購物清單</div>
+        <div class="detail" v-if="order.is_paid === false">購物清單</div>
         <table class="table align-middle">
           <thead>
             <tr>
@@ -58,7 +58,7 @@
         </table>
       </div>
       <div class="contact-information w-100">
-        <div class="customer fs-4" v-if="order.is_paid === false">訂購人資訊</div>
+        <div class="customer" v-if="order.is_paid === false">訂購人資訊</div>
         <table class="table">
           <tbody>
             <tr>
