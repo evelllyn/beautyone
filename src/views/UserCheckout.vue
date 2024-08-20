@@ -1,6 +1,5 @@
 <template>
   <LoaDing :active="isLoading"></LoaDing>
-  <HomeNavbar></HomeNavbar>
   <div class="check-out container">
     <div class="flow-container">
       <ul class="flow-nav">
@@ -96,12 +95,9 @@
       </div>
     </form>
   </div>
-  <FooterNav></FooterNav>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
   data () {
@@ -112,10 +108,6 @@ export default {
       orderId: '',
       isLoading: false
     }
-  },
-  components: {
-    HomeNavbar,
-    FooterNav
   },
   methods: {
     getOrder () {

@@ -3,35 +3,45 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('../views/HomeView.vue')
-  },
-  {
-    path: '/products',
-    component: () => import('../views/ProductCategory.vue')
-  },
-  {
-    path: '/product/:productId',
-    component: () => import('../views/UserProduct.vue')
-  },
-  {
-    path: '/cart',
-    component: () => import('../views/UserCart.vue')
-  },
-  {
-    path: '/fillin',
-    component: () => import('../views/CartFill.vue')
-  },
-  {
-    path: '/checkout/:orderId',
-    component: () => import('../views/UserCheckout.vue')
+    component: () => import('../views/DashBoard.vue'),
+    children: [
+      {
+        path: 'home',
+        component: () => import('../views/HomeView.vue')
+      },
+      {
+        path: 'products',
+        component: () => import('../views/ProductCategory.vue')
+      },
+      {
+        path: 'product/:productId',
+        component: () => import('../views/UserProduct.vue')
+      },
+      {
+        path: 'cart',
+        component: () => import('../views/UserCart.vue')
+      },
+      {
+        path: 'fillin',
+        component: () => import('../views/CartFill.vue')
+      },
+      {
+        path: 'checkout/:orderId',
+        component: () => import('../views/UserCheckout.vue')
+      },
+      {
+        path: '',
+        redirect: 'home'
+      }
+    ]
   },
   {
     path: '/login',
     component: () => import('../views/LoginView.vue')
   },
   {
-    path: '/dashboard',
-    component: () => import('../views/DashBoard.vue'),
+    path: '/managecenter',
+    component: () => import('../views/ManageCenter.vue'),
     children: [
       {
         path: 'products',

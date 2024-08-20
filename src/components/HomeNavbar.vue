@@ -1,5 +1,5 @@
 <template>
-  <marquee class="text-white p-1">即日起至 8 / 8 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站88折優惠!</marquee>
+  <marquee class="text-white p-1">即日起至 11 / 30 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站88折優惠!</marquee>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
       <a class="logo navbar-brand" href="#">
@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" aria-current="page" class="nav-link router-link-active">HOME / 首頁</router-link>
+            <router-link to="/home" aria-current="page" class="nav-link router-link-active">HOME / 首頁</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/products" class="nav-link">ALL PRODUCTS / 所有產品</router-link>

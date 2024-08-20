@@ -1,3 +1,30 @@
+.discountModal{
+  position: fixed;
+  top: 10%;
+  .modal-body{
+    text-align: center;
+    img{
+      height: 40px;
+    }
+    hr{
+      border-width: 15px;
+      border-color: #fff;
+      margin: 0;
+
+    }
+    span{
+      font-size: 24px;
+    }
+  }
+  .modal-footer{
+    .btn{
+      @include send-btn
+    }
+    .btn:hover{
+      background-color: $maincolor;
+    }
+  }
+}
 .carousel-fade{
   margin-top: 128px;
   margin-bottom: 30px;

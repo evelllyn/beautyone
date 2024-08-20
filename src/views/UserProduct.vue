@@ -1,6 +1,5 @@
 <template>
   <LoaDing :active="isLoading"></LoaDing>
-  <HomeNavbar></HomeNavbar>
   <div class="item-content container">
     <div class="row justify-content-center">
       <nav aria-label="breadcrumb">
@@ -70,14 +69,11 @@
       </div>
     </div>
   </div>
-  <FooterNav></FooterNav>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
 import BuyTab from '@/components/BuyTab.vue'
 import CarryTab from '@/components/CarryTab.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
   data () {
@@ -101,10 +97,8 @@ export default {
     }
   },
   components: {
-    HomeNavbar,
     BuyTab,
-    CarryTab,
-    FooterNav
+    CarryTab
   },
   methods: {
     getProduct () {

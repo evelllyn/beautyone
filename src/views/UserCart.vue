@@ -1,6 +1,5 @@
 <template>
   <LoaDing :avtive="isLoading"></LoaDing>
-  <HomeNavbar></HomeNavbar>
   <div class="container fill-in">
     <div class="row cart">
       <div v-if="cart.carts.length">
@@ -70,12 +69,9 @@
       </div>
     </div>
   </div>
-  <FooterNav></FooterNav>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
   data () {
@@ -90,10 +86,6 @@ export default {
       },
       coupon_code: ''
     }
-  },
-  components: {
-    HomeNavbar,
-    FooterNav
   },
   inject: ['$httpMessageState'],
   methods: {

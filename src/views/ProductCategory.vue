@@ -1,6 +1,5 @@
 <template>
   <LoaDing :avtive="isLoading"></LoaDing>
-  <HomeNavbar></HomeNavbar>
   <div class="category container">
     <ul class="category-nav container">
       <li class="category-list">
@@ -43,18 +42,15 @@
       <div class="others-content" v-else></div>
     </component>
   </div>
-  <FooterNav></FooterNav>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
 import HomeProduct from '@/components/HomeProduct.vue'
 import HeadProducts from '@/components/HeadProducts.vue'
 import FaceProducts from '@/components/FaceProducts.vue'
 import LipsProducts from '@/components/LipsProducts.vue'
 import BodyProducts from '@/components/BodyProducts.vue'
 import OtherProducts from '@/components/OtherProducts.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
   data () {
@@ -71,14 +67,12 @@ export default {
     }
   },
   components: {
-    HomeNavbar,
     HomeProduct,
     HeadProducts,
     FaceProducts,
     LipsProducts,
     BodyProducts,
-    OtherProducts,
-    FooterNav
+    OtherProducts
   },
   computed: {
     selectedCategoryComponent () {

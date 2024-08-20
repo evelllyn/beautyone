@@ -1,5 +1,4 @@
 <template>
-  <HomeNavbar></HomeNavbar>
   <CarouSel></CarouSel>
   <div class="aboutAs">
     <div class="aboutContent">
@@ -109,28 +108,21 @@
       </div>
     </form>
   </div>
-  <FooterNav></FooterNav>
+  <CouponCopy></CouponCopy>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
+import CouponCopy from '@/components/CouponCopy.vue'
 import CarouSel from '@/components/CarouSel.vue'
 import BodyProducts from '@/components/BodyProducts.vue'
 import HeadProducts from '@/components/HeadProducts.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
-  data () {
-    return {
-
-    }
-  },
   components: {
-    HomeNavbar,
+    CouponCopy,
     CarouSel,
     BodyProducts,
-    HeadProducts,
-    FooterNav
+    HeadProducts
   }
 }
 </script>

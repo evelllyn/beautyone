@@ -1,6 +1,5 @@
 <template>
   <LoaDing :avtive="isLoading"></LoaDing>
-  <HomeNavbar></HomeNavbar>
   <div class="container fill-in">
     <div class="flow-container">
       <ul class="flow-nav">
@@ -101,12 +100,9 @@
       </div>
     </div>
   </div>
-  <FooterNav></FooterNav>
 </template>
 
 <script>
-import HomeNavbar from '@/components/HomeNavbar.vue'
-import FooterNav from '@/components/FooterNav.vue'
 
 export default {
   data () {
@@ -130,10 +126,6 @@ export default {
         message: ''
       }
     }
-  },
-  components: {
-    HomeNavbar,
-    FooterNav
   },
   inject: ['$httpMessageState'],
   methods: {
