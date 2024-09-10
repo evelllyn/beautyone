@@ -155,7 +155,7 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`
       this.$http.delete(url)
         .then(res => {
-          this.$httpMessageState(res, '移除購物車商品')
+          this.$httpMessageState(res, '移除商品')
           this.status.loadingItem = ''
           this.getCart()
         })

@@ -10,7 +10,10 @@
             <div class="more">查看更多</div>
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
+            <div class="card-title">
+              <h5>{{ item.title }}</h5>
+              <i class="bi bi-heart"></i>
+            </div>
             <div class="product-price">
               <span class="text-danger fs-5" v-if="item.price">NT ${{ item.price }}</span>
               <span v-if="!item.price">{{ item.origin_price }}元</span>

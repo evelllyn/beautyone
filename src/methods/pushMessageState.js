@@ -4,7 +4,7 @@ export default function (res, title = '更新') {
   if (res.data.success) {
     emitter.emit('push-message', {
       style: 'success',
-      title: `${title}成功`
+      title: `已${title}`
     })
   } else {
     const message = typeof res.data.message === 'string' ? [res.data.message] : res.data.message

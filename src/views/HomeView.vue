@@ -1,18 +1,33 @@
 <template>
   <CarouSel></CarouSel>
   <div class="aboutAs">
-    <div class="aboutContent">
-      <div class="slogan">
-        <h2 class="fw-bold">WHAT MAKES YOU BEAUTIFUL</h2>
-        <div class="dividedLine"></div>
-        <p class="sloganBig fw-bold">讓 我 們 與 您 一 起 尋 找 <span>凍 齡</span> 的 秘 密</p>
-        <div class="factor">
-          <span class="fs-5">肌膚水嫩透亮</span>
-          <span class="fs-5">肌底保有彈性</span>
-          <span class="fs-5">零細紋平滑肌</span>
+    <div class="whyToChoose">
+      <div class="skinProblem">
+        <div class="summerSkin">
+          <div class="skinText">
+            夏天到了，空氣悶熱，肌膚出油讓毛孔愈來愈大，老廢角質和髒汙不易排除怎麼辦？
+          </div>
         </div>
-        <p class="sloganSmall fs-5">『 BEAUTY ONE 』&emsp;———————————</p>
-        <p class="sloganSmallSec fs-5">makes you be the beautiful one 。</p>
+        <div class="winterSkin">
+          <div class="skinText">
+            冬天到了，皮膚的新陳代謝降低，汗水及油脂分泌減少，肌膚容易乾癢、脫屑怎麼辦？
+          </div>
+        </div>
+        <img src="../assets/skin.png" alt="">
+      </div>
+      <div class="aboutContent">
+        <div class="slogan">
+          <h2 class="fw-bold">別擔心 ! 不管是敏感肌、混和肌還是乾燥肌<br>在這裡，都能找到屬於您的命定產品</h2>
+          <div class="dividedLine"></div>
+          <p class="sloganBig fw-bold">讓 我 們 與 您 一 起 尋 找 <span>凍 齡</span> 的 秘 密</p>
+          <div class="factor">
+            <span class="fs-5">肌膚水嫩透亮</span>
+            <span class="fs-5">肌底保有彈性</span>
+            <span class="fs-5">零細紋平滑肌</span>
+          </div>
+          <p class="sloganSmall fs-5">『 BEAUTY ONE 』&emsp;———————————</p>
+          <p class="sloganSmallSec fs-5">makes you be the beautiful one 。</p>
+        </div>
       </div>
     </div>
   </div>

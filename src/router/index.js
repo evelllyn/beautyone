@@ -6,7 +6,7 @@ const routes = [
     component: () => import('../views/DashBoard.vue'),
     children: [
       {
-        path: 'home',
+        path: '/',
         component: () => import('../views/HomeView.vue')
       },
       {
@@ -16,6 +16,10 @@ const routes = [
       {
         path: 'product/:productId',
         component: () => import('../views/UserProduct.vue')
+      },
+      {
+        path: 'favorite',
+        component: () => import('../views/myFavorite.vue')
       },
       {
         path: 'cart',
@@ -28,10 +32,6 @@ const routes = [
       {
         path: 'checkout/:orderId',
         component: () => import('../views/UserCheckout.vue')
-      },
-      {
-        path: '',
-        redirect: 'home'
       }
     ]
   },

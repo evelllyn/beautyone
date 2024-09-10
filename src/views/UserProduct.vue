@@ -100,6 +100,7 @@ export default {
     BuyTab,
     CarryTab
   },
+  inject: ['$httpMessageState'],
   methods: {
     getProduct () {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`
@@ -131,9 +132,12 @@ export default {
       }
       this.$http.post(url, { data: cart })
         .then(res => {
-          this.status.loadingItem = ''
           const itemNumber = res.data.data
-          this.cart.carts.push(itemNumber)
+          if (res.data.success) {
+            this.$httpMessageState(res, '加入購物車')
+            this.cart.carts.push(itemNumber)
+            this.status.loadingItem = ''
+          }
         })
     },
     updateCart (item) {

@@ -1,6 +1,9 @@
 @mixin mark {
   background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
 }
+@mixin box {
+  background: linear-gradient(-45deg, #C5E8FE 33%, #FFF6BB 66%);
+}
 @mixin button {
   padding: 1% 5%;
   color: $listcolor;

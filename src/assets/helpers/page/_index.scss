@@ -14,6 +14,8 @@
     }
     span{
       font-size: 24px;
+      font-weight: bold;
+      @include mark
     }
   }
   .modal-footer{
@@ -61,50 +63,95 @@
   }
 }
 .aboutAs{
-  background-color: $backgroundcolor;
-  .aboutContent{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    display: flex;
-    justify-content: center;
-    .slogan{
+  .whyToChoose{
+    .skinProblem{
+      margin-top: 5%;
+      margin-bottom: 3%;
       text-align: center;
-      width: 50%;
-      @include pad(){
-        width: 52%;
+      position: relative;
+      img{
+        height: 500px;
       }
-      @include phone(){
-        width: 70%;
-      }
-      h2{
-        color: $maincolor;
-      }
-      .dividedLine{
-        border: 2px solid $dividedcolor;
-        width: 70%;
-        margin: 2% auto;
-      }
-      .factor{
-        span{
-          padding: 1% 2%;
-          border: 2.5px solid $dividedcolor ;
+      .summerSkin{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 10%;
+        left: 51%;
+        .skinText{
+          font-size: 18px;
+          font-weight: bold;
+          color: #000;
+          padding: 3%;
+          width: 42%;
+          border-radius: 10px;
+          @include box
         }
       }
-      .sloganBig{
-        font-size: 30px;
-        color: $maincolor;
-        span{
+      .winterSkin{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 40%;
+        left: 3%;
+        .skinText{
+          font-size: 18px;
+          font-weight: bold;
+          color: #000;
+          padding: 3%;
+          width: 42%;
+          border-radius: 10px;
+          @include box
+        }
+      }
+    }
+    .aboutContent{
+      padding-top: 5%;
+      padding-bottom: 5%;
+      display: flex;
+      justify-content: center;
+      @include box;
+      .slogan{
+        text-align: center;
+        width: 60%;
+        @include pad(){
+          width: 52%;
+        }
+        @include phone(){
+          width: 70%;
+        }
+        h2{
           color: $maincolor;
+          font-style: italic;
         }
-      }
-      .sloganSmall{
-        color: $maincolor;
-        margin-top: 5%;
-        text-align: left;
-      }
-      .sloganSmallSec{
-        color: $maincolor;
-        text-align: right;
+        .dividedLine{
+          border: 2px solid $dividedcolor;
+          width: 70%;
+          margin: 2% auto;
+        }
+        .factor{
+          span{
+            padding: 1% 2%;
+            border: 2.5px solid $dividedcolor ;
+          }
+        }
+        .sloganBig{
+          font-size: 30px;
+          font-style: italic;
+          color: $maincolor;
+          span{
+            color: $maincolor;
+          }
+        }
+        .sloganSmall{
+          color: $maincolor;
+          margin-top: 5%;
+          text-align: left;
+        }
+        .sloganSmallSec{
+          color: $maincolor;
+          text-align: right;
+        }
       }
     }
   }

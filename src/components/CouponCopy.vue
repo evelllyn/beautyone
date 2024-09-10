@@ -27,15 +27,17 @@ export default {
       modal: {}
     }
   },
+  inject: ['emitter'],
   methods: {
     couponCopy () {
       const textCopy = 'BEAUTY2024'
       navigator.clipboard.writeText(textCopy)
         .then(res => {
-          console.log('複製成功')
-        })
-        .catch(err => {
-          console.error('複製失敗', err)
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '已領取優惠券'
+          })
+          this.modal.hide()
         })
     }
   },

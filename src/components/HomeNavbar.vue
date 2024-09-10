@@ -11,10 +11,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/home" aria-current="page" class="nav-link router-link-active">HOME / 首頁</router-link>
+            <router-link to="/" aria-current="page" class="nav-link router-link-active">HOME / 首頁</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/products" class="nav-link">ALL PRODUCTS / 所有產品</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/favorite" class="nav-link">MY FAVORITE / 我的最愛</router-link>
           </li>
         </ul>
         <ul class="right navbar-nav ms-auto mb-2 mb-lg-0">

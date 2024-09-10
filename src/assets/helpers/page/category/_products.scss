@@ -71,7 +71,7 @@
         color: $backgroundcolor;
         background-color: $maincolor;
         position: absolute;
-        top: 56%;
+        top: 54.1%;
         width: 100%;
         text-align: center;
         padding-top: 3%;
@@ -84,8 +84,15 @@
       padding-left: 1%;
       padding-right: 1%;
       .card-title{
-        font-weight: bold;
         color: $maincolor;
+        display: flex;
+        justify-content: space-between;
+        h5{
+          font-weight: bold;
+        }
+        i{
+          font-size: 20px;
+        }
       }
       .product-price{
         display: flex;

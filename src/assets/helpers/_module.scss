@@ -14,3 +14,17 @@
     border-color: $maincolor;
   }
 }
+//吐司列表
+.toast-container{
+  z-index: 999;
+  top: 4%;
+  left: 38.5%;
+}
+.toast{
+  z-index: 9999;
+  background-color: #fff;
+  .toast-header{
+    padding-top: 6%;
+    padding-bottom: 6%;
+  }
+}
