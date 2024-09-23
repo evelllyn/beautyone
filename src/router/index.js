@@ -11,33 +11,33 @@ const routes = [
       },
       {
         path: 'products',
-        component: () => import('../views/ProductCategory.vue')
+        component: () => import('../views/Front/ProductCategory.vue')
       },
       {
         path: 'product/:productId',
-        component: () => import('../views/UserProduct.vue')
+        component: () => import('../views/Front/ProductDescription.vue')
       },
       {
         path: 'favorite',
-        component: () => import('../views/myFavorite.vue')
+        component: () => import('../views/Front/myFavorite.vue')
       },
       {
         path: 'cart',
-        component: () => import('../views/UserCart.vue')
+        component: () => import('../views/Front/UserCart.vue')
       },
       {
         path: 'fillin',
-        component: () => import('../views/CartFill.vue')
+        component: () => import('../views/Front/CartFill.vue')
       },
       {
         path: 'checkout/:orderId',
-        component: () => import('../views/UserCheckout.vue')
+        component: () => import('../views/Front/UserCheckout.vue')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('../views/LoginView.vue')
+    component: () => import('../views/Back/LoginView.vue')
   },
   {
     path: '/managecenter',
@@ -45,15 +45,15 @@ const routes = [
     children: [
       {
         path: 'products',
-        component: () => import('../views/ProductsView.vue')
+        component: () => import('../views/Back/ProductsView.vue')
       },
       {
         path: 'orders',
-        component: () => import('../views/OrdersView.vue')
+        component: () => import('../views/Back/OrdersView.vue')
       },
       {
         path: 'coupons',
-        component: () => import('../views/CouponsView.vue')
+        component: () => import('../views/Back/CouponsView.vue')
       }
     ]
   }

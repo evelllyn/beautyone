@@ -1,8 +1,8 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
-  <div class="container goods pt-3 all-content">
-    <div class="row">
-      <div class="col col-6 col-md-3 my-4" v-for="item in products" :key="item.id">
+  <LoaDing :avtive="isLoading"></LoaDing>
+  <div class="container favContainer goods pt-3 all-content">
+    <div class="row" v-if="favoriteProducts.length">
+      <div class="col col-6 col-md-3 my-4" v-for="item in favoriteProducts" :key="item.id">
         <div class="card" @click="getProduct(item.id)">
           <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
             <div class="sale-logo" v-if="item.price != item.origin_price"></div>
@@ -13,7 +13,7 @@
           <div class="card-body">
             <div class="card-title">
               <h5>{{ item.title }}</h5>
-              <a href="#" @click.stop.prevent="addFavorite(item)">
+              <a href="#" @click.stop.prevent="removeFavorite(item)">
                 <i class="bi bi-heart" v-if="favoriteItems.every((id) => item.id !== id)"></i>
                 <i class="bi bi-heart-fill text-danger" v-else></i>
               </a>
@@ -27,69 +27,60 @@
         </div>
       </div>
     </div>
+    <div class="container spin" v-else-if="isLoading">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div v-else class="noFavorite">
+      <i class="bi bi-chat-square-heart"></i>
+      <div class="nothing-content fs-3">目前沒有收藏的產品喔</div>
+      <router-link to="/products" class="btn surf-btn">現在去逛逛</router-link>
+    </div>
   </div>
-  <PagiNation :pages="pagination" @emit-page="getProducts"></PagiNation>
 </template>
 
 <script>
-import PagiNation from '@/components/PagiNation.vue'
 import favoriteMixin from '@/mixins/favoriteMixin'
 
 export default {
   data () {
     return {
-      products: [],
-      product: {},
-      favoriteId: [],
       favoriteItems: [],
-      pagination: {},
-      status: {
-        loadingItem: ''
-      },
-      cart: {}
+      favoriteProducts: [],
+      isLoading: false
     }
   },
-  components: {
-    PagiNation
-  },
-  inject: ['$httpMessageState', 'emitter'],
+  inject: ['emitter'],
   methods: {
-    getProducts (page) {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/?page=${page}`
+    getFavoriteProducts () {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`
       this.isLoading = true
       this.$http.get(url)
         .then(res => {
           this.isLoading = false
-          this.products = res.data.products
-          this.pagination = res.data.pagination
+          if (res.data.success) {
+            const allProducts = res.data.products
+            this.favoriteProducts = allProducts.filter(item => this.favoriteItems.some((id) => item.id === id))
+          }
         })
     },
-    getProduct (id) {
-      this.$router.push(`/product/${id}`)
-    },
-    addFavorite (item) {
-      if (this.favoriteItems.every((id) => item.id !== id)) {
-        this.emitter.emit('push-message', {
-          style: 'success',
-          title: '已加入收藏'
-        })
-        this.favoriteItems.unshift(item.id)
-      } else {
-        this.favoriteItems.indexOf(item.id)
-        this.favoriteItems.splice(this.favoriteItems.indexOf(item.id), 1)
-        this.emitter.emit('push-message', {
-          style: 'danger',
-          title: '已移除收藏'
-        })
-      }
+    removeFavorite (item) {
+      this.favoriteItems.indexOf(item.id)
+      this.favoriteItems.splice(this.favoriteItems.indexOf(item.id), 1)
+      this.emitter.emit('push-message', {
+        style: 'danger',
+        title: '已移除收藏'
+      })
       localStorage.setItem('favoriteList', JSON.stringify(this.favoriteItems))
       this.getFavorite()
+      this.getFavoriteProducts()
     }
   },
   mixins: [favoriteMixin],
   created () {
     this.getFavorite()
-    this.getProducts()
+    this.getFavoriteProducts()
   }
 }
 </script>

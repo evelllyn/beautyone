@@ -46,11 +46,11 @@
 
 <script>
 import HomeProduct from '@/components/HomeProduct.vue'
-import HeadProducts from '@/components/HeadProducts.vue'
-import FaceProducts from '@/components/FaceProducts.vue'
-import LipsProducts from '@/components/LipsProducts.vue'
-import BodyProducts from '@/components/BodyProducts.vue'
-import OtherProducts from '@/components/OtherProducts.vue'
+import HeadProducts from '@/components/CategoryComponents/HeadProducts.vue'
+import FaceProducts from '@/components/CategoryComponents/FaceProducts.vue'
+import LipsProducts from '@/components/CategoryComponents/LipsProducts.vue'
+import BodyProducts from '@/components/CategoryComponents/BodyProducts.vue'
+import OtherProducts from '@/components/CategoryComponents/OtherProducts.vue'
 
 export default {
   data () {

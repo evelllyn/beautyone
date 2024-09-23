@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import ProductModal from '@/components/ProductModal.vue'
-import DelModal from '@/components/DelModal.vue'
+import ProductModal from '@/components/Modals/ProductModal.vue'
+import DelModal from '@/components/Modals/DelModal.vue'
 import PagiNation from '@/components/PagiNation.vue'
 
 export default {

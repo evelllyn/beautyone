@@ -10,7 +10,7 @@
 <script>
 import emitter from '@/methods/emitter'
 import ToastMessages from '@/components/ToastMessages.vue'
-import HomeNavbar from '@/components/HomeNavbar.vue'
+import HomeNavbar from '@/components/FrontNavbar.vue'
 import FooterNav from '@/components/FooterNav.vue'
 
 export default {

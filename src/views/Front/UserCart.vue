@@ -62,6 +62,11 @@
           <router-link to="/fillin" class="btn go-btn">前往結帳</router-link>
         </div>
       </div>
+      <div class="container spin" v-else-if="isLoading">
+        <div class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
       <div v-else class="nothing">
         <i class="bi bi-cart-dash"></i>
         <div class="nothing-content fs-3">哎呀，購物車目前是空的喔</div>
@@ -84,7 +89,8 @@ export default {
       cart: {
         carts: []
       },
-      coupon_code: ''
+      coupon_code: '',
+      isLoading: false
     }
   },
   inject: ['$httpMessageState'],

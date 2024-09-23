@@ -129,8 +129,8 @@
 <script>
 import CouponCopy from '@/components/CouponCopy.vue'
 import CarouSel from '@/components/CarouSel.vue'
-import BodyProducts from '@/components/BodyProducts.vue'
-import HeadProducts from '@/components/HeadProducts.vue'
+import BodyProducts from '@/components/CategoryComponents/BodyProducts.vue'
+import HeadProducts from '@/components/CategoryComponents/HeadProducts.vue'
 
 export default {
   components: {
