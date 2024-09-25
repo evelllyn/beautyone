@@ -3,7 +3,7 @@
   <div class="container favContainer goods pt-3 all-content">
     <div class="row" v-if="favoriteProducts.length">
       <div class="col col-6 col-md-3 my-4" v-for="item in favoriteProducts" :key="item.id">
-        <div class="card" @click="getProduct(item.id)">
+        <div class="card" @click="getProductDescription(item.id)">
           <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
             <div class="sale-logo" v-if="item.price != item.origin_price"></div>
             <span class="on" v-if="item.price != item.origin_price">ON</span>
@@ -64,6 +64,9 @@ export default {
             this.favoriteProducts = allProducts.filter(item => this.favoriteItems.some((id) => item.id === id))
           }
         })
+    },
+    getProductDescription (id) {
+      this.$router.push(`/product/${id}`)
     },
     removeFavorite (item) {
       this.favoriteItems.indexOf(item.id)

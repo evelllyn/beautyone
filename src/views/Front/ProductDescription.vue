@@ -5,10 +5,10 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/products" class="item-link">所有產品</router-link>
+            <router-link to="/" class="item-link">首頁</router-link>
           </li>
           <li class="breadcrumb-item">
-            <a href="#" class="item-link">{{ product.category}}</a>
+            <router-link to="/products" class="item-link">所有產品</router-link>
           </li>
           <li class="breadcrumb-item active" aria-current="page">{{ product.title}}</li>
         </ol>
@@ -68,6 +68,31 @@
         </component>
       </div>
     </div>
+    <div class="goods">
+      <h5 class="words fw-bold"><span class="fs-2">ON SALE</span>促銷商品</h5>
+      <div class="onSaleGoods">
+        <div class="col col-6 col-md-3 my-4" v-for="item in onSaleProducts" :key="item.id">
+          <div class="card" @click="getProductDescription(item.id)">
+            <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
+                <div class="sale-logo" v-if="item.price !== item.origin_price"></div>
+                <span class="on" v-if="item.price !== item.origin_price">ON</span>
+                <span class="sale" v-if="item.price !== item.origin_price">SALE</span>
+                <div class="more">查看更多</div>
+              </div>
+              <div class="card-body">
+                <div class="card-title">
+                  <h5>{{ item.title }}</h5>
+                </div>
+                <div class="product-price">
+                  <span class="text-danger" v-if="item.price">NT ${{ item.price }}</span>
+                  <span v-if="!item.price">{{ item.origin_price }}元</span>
+                  <del class="del-price float-end" v-if="item.price != item.origin_price">原價NT${{ item.origin_price }}</del>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -78,6 +103,7 @@ import CarryTab from '@/components/CarryTab.vue'
 export default {
   data () {
     return {
+      onSaleProducts: [],
       product: {},
       id: '',
       cart: {
@@ -102,6 +128,16 @@ export default {
   },
   inject: ['$httpMessageState'],
   methods: {
+    getOnSale () {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`
+      this.isLoading = true
+      this.$http.get(url)
+        .then(res => {
+          this.isLoading = false
+          const allProducts = res.data.products
+          this.onSaleProducts = allProducts.filter(item => item.price !== item.origin_price)
+        })
+    },
     getProduct () {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`
       this.isLoading = true
@@ -112,6 +148,9 @@ export default {
             this.product = res.data.product
           }
         })
+    },
+    getProductDescription (id) {
+      this.$router.push({ path: `/product/${id}` })
     },
     addNumber (item) {
       item.qty++
@@ -163,6 +202,13 @@ export default {
   created () {
     this.id = this.$route.params.productId
     this.getProduct()
+    this.getOnSale()
+    this.$router.afterEach((to, from) => {
+      if (to.path !== from.path && to.path.startsWith('/product/')) {
+        this.id = to.params.productId
+        this.getProduct()
+      }
+    })
   }
 }
 </script>

@@ -107,4 +107,21 @@
       }
     }
   }
+  .goods{
+    text-align: center;
+    margin-top: 5%;
+    overflow: hidden;
+    .words{
+      span{
+        padding-right: 1%;
+        color: $maincolor;
+      }
+    }
+    .onSaleGoods{
+      display: flex;
+      .col{
+        padding: 0 1%;
+      }
+    }
+  }
 }

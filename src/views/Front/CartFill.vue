@@ -49,18 +49,17 @@
               <td>
                 <small v-if="cart.final_total !== cart.total">折扣價</small>
                 $ {{ $filters.currency(item.final_total) }}
-                <div class="text-danger" v-if="item.coupon">已套用優惠券</div>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <tr>
+            <tr v-if="cart.final_total === cart.total">
               <td class="top-line"></td>
               <td colspan="2" class="top-line text-end">總計&emsp;${{ $filters.currency(cart.total)}}</td>
             </tr>
             <tr v-if="cart.final_total !== cart.total">
-              <td colspan="3"></td>
-              <td class="text-danger">折扣價&emsp;${{ $filters.currency(cart.final_total) }}</td>
+              <td class="top-line"></td>
+              <td colspan="2" class="top-line text-end text-danger">折扣價&emsp;${{ $filters.currency(cart.final_total) }}</td>
             </tr>
           </tfoot>
         </table>

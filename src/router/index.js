@@ -19,7 +19,7 @@ const routes = [
       },
       {
         path: 'favorite',
-        component: () => import('../views/Front/myFavorite.vue')
+        component: () => import('../views/Front/MyFavorite.vue')
       },
       {
         path: 'cart',
