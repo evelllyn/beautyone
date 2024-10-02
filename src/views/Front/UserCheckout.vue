@@ -45,13 +45,13 @@
             <tr v-for="item in order.products" :key="item.id">
               <td>{{ item.product.title }}</td>
               <td>{{ item.qty }}</td>
-              <td>{{ item.final_total }}</td>
+              <td>{{ $filters.currency(item.final_total) }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td colspan="2" class="top-line"></td>
-              <td class="top-line">總計&emsp;${{ order.total }}</td>
+              <td class="top-line">總計&emsp;${{ $filters.currency(order.total) }}</td>
             </tr>
           </tfoot>
         </table>
