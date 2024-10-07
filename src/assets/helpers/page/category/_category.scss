@@ -1,8 +1,8 @@
 .category{
-  width: 77%;
-  margin-top: 8%;
+  margin-top: 4%;
+  width: 78%;
   @include pad(){
-    padding: 0;
+
   }
   @include phone(){
     width: 80%;
@@ -15,10 +15,10 @@
     margin-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    width: 97%;
     border-bottom: 3px dotted $dividedcolor;
     @include pad(){
       flex-wrap: wrap;
+      margin-top: 12%;
     }
     .category-list{
       padding-bottom: 1%;
@@ -30,24 +30,27 @@
       .category-link{
         background-color: #fff;
         border: none;
-        h6{
+        .title{
           color: $doubleopacity;
           font-weight: bold;
           transition: color 0.1s ease-in;
+          @include phone() {
+            font-size: 12px;
+          }
         }
       }
       .category-link.active{
-        h6{
+        .title{
           color: $maincolor;
         }
       }
       .category-link:hover{
-        h6{
+        .title{
           color: $mainopacity;
         }
       }
       .category-link.active:hover{
-        h6{
+        .title{
           color: $maincolor;
         }
       }

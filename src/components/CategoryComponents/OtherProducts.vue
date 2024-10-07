@@ -11,7 +11,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">
-              <h5>{{ item.title }}</h5>
+              <p>{{ item.title }}</p>
               <a href="#" @click.stop.prevent="addFavorite(item)">
                 <i class="bi bi-heart" v-if="favoriteItems.every((id) => item.id !== id)"></i>
                 <i class="bi bi-heart-fill text-danger" v-else></i>

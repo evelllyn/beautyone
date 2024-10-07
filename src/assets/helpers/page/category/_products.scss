@@ -87,12 +87,19 @@
         color: $maincolor;
         display: flex;
         justify-content: space-between;
-        h5{
+        p{
+          font-size: 18px;
           font-weight: bold;
+          @include phone() {
+            font-size: 12px;
+          }
         }
         i{
           font-size: 20px;
           color: $maincolor;
+          @include phone() {
+            font-size: 12px;
+          }
         }
       }
       .product-price{
@@ -100,6 +107,9 @@
         justify-content: space-between;
         align-items: end;
         padding-left: 0.5%;
+        @include phone() {
+          font-size: 12px;
+        }
         .del-price{
           opacity: 0.7;
           @include pad(){

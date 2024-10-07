@@ -48,7 +48,7 @@
               <i class="bi bi-plus-lg"></i>
             </button>
           </div>
-          <button type="button" class="cart-btn btn" :disabled="this.status.loadingItem === product.id" @click="addToCart(product.id)">
+          <button type="button" class="cart-btn btn" :disabled="this.status.loadingItem === product.id" @click="addToCart(id)">
             加入購物車
           </button>
         </div>
@@ -181,7 +181,6 @@ export default {
     },
     updateCart (item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`
-      this.isLoading = true
       this.status.loadingItem = item.id
       const cart = {
         product_id: item.product_id,
@@ -189,7 +188,6 @@ export default {
       }
       this.$http.put(url, { data: cart })
         .then(res => {
-          this.isLoading = false
           this.status.loadingItem = ''
         })
     }

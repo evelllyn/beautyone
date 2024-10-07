@@ -8,7 +8,7 @@
         <div class="modal-body">
           <img src="../assets/logo.png" alt="">
           <hr>
-          <span>輸入優惠碼「BEAUTY2024」<br>即可享有全站88折優惠!</span>
+          <span>輸入優惠碼「BEAUTY2024」<br>即可享有全站8折優惠!</span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn" @click="couponCopy">領取優惠券</button>

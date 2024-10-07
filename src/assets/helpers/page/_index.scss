@@ -1,6 +1,4 @@
 .discountModal{
-  position: fixed;
-  top: 10%;
   .modal-body{
     text-align: center;
     img{
@@ -28,12 +26,15 @@
   }
 }
 .carousel-fade{
-  margin-top: 128px;
+  margin-top: 4%;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
+  @include pad(){
+    margin-top: 5%;
+  }
   @include phone(){
-    margin-top: 110px;
+    margin-top: 8%;
   }
   .carousel-inner{
     width: 74.1%;
@@ -44,25 +45,26 @@
       height: 665px;
       object-fit: cover;
       @include pad(){
-        height: 465px;
+        height: 360px;
       }
       @include phone(){
-        height: 365px;
+        height: 230px;
       }
     }
     .carousel-caption{
       position: absolute;
       top: 37%;
       @include pad(){
-        top: 34%;
+        top: 30%;
       }
       @include phone(){
-        top: 30%;
+        top: 20%;
       }
     }
   }
 }
 .aboutAs{
+  width: 100%;
   .whyToChoose{
     .skinProblem{
       margin-top: 5%;
@@ -71,6 +73,12 @@
       position: relative;
       img{
         height: 500px;
+        @include pad(){
+          height: 360px;
+        }
+        @include phone(){
+          height: 210px;
+        }
       }
       .summerSkin{
         display: flex;
@@ -78,6 +86,9 @@
         position: absolute;
         top: 10%;
         left: 51%;
+        @include pad(){
+          left: 54%;
+        }
         .skinText{
           font-size: 18px;
           font-weight: bold;
@@ -85,7 +96,13 @@
           padding: 3%;
           width: 42%;
           border-radius: 10px;
-          @include box
+          @include box;
+          @include pad(){
+            font-size: 12px;
+          }
+          @include phone(){
+            font-size: 8px;
+          }
         }
       }
       .winterSkin{
@@ -94,6 +111,9 @@
         position: absolute;
         top: 40%;
         left: 3%;
+        @include pad(){
+          left: -4%;
+        }
         .skinText{
           font-size: 18px;
           font-weight: bold;
@@ -101,7 +121,13 @@
           padding: 3%;
           width: 42%;
           border-radius: 10px;
-          @include box
+          @include box;
+          @include pad(){
+            font-size: 12px;
+          }
+          @include phone(){
+            font-size: 8px;
+          }
         }
       }
     }
@@ -118,11 +144,18 @@
           width: 52%;
         }
         @include phone(){
-          width: 70%;
+          width: 80%;
         }
-        h2{
+        .aboutTitle{
+          font-size: 30px;
           color: $maincolor;
           font-style: italic;
+          @include pad(){
+            font-size: 20px;
+          }
+          @include phone(){
+            font-size: 14px;
+          }
         }
         .dividedLine{
           border: 2px solid $dividedcolor;
@@ -131,26 +164,44 @@
         }
         .factor{
           span{
+            font-size: 18px;
             padding: 1% 2%;
             border: 2.5px solid $dividedcolor ;
+            @include phone(){
+              font-size: 12px;
+            }
           }
         }
         .sloganBig{
           font-size: 30px;
           font-style: italic;
           color: $maincolor;
+          @include pad(){
+            font-size: 20px;
+          }
+          @include phone(){
+            font-size: 14px;
+          }
           span{
             color: $maincolor;
           }
         }
         .sloganSmall{
+          font-size: 24px;
           color: $maincolor;
           margin-top: 5%;
           text-align: left;
+          @include phone(){
+            font-size: 12px;
+          }
         }
         .sloganSmallSec{
+          font-size: 24px;
           color: $maincolor;
           text-align: right;
+          @include phone(){
+            font-size: 12px;
+          }
         }
       }
     }
@@ -158,59 +209,67 @@
 }
 .classic{
   .words{
-    margin: 3% 0 0 6.5%;
+    margin: 3% 0 0 12.8%;
     @include pad(){
-      margin: 3% 0 0 10.3%;
+      margin: 3% 0 0 13.5%;
     }
     @include phone(){
-      margin: 3% 0 0 9.5%;
+      margin: 3% 0 0 14%;
+      font-size: 12px;
     }
     span{
+      font-size: 36px;
       padding-right: 1%;
       color: $maincolor;
+      @include phone(){
+        font-size: 12px;
+      }
     }
   }
   .hotSale{
-    width: 88.4%;
+    width: 76.4%;
     height: 375px;
     overflow: hidden;
+    margin: 0 auto;
     padding: 0;
     @include pad(){
-      width: 81.6%;
-      height: 325px;
+      height: 300px;
     }
     @include phone(){
-      width: 84.1%;
-      height: 315px;
+      height: 240px;
     }
   }
 }
 .new{
   .words{
-    margin: 1% 0 0 6.5%;
+    margin: 1% 0 0 12.8%;
     @include pad(){
-      margin: 3% 0 0 10.3%;
+      margin: 3% 0 0 13.5%;
     }
     @include phone(){
-      margin: 3% 0 0 9.5%;
+      margin: 3% 0 0 14%;
+      font-size: 12px;
     }
     span{
+      font-size: 36px;
       padding-right: 1%;
       color: $maincolor;
+      @include phone(){
+        font-size: 12px;
+      }
     }
   }
   .newArrival{
-    width: 88.4%;
+    width: 76.4%;
     height: 375px;
     overflow: hidden;
+    margin: 0 auto;
     padding: 0;
     @include pad(){
-      width: 81.6%;
-      height: 325px;
+      height: 300px;
     }
     @include phone(){
-      width: 84.1%;
-      height: 325px;
+      height: 240px;
     }
   }
 }
@@ -223,11 +282,15 @@
   background-attachment: fixed;
   .tipsBox{
     padding: 3% 0 1.5% 0;
-    h2{
+    .insideBox{
       text-align: center;
       .tipsTitle{
+        font-size: 36px;
         margin: 0 15px 0 15px;
         border: 1px dotted white;
+        @include phone(){
+          font-size: 16px;
+        }
       }
     }
     .tipsBoxBig{
@@ -246,17 +309,18 @@
           @include phone(){
             padding: 0;
           }
-          h3{
+          p{
+            font-size: 24px;
             margin-top: 5%;
             padding-left: 13px;
             @include phone(){
-              font-size: 16px;
+              font-size: 12px;
             }
           }
           ul{
             li{
               @include phone(){
-                font-size: 14px;
+                font-size: 10px;
               }
             }
           }
@@ -283,9 +347,6 @@ hr{
     @include pad(){
       margin-left: 8.5%;
     }
-    @include phone(){
-      margin-left: 7%;
-    }
     label{
       font-size: 32px;
       color: $maincolor;
@@ -293,7 +354,7 @@ hr{
         font-size: 20px;
       }
       @include phone(){
-        font-size: 18px
+        font-size: 16px
       }
       span{
         @include mark;

@@ -4,32 +4,32 @@
     <ul class="category-nav container">
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'all'}" @click="selectedCategory = 'all'">
-          <h6>ALL / 所有產品</h6>
+          <div class="title">ALL / 所有產品</div>
         </button>
       </li>
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'head'}" @click="selectedCategory = 'head'">
-          <h6>HEAD / 頭部產品</h6>
+          <div class="title">HEAD / 頭部產品</div>
         </button>
       </li>
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'face'}" @click="selectedCategory = 'face'">
-          <h6>FACE / 臉部產品</h6>
+          <div class="title">FACE / 臉部產品</div>
         </button>
       </li>
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'lips'}" @click="selectedCategory = 'lips'">
-          <h6>LIPS / 唇部產品</h6>
+          <div class="title">LIPS / 唇部產品</div>
         </button>
       </li>
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'body'}" @click="selectedCategory = 'body'">
-          <h6>BODY / 全身產品</h6>
+          <div class="title">BODY / 全身產品</div>
         </button>
       </li>
       <li class="category-list">
         <button class="category-link" :class="{ active: selectedCategory === 'others'}" @click="selectedCategory = 'others'">
-          <h6>OTHERS / 其他</h6>
+          <div class="title">OTHERS / 其他</div>
         </button>
       </li>
     </ul>

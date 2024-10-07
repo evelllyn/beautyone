@@ -1,5 +1,5 @@
 <template>
-  <marquee class="text-white p-1">即日起至 11 / 30 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站88折優惠!</marquee>
+  <marquee class="text-white p-1">即日起至 11 / 30 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站8折優惠!</marquee>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
       <a class="logo navbar-brand" href="#">
@@ -51,12 +51,11 @@ export default {
   methods: {
     getCart () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
-      this.isLoading = true
       this.$http.get(url)
         .then(res => {
-          this.isLoading = false
           // data中的data下面有carts,total,final_total
-          this.cart = res.data.data
+          console.log(this.cart)
+          // this.cart = res.data.data
         })
     }
   },
