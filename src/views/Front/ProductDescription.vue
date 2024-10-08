@@ -126,7 +126,7 @@ export default {
     BuyTab,
     CarryTab
   },
-  inject: ['$httpMessageState'],
+  inject: ['$httpMessageState', 'emitter'],
   methods: {
     getOnSale () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`
@@ -175,6 +175,7 @@ export default {
           if (res.data.success) {
             this.$httpMessageState(res, '加入購物車')
             this.cart.carts.push(itemNumber)
+            this.getCart()
             this.status.loadingItem = ''
           }
         })
@@ -189,6 +190,16 @@ export default {
       this.$http.put(url, { data: cart })
         .then(res => {
           this.status.loadingItem = ''
+        })
+    },
+    getCart () {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          // data中的data下面有carts,total,final_total
+          this.cart = res.data.data
+          this.cartLength = res.data.data.carts.length
+          this.emitter.emit('sendNum', { data: this.cartLength })
         })
     }
   },

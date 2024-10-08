@@ -1,6 +1,6 @@
 <template>
   <marquee class="text-white p-1">即日起至 11 / 30 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站8折優惠!</marquee>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar frontNavbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
       <a class="logo navbar-brand" href="#">
         <img src="../assets/logo.png" alt="">
@@ -24,7 +24,7 @@
           <li class="nav-item">
             <router-link to="/cart" class="nav-link">
               <i class="bi bi-cart-fill"></i>
-              <span class="badge rounded-pill bg-danger">{{ cart.carts.length }}</span>
+              <span class="badge rounded-pill bg-danger">{{ cartLength }}</span>
             </router-link>
           </li>
           <li class="nav-item">
@@ -45,22 +45,29 @@ export default {
     return {
       cart: {
         carts: []
-      }
+      },
+      cartLength: ''
     }
   },
+  inject: ['emitter'],
   methods: {
     getCart () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
           // data中的data下面有carts,total,final_total
-          console.log(this.cart)
-          // this.cart = res.data.data
+          this.cart = res.data.data
+          this.cartLength = res.data.data.carts.length
         })
     }
   },
   created () {
     this.getCart()
+  },
+  mounted () {
+    this.emitter.on('sendNum', (data) => {
+      this.cartLength = data.data
+    })
   }
 }
 
