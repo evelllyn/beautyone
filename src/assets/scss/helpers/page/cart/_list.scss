@@ -12,129 +12,132 @@
       padding-left: 5%;
       padding-right: 5%;
     }
-    h3{
-      text-align: center;
-      color: $maincolor;
-      font-weight: bold;
-      margin-bottom: 2%;
-      padding-bottom: 2%;
-      border-bottom: 3px solid $dividedcolor;
-    }
-    table{
-      border-collapse: collapse;
-      thead{
-        @include phone(){
-          display: none;
-        }
-        th{
-          color: $maincolor;
-          background-color: $backgroundcolor;
-          border: none;
-        }
+    .boxContent{
+      padding: 0;
+      h3{
+        text-align: center;
+        color: $maincolor;
+        font-weight: bold;
+        margin-bottom: 2%;
+        padding-bottom: 2%;
+        border-bottom: 3px solid $dividedcolor;
       }
-      tbody{
-        tr{
-          border-bottom: 15px solid #fff;
+      table{
+        border-collapse: collapse;
+        thead{
           @include phone(){
-            display: flex;
-            flex-direction: column;
-            float: right;
+            display: none;
           }
-          td{
+          th{
+            color: $maincolor;
+            background-color: $backgroundcolor;
             border: none;
           }
+        }
+        tbody{
+          tr{
+            border-bottom: 15px solid #fff;
+            @include phone(){
+              display: flex;
+              flex-direction: column;
+              float: right;
+            }
+            td{
+              border: none;
+            }
+            .blank{
+              @include phone(){
+                display: none;
+              }
+            }
+            .list-pic{
+              height: 100px;
+              background-size: cover;
+              background-position: center;
+              @include phone(){
+                margin-top: 4%;
+              }
+            }
+            .list-title{
+              padding: 2% 0 1% 0;
+            }
+            .list-qty{
+              @include phone(){
+                padding: 0;
+              }
+            }
+            .list-price{
+              @include phone(){
+                padding: 1% 0 0 0;
+              }
+              small{
+                @include phone(){
+                  display: none;
+                }
+              }
+              .text-danger{
+                @include phone(){
+                  display: none;
+                }
+              }
+            }
+            .deleteItem{
+              @include phone(){
+                padding: 0 0 5% 0;
+              }
+              .btn{
+                @include phone(){
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+        tfoot{
           .blank{
             @include phone(){
               display: none;
             }
           }
-          .list-pic{
-            height: 100px;
-            background-size: cover;
-            background-position: center;
-            @include phone(){
-              margin-top: 4%;
-            }
+          td{
+            font-weight: bold;
+            border: none;
           }
-          .list-title{
-            padding: 2% 0 1% 0;
-          }
-          .list-qty{
+          .totalPrice{
             @include phone(){
-              padding: 0;
-            }
-          }
-          .list-price{
-            @include phone(){
-              padding: 1% 0 0 0;
-            }
-            small{
-              @include phone(){
-                display: none;
-              }
-            }
-            .text-danger{
-              @include phone(){
-                display: none;
-              }
-            }
-          }
-          .deleteItem{
-            @include phone(){
-              padding: 0 0 5% 0;
-            }
-            .btn{
-              @include phone(){
-                width: 100%;
-              }
+              padding-left: 0;
+              padding-right: 0;
             }
           }
         }
       }
-      tfoot{
+      .use-coupon{
         .blank{
           @include phone(){
             display: none;
           }
         }
-        td{
-          font-weight: bold;
-          border: none;
+        .coupon-btn{
+          color: $listcolor;
+          background-color: $priceopacity;
+          border-radius: 0 3px 3px 0;
         }
-        .totalPrice{
+        .coupon-btn:hover{
+          background-color: $pricecolor;
+        }
+      }
+      .go-pay{
+        margin-top: 4.4%;
+        padding-bottom: 1%;
+        .go-btn{
+          @include button;
           @include phone(){
-            padding-left: 0;
-            padding-right: 0;
+            width: 100%;
           }
         }
-      }
-    }
-    .use-coupon{
-      .blank{
-        @include phone(){
-          display: none;
+        .go-btn:hover{
+          background-color: $maincolor;
         }
-      }
-      .coupon-btn{
-        color: $listcolor;
-        background-color: $priceopacity;
-        border-radius: 0 3px 3px 0;
-      }
-      .coupon-btn:hover{
-        background-color: $pricecolor;
-      }
-    }
-    .go-pay{
-      margin-top: 4.4%;
-      padding-bottom: 1%;
-      .go-btn{
-        @include button;
-        @include phone(){
-          width: 100%;
-        }
-      }
-      .go-btn:hover{
-        background-color: $maincolor;
       }
     }
     .spin{

@@ -1,8 +1,8 @@
 <template>
   <LoaDing :avtive="isLoading"/>
   <div class="container cart">
-    <div class="row">
-      <div class="cartBox" v-if="cart.carts.length">
+    <div class="row cartBox">
+      <div class="boxContent" v-if="cart.carts.length">
         <h3>購物清單</h3>
         <table class="table align-middle">
           <thead>
