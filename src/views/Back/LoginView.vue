@@ -56,6 +56,9 @@ export default {
             this.$router.push('/managecenter/products')
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }

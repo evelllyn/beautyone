@@ -1,5 +1,5 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
+  <LoaDing :active="isLoading"/>
   <div class="item-content container">
     <div class="row justify-content-center">
       <nav aria-label="breadcrumb">
@@ -13,10 +13,10 @@
           <li class="breadcrumb-item active" aria-current="page">{{ product.title}}</li>
         </ol>
       </nav>
-      <div class="img-content col-6">
-        <img :src="product.imageUrl" alt="" class="img-fluid mb-3">
+      <div class="img-content">
+        <img :src="product.imageUrl" alt="商品圖片" class="img-fluid mb-3">
       </div>
-      <div class="allContent col-6">
+      <div class="allContent">
         <article>
           <h2>{{ product.title}}</h2>
           <div class="description">
@@ -43,7 +43,7 @@
             <button class="num-btn btn" type="button" @click="minusNumber(item)">
               <i class="bi bi-dash-lg"></i>
             </button>
-            <input type="text" v-model.number="item.qty" min="1" class="form-control text-center" placeholder="" aria-label="">
+            <input type="text" v-model.number="item.qty" min="1" class="form-control text-center" placeholder="" aria-label="" @input="manualInput">
             <button class="num-btn btn" type="button" @click="addNumber(item)">
               <i class="bi bi-plus-lg"></i>
             </button>
@@ -56,16 +56,22 @@
       <div class="tab-container">
         <ul class="tab-nav">
           <li class="tab-item">
-            <button class="tab-link buy bg-white fs-5" :class="{ active: selectedTab === 'buyTab'}" @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
+            <button type="button" class="tab-link buy bg-white" :class="{ active: selectedTab === 'buyTab'}" @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
           </li>
           <li class="tab-item">
-            <button class="tab-link carry bg-white fs-5" :class="{ active: selectedTab === 'carryTab'}" @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
+            <button type="button" class="tab-link carry bg-white" :class="{ active: selectedTab === 'carryTab'}" @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
           </li>
         </ul>
         <component :is="selectTabComponent" class="tab-content">
           <div class="buy-content" v-if="selectedTab === 'buyTab'"></div>
           <div class="carry-content" v-else-if="selectedTab === 'carryTab'"></div>
         </component>
+      </div>
+    </div>
+    <div class="question">
+      <h5 class="words fw-bold"><span class="fs-2">FAQ</span>常見問題</h5>
+      <div class="questionBox">
+        <AccorDion/>
       </div>
     </div>
     <div class="goods">
@@ -81,7 +87,7 @@
               </div>
               <div class="card-body">
                 <div class="card-title">
-                  <h5>{{ item.title }}</h5>
+                  <p>{{ item.title }}</p>
                 </div>
                 <div class="product-price">
                   <span class="text-danger" v-if="item.price">NT ${{ item.price }}</span>
@@ -97,8 +103,9 @@
 </template>
 
 <script>
-import BuyTab from '@/components/BuyTab.vue'
-import CarryTab from '@/components/CarryTab.vue'
+import BuyTab from '@/components/others/BuyTab.vue'
+import CarryTab from '@/components/others/CarryTab.vue'
+import AccorDion from '@/components/AccorDion.vue'
 
 export default {
   data () {
@@ -124,7 +131,8 @@ export default {
   },
   components: {
     BuyTab,
-    CarryTab
+    CarryTab,
+    AccorDion
   },
   inject: ['$httpMessageState', 'emitter'],
   methods: {
@@ -137,6 +145,9 @@ export default {
           const allProducts = res.data.products
           this.onSaleProducts = allProducts.filter(item => item.price !== item.origin_price)
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getProduct () {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`
@@ -148,9 +159,19 @@ export default {
             this.product = res.data.product
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getProductDescription (id) {
       this.$router.push({ path: `/product/${id}` })
+    },
+    manualInput (event) {
+      const newValue = event.target.value
+      const newNum = Number(newValue)
+      if (newNum < 1) {
+        this.item.qty = 1
+      }
     },
     addNumber (item) {
       item.qty++
@@ -179,6 +200,9 @@ export default {
             this.status.loadingItem = ''
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     updateCart (item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`
@@ -191,6 +215,9 @@ export default {
         .then(res => {
           this.status.loadingItem = ''
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getCart () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
@@ -200,6 +227,9 @@ export default {
           this.cart = res.data.data
           this.cartLength = res.data.data.carts.length
           this.emitter.emit('sendNum', { data: this.cartLength })
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

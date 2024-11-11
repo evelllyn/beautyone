@@ -1,7 +1,7 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
+  <LoaDing :active="isLoading"/>
   <div class="text-end mt-4">
-    <button class="btn btn-primary" @click="openModal(true)">建立優惠券</button>
+    <button type="button" class="btn btn-primary" @click="openModal(true)">建立優惠券</button>
   </div>
   <table class="table mt-4">
     <thead>
@@ -24,15 +24,15 @@
         </td>
         <td>
           <div class="btn-group">
-            <button class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">編輯</button>
-            <button class="btn btn-outline-danger btn-sm" @click="openDelCouponModal(item)">刪除</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">編輯</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" @click="openDelCouponModal(item)">刪除</button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
-  <CouponModal ref="couponModal" :coupon="tempCoupon" @update-coupon="updateCoupon"></CouponModal>
-  <DelModal ref="delModal" :item="tempCoupon" @del-item="delCoupon"></DelModal>
+  <CouponModal ref="couponModal" :coupon="tempCoupon" @update-coupon="updateCoupon"/>
+  <DelModal ref="delModal" :item="tempCoupon" @del-item="delCoupon"/>
 </template>
 
 <script>
@@ -70,6 +70,9 @@ export default {
           this.isLoading = false
           this.coupons = res.data.coupons
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openModal (isNew, item) {
       if (isNew) {
@@ -95,6 +98,9 @@ export default {
           this.getCoupons()
           this.$httpMessageState(res, '更新')
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openDelCouponModal (item) {
       this.tempCoupon = { ...item }
@@ -111,6 +117,9 @@ export default {
           const delComponent = this.$refs.delModal
           delComponent.hideModal()
           this.getCoupons()
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

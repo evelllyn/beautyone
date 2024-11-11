@@ -1,0 +1,133 @@
+.goods{
+  .card:hover{
+    cursor: pointer;
+  }
+  .card:hover .card-img-top .more{
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+  }
+  .card{
+    cursor: default;
+    border: none;
+    .card-img-top{
+      height: 200px;
+      background-size: cover;
+      background-position:center;
+      border-radius: 6px;
+      @include pad(){
+        height: 150px;
+      }
+      @include phone(){
+        height: 115px;
+      }
+      .on{
+        color: $backgroundcolor;
+        font-weight: bold;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        transform: rotate(-45deg);
+        @include pad(){
+          top: 2%;
+        }
+        @include phone(){
+          top: 2%;
+          font-size: 12px;
+        }
+      }
+      .sale{
+        color: $backgroundcolor;
+        font-weight: bold;
+        position: absolute;
+        top: 8%;
+        left: 6%;
+        transform: rotate(-45deg);
+        @include pad(){
+          top: 6%;
+        }
+        @include phone(){
+          top: 5%;
+          left: 5%;
+          font-size: 12px;
+        }
+      }
+      .sale-logo{
+        border: 45px solid;
+        border-color: red transparent transparent red;
+        position: absolute;
+        @include pad(){
+          border: 36px solid;
+          border-color: red transparent transparent red;
+          position: absolute;
+        }
+        @include phone(){
+          border: 30px solid;
+          border-color: red transparent transparent red;
+          position: absolute;
+        }
+      }
+      .more{
+        font-weight: bold;
+        color: $backgroundcolor;
+        background-color: $maincolor;
+        position: absolute;
+        top: 55.8%;
+        width: 100%;
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        border-radius: 0 0 6px 6px;
+        opacity: 0;
+        @include phone(){
+          display: none;
+        }
+      }
+    }
+    .card-body{
+      padding-left: 1%;
+      padding-right: 1%;
+      .card-title{
+        color: $maincolor;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include phone() {
+          display: block;
+          text-align: start;
+        }
+        p{
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 0;
+          @include phone() {
+            font-size: 16px;
+          }
+        }
+        i{
+          font-size: 20px;
+          color: $maincolor;
+          @include phone() {
+            font-size: 14px;
+          }
+        }
+      }
+      .product-price{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-left: 0.5%;
+        @include pad() {
+          font-size: 16px;
+        }
+        @include phone() {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .del-price{
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

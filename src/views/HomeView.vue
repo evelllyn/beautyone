@@ -1,19 +1,21 @@
 <template>
-  <CarouSel></CarouSel>
+  <CarouSel/>
   <div class="aboutAs">
     <div class="whyToChoose">
       <div class="skinProblem">
-        <div class="summerSkin">
+        <div class="col-2"></div>
+        <div class="summerSkin col-4">
           <div class="skinText">
-            夏天到了，空氣悶熱，肌膚出油讓毛孔愈來愈大，老廢角質和髒汙不易排除怎麼辦？
+            <span>夏天到了</span><br>空氣悶熱，肌膚出油讓毛孔愈來愈大，老廢角質和髒汙不易排除怎麼辦？
+          </div>
+          <div class="skinText">
+            <span>冬天到了</span><br>皮膚的新陳代謝降低，汗水及油脂分泌減少，肌膚容易乾癢、脫屑怎麼辦？
           </div>
         </div>
-        <div class="winterSkin">
-          <div class="skinText">
-            冬天到了，皮膚的新陳代謝降低，汗水及油脂分泌減少，肌膚容易乾癢、脫屑怎麼辦？
-          </div>
+        <div class="skinImg col-5">
+          <img src="../assets/img/skin.png" alt="換季膚況問題">
         </div>
-        <img src="../assets/skin.png" alt="">
+        <div class="col-1"></div>
       </div>
       <div class="aboutContent">
         <div class="slogan">
@@ -34,16 +36,16 @@
   <div class="classic">
     <p class="words fw-bold"><span>HOT SALE</span>經典熱銷</p>
     <div class="hotSale">
-      <BodyProducts></BodyProducts>
+      <BodyProducts/>
     </div>
   </div>
   <div class="new">
     <p class="words fw-bold"><span>NEW ARRIVAL</span>新品上市</p>
     <div class="newArrival">
-      <HeadProducts></HeadProducts>
+      <HeadProducts/>
     </div>
   </div>
-  <div class="tips container">
+  <div class="tips">
     <div class="container text-light">
       <div class="tipsBox">
         <div class="insideBox py-3 bg-white bg-opacity-10">
@@ -104,26 +106,25 @@
       </div>
     </div>
   </div>
-  <hr class="py-1">
   <div class="subscribe container">
-    <form novalidate>
+    <VForm class="vform" v-slot="{ errors }">
       <div class="subscribe-content row">
-        <div class="col-md-7">
+        <div class="emailLabel col-md-7">
           <label for="email" class="fw-bold">訂閱我們，取得<span>最新消息與優惠折扣 !</span></label>
         </div>
-        <div class="col-md-5">
+        <div class="inputBox col-md-5">
           <div class="input-group">
-            <input type="email" id="email" name="email" placeholder="&nbsp;請輸入電子信箱" required>
-            <div class="invalid-feedback">
-              Please provide a valid zip.
+            <div class="flex-grow-1">
+              <VField id="email" name="Email" type="email" class="form-control" :class="{ 'is-invalid': errors['Email'] }" placeholder="請輸入Email" rules="email|required" v-model="userEmail"></VField>
+              <VErrorMessage name="Email" class="invalid-feedback"></VErrorMessage>
             </div>
-            <button class="btn text-light" type="submit">訂閱</button>
+            <button class="btn text-light" type="button" :disabled="errors['Email'] || !userEmail">訂閱</button>
           </div>
         </div>
       </div>
-    </form>
+    </VForm>
   </div>
-  <CouponCopy></CouponCopy>
+  <CouponCopy/>
 </template>
 
 <script>
@@ -133,6 +134,11 @@ import BodyProducts from '@/components/CategoryComponents/BodyProducts.vue'
 import HeadProducts from '@/components/CategoryComponents/HeadProducts.vue'
 
 export default {
+  data () {
+    return {
+      userEmail: ''
+    }
+  },
   components: {
     CouponCopy,
     CarouSel,

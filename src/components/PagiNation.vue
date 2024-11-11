@@ -2,8 +2,8 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
+        <a class="page-link" href="#" aria-label="Previous" :class="{ 'disabled' : pages.has_pre === false }" @click.prevent="updatePage(pages.current_page - 1)">
+          <span>&laquo;</span>
         </a>
       </li>
       <li class="page-item" v-for="page in pages.total_pages" :key="page" :class="{ 'active' : page === pages.current_page}">
@@ -12,8 +12,8 @@
         </a>
       </li>
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
+        <a class="page-link" href="#" aria-label="Next" :class="{ 'disabled' : pages.has_next === false }" @click.prevent="updatePage(pages.current_page + 1)">
+          <span>&raquo;</span>
         </a>
       </li>
     </ul>

@@ -1,5 +1,5 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
+  <LoaDing :active="isLoading"/>
   <div class="text-end">
     <button class="btn btn-primary" type="button" @click="openModal(true)">新增產品</button>
   </div>
@@ -30,16 +30,16 @@
         </td>
         <td>
           <div class="btn-group">
-            <button class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">編輯</button>
-            <button class="btn btn-outline-danger btn-sm" @click="openDelProductModal(item)">刪除</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">編輯</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" @click="openDelProductModal(item)">刪除</button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
-  <PagiNation :pages="pagination" @emit-page="getProducts"></PagiNation>
-  <ProductModal ref="productModal" :product="tempProduct" @update-product="updateProduct"></ProductModal>
-  <DelModal ref="delModal" :item="tempProduct" @del-item="delProduct"></DelModal>
+  <PagiNation :pages="pagination" @emit-page="getProducts"/>
+  <ProductModal ref="productModal" :product="tempProduct" @update-product="updateProduct"/>
+  <DelModal ref="delModal" :item="tempProduct" @del-item="delProduct"/>
 </template>
 
 <script>
@@ -76,6 +76,9 @@ export default {
             this.pagination = res.data.pagination
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openModal (isNew, item) {
       if (isNew) {
@@ -103,6 +106,9 @@ export default {
           this.getProducts()
           this.$httpMessageState(res, '更新')
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openDelProductModal (item) {
       this.tempProduct = { ...item }
@@ -119,6 +125,9 @@ export default {
           const delComponent = this.$refs.delModal
           delComponent.hideModal()
           this.getProducts()
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

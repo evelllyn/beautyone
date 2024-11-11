@@ -1,7 +1,7 @@
 <template>
-  <NavBar></NavBar>
+  <NavBar/>
   <div class="container-fluid mt-3 position-relative">
-    <ToastMessages></ToastMessages>
+    <ToastMessages/>
     <router-view/>
   </div>
 </template>
@@ -30,6 +30,9 @@ export default {
         if (!res.data.success) {
           this.$router.push('/login')
         }
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 }

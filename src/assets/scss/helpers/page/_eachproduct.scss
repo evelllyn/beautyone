@@ -1,0 +1,224 @@
+.item-content{
+  margin-top: 9%;
+  @include phone() {
+    margin-top: 28%;
+  }
+  .row{
+    padding-left: 1%;
+    padding-right: 1%;
+    nav{
+      @include phone() {
+        margin: 3% auto;
+      }
+      .breadcrumb{
+        @include phone() {
+          margin: 0;
+        }
+        .breadcrumb-item{
+          font-weight: bold;
+          font-size: large;
+          @include phone() {
+            font-size: medium;
+          }
+          .item-link{
+            color: $doubleopacity;
+            text-decoration: none;
+          }
+          .item-link:hover{
+            color: $maincolor;
+          }
+        }
+      }
+    }
+    .img-content{
+      width: 50%;
+      @include phone() {
+        width: 100%;
+      }
+      img{
+        border-radius: 6px;
+        width: 100%;
+        height: 495px;
+        object-fit: cover;
+        @include phone() {
+          height: 350px;
+        }
+      }
+    }
+    .allContent{
+      width: 50%;
+      @include phone() {
+        width: 100%;
+      }
+      article{
+        color: $maincolor;
+        h2{
+          padding-bottom: 5%;
+          font-weight: bold;
+          border-bottom: 3px solid $dividedcolor;
+        }
+        .description{
+          margin: 7% auto;
+        }
+      }
+      .discount{
+        color: $maincolor;
+        margin-top: 8%;
+        margin-bottom: 6%;
+        padding-top: 5%;
+        border-top: 3px solid $dividedcolor;
+        p{
+          padding-left: 2%;
+          border-left: 3px solid $maincolor;
+          span{
+            @include mark;
+          }
+        }
+      }
+      .addCart{
+        display: flex;
+        @include phone() {
+          display: block;
+        }
+        .input-group{
+          width: 50%;
+          margin-right: 8%;
+          @include phone() {
+            width: 100%;
+            margin-bottom: 4%;
+          }
+          .num-btn{
+            border-radius: 3px;
+            border: 1px solid $btnborder;
+          }
+          .num-btn:hover{
+            background-color: $listcolor;
+          }
+        }
+        .cart-btn{
+          color: $listcolor;
+          background-color: $mainopacity;
+          border-radius: 3px;
+          @include phone() {
+            width: 100%;
+          }
+        }
+        .cart-btn:hover{
+          background-color: $maincolor;
+        }
+      }
+    }
+    .tab-container{
+      margin-top: 5%;
+      .tab-nav{
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        border: 3px solid;
+        border-color: transparent transparent $dividedcolor transparent;
+        @include phone() {
+          padding-left: 0;
+        }
+        .tab-item{
+          padding-bottom: 2%;
+          .tab-link.active{
+            font-weight: bold;
+          }
+          .buy{
+            color: $maincolor;
+            border: none;
+            font-size: x-large;
+            @include phone() {
+              font-size: 16px;
+            }
+          }
+          .carry{
+            color: $maincolor;
+            border: none;
+            font-size: x-large;
+            @include phone() {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .tab-content{
+        height: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $maincolor;
+        background-color: $backgroundcolor;
+        @include phone() {
+          height: 250px;
+        }
+        .tabBox{
+          text-align: start;
+          font-size: large;
+          @include phone() {
+            font-size: 16px;
+            padding: 2%;
+          }
+        }
+      }
+    }
+  }
+  .question{
+    text-align: center;
+    margin-top: 5%;
+    .words{
+      margin-bottom: 2.5%;
+      span{
+        padding-right: 1%;
+        color: $maincolor;
+      }
+    }
+    .questionBox{
+      display: flex;
+      justify-content: center;
+      text-align: start;
+      .accordion{
+        width: 97.7%;
+        --bs-accordion-btn-bg: #eae6dd;
+        --bs-accordion-active-color: #004225;
+        --bs-accordion-active-bg: #95bcab;
+        .accordion-item{
+          .accordion-button{
+            font-weight: bold;
+          }
+          .accordion-button:focus{
+            outline: none;
+            box-shadow: none;
+          }
+          .accordion-button::after{
+            background-image: url(assets/img/icon/plus-lg.svg);
+          }
+          .accordion-button:not(.collapsed)::after{
+            background-image: url(assets/img/icon/dash-lg.svg);
+          }
+        }
+      }
+    }
+  }
+  .goods{
+    text-align: center;
+    margin-top: 8%;
+    overflow: hidden;
+    .words{
+      span{
+        padding-right: 1%;
+        color: $maincolor;
+      }
+    }
+    .onSaleGoods{
+      display: flex;
+      .col{
+        padding: 0 1%;
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

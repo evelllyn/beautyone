@@ -56,6 +56,10 @@ const routes = [
         component: () => import('../views/Back/CouponsView.vue')
       }
     ]
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
   }
 ]
 

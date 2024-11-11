@@ -1,34 +1,34 @@
 <template>
-  <LoaDing :avtive="isLoading"></LoaDing>
+  <LoaDing :avtive="isLoading"/>
   <div class="category container">
     <ul class="category-nav container">
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'all'}" @click="selectedCategory = 'all'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'all'}" @click="selectedCategory = 'all'">
           <div class="title">ALL / 所有產品</div>
         </button>
       </li>
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'head'}" @click="selectedCategory = 'head'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'head'}" @click="selectedCategory = 'head'">
           <div class="title">HEAD / 頭部產品</div>
         </button>
       </li>
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'face'}" @click="selectedCategory = 'face'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'face'}" @click="selectedCategory = 'face'">
           <div class="title">FACE / 臉部產品</div>
         </button>
       </li>
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'lips'}" @click="selectedCategory = 'lips'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'lips'}" @click="selectedCategory = 'lips'">
           <div class="title">LIPS / 唇部產品</div>
         </button>
       </li>
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'body'}" @click="selectedCategory = 'body'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'body'}" @click="selectedCategory = 'body'">
           <div class="title">BODY / 全身產品</div>
         </button>
       </li>
       <li class="category-list">
-        <button class="category-link" :class="{ active: selectedCategory === 'others'}" @click="selectedCategory = 'others'">
+        <button type="button" class="category-link" :class="{ active: selectedCategory === 'others'}" @click="selectedCategory = 'others'">
           <div class="title">OTHERS / 其他</div>
         </button>
       </li>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import HomeProduct from '@/components/HomeProduct.vue'
+import HomeProduct from '@/components/CategoryComponents/HomeProduct.vue'
 import HeadProducts from '@/components/CategoryComponents/HeadProducts.vue'
 import FaceProducts from '@/components/CategoryComponents/FaceProducts.vue'
 import LipsProducts from '@/components/CategoryComponents/LipsProducts.vue'

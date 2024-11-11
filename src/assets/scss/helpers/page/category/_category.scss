@@ -1,0 +1,64 @@
+.category{
+  margin-top: 9%;
+  @include phone(){
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .category-nav{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1%;
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 3px dotted $dividedcolor;
+    @include pad(){
+      flex-wrap: wrap;
+      margin-top: 25%;
+    }
+    @include phone(){
+      flex-direction: column;
+    }
+    .category-list{
+      padding-bottom: 1%;
+      @include pad(){
+        width: 30%;
+        text-align: center;
+        flex: 1 0 auto;
+      }
+      @include phone(){
+        width: 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+      .category-link{
+        background-color: #fff;
+        border: none;
+        .title{
+          color: $doubleopacity;
+          font-weight: bold;
+          transition: color 0.1s ease-in;
+          @include phone() {
+            font-size: 16px;
+          }
+        }
+      }
+      .category-link.active{
+        .title{
+          color: $maincolor;
+        }
+      }
+      .category-link:hover{
+        .title{
+          color: $mainopacity;
+        }
+      }
+      .category-link.active:hover{
+        .title{
+          color: $maincolor;
+        }
+      }
+    }
+  }
+}

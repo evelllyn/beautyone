@@ -1,5 +1,5 @@
 <template>
-  <LoaDing :avtive="isLoading"></LoaDing>
+  <LoaDing :avtive="isLoading"/>
   <div class="container favContainer goods pt-3 all-content">
     <div class="row" v-if="favoriteProducts.length">
       <div class="col col-6 col-md-3 my-4" v-for="item in favoriteProducts" :key="item.id">
@@ -12,7 +12,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">
-              <h5>{{ item.title }}</h5>
+              <p>{{ item.title }}</p>
               <a href="#" @click.stop.prevent="removeFavorite(item)">
                 <i class="bi bi-heart" v-if="favoriteItems.every((id) => item.id !== id)"></i>
                 <i class="bi bi-heart-fill text-danger" v-else></i>
@@ -24,6 +24,11 @@
               <del class="del-price float-end" v-if="item.price != item.origin_price">原價NT${{ item.origin_price }}</del>
             </div>
           </div>
+        </div>
+        <div class="addCart">
+          <button type="button" class="cart-btn" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">
+              加入購物車
+          </button>
         </div>
       </div>
     </div>
@@ -48,10 +53,13 @@ export default {
     return {
       favoriteItems: [],
       favoriteProducts: [],
-      isLoading: false
+      isLoading: false,
+      status: {
+        loadingItem: ''
+      }
     }
   },
-  inject: ['emitter'],
+  inject: ['$httpMessageState', 'emitter'],
   methods: {
     getFavoriteProducts () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`
@@ -64,9 +72,32 @@ export default {
             this.favoriteProducts = allProducts.filter(item => this.favoriteItems.some((id) => item.id === id))
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getProductDescription (id) {
       this.$router.push(`/product/${id}`)
+    },
+    addCart (id) {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
+      this.status.loadingItem = id
+      const cart = {
+        product_id: id,
+        qty: 1
+      }
+      this.$http.post(url, { data: cart })
+        .then(res => {
+          if (res.data.success) {
+            console.log(res)
+            this.$httpMessageState(res, '加入購物車')
+            this.getCart()
+            this.status.loadingItem = ''
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     removeFavorite (item) {
       this.favoriteItems.indexOf(item.id)
@@ -78,6 +109,19 @@ export default {
       localStorage.setItem('favoriteList', JSON.stringify(this.favoriteItems))
       this.getFavorite()
       this.getFavoriteProducts()
+    },
+    getCart () {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          // data中的data下面有carts,total,final_total
+          this.cart = res.data.data
+          this.cartLength = res.data.data.carts.length
+          this.emitter.emit('sendNum', { data: this.cartLength })
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   mixins: [favoriteMixin],

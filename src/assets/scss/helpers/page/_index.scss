@@ -1,0 +1,409 @@
+.discountModal{
+  .modal-body{
+    text-align: center;
+    img{
+      height: 40px;
+    }
+    hr{
+      border-width: 15px;
+      border-color: #fff;
+      margin: 0;
+
+    }
+    span{
+      font-size: 24px;
+      font-weight: bold;
+      @include mark
+    }
+  }
+  .modal-footer{
+    .btn{
+      @include send-btn
+    }
+    .btn:hover{
+      background-color: $maincolor;
+    }
+  }
+}
+.carousel-fade{
+  margin-top: 8.5%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  @include pad(){
+    margin-top: 15%;
+  }
+  @include phone(){
+    margin-top: 20%;
+  }
+  .carousel-inner{
+    width: 83.7%;
+    @include pad(){
+      width: 100%;
+    }
+    img{
+      height: 665px;
+      object-fit: cover;
+      @include pad(){
+        height: 440px;
+      }
+      @include phone(){
+        height: 330px;
+      }
+    }
+    .carousel-caption{
+      position: absolute;
+      top: 33%;
+      @include pad(){
+        top: 28%;
+      }
+      @include phone(){
+        top: 25%;
+      }
+      .sloganSmall{
+        font-size: larger;
+        @include phone(){
+          font-size: medium;
+        }
+      }
+      .slogan{
+        @include phone(){
+          display: none;
+        }
+      }
+      .btn{
+        @include button
+      }
+      .btn:hover{
+        background-color: $maincolor;
+      }
+    }
+  }
+}
+.aboutAs{
+  .whyToChoose{
+    .skinProblem{
+      display: flex;
+      margin-top: 4%;
+      margin-bottom: 3%;
+      @include phone(){
+        margin-top: 0;
+        margin-bottom: 5%;
+      }
+      .skinImg{
+        text-align: center;
+        @include phone(){
+          display: none;
+        }
+        img{
+          height: 450px;
+          @include pad(){
+            height: 320px;
+          }
+        }
+      }
+      .summerSkin{
+        border: 2px dashed $maincolor;
+        border-radius: 10px;
+        align-content: center;
+        @include phone(){
+          width: 70%;
+        }
+        .skinText{
+          font-size: 20px;
+          color: #000;
+          font-weight: 400;
+          padding: 8%;
+          @include pad(){
+            font-size: 16px;
+            font-weight: 300;
+          }
+          span{
+            font-size: 30px;
+            font-weight: bold;
+            color: $maincolor;
+            @include pad(){
+              font-size: 24px;
+              font-weight: 400;
+            }
+            @include phone(){
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+    .aboutContent{
+      padding-top: 5%;
+      padding-bottom: 5%;
+      display: flex;
+      justify-content: center;
+      @include box;
+      .slogan{
+        text-align: center;
+        width: 60%;
+        @include pad(){
+          width: 52%;
+        }
+        @include phone(){
+          width: 80%;
+        }
+        .aboutTitle{
+          font-size: 30px;
+          color: $maincolor;
+          font-style: italic;
+          @include pad(){
+            font-size: 20px;
+          }
+          @include phone(){
+            font-size: 14px;
+          }
+        }
+        .dividedLine{
+          border: 2px solid $dividedcolor;
+          width: 70%;
+          margin: 2% auto;
+        }
+        .factor{
+          span{
+            font-size: 18px;
+            padding: 1% 2%;
+            border: 2.5px solid $dividedcolor ;
+            @include phone(){
+              font-size: 12px;
+            }
+          }
+        }
+        .sloganBig{
+          font-size: 30px;
+          font-style: italic;
+          color: $maincolor;
+          @include pad(){
+            font-size: 20px;
+          }
+          @include phone(){
+            font-size: 14px;
+          }
+          span{
+            color: $maincolor;
+          }
+        }
+        .sloganSmall{
+          font-size: 24px;
+          color: $maincolor;
+          margin-top: 5%;
+          text-align: left;
+          @include phone(){
+            font-size: 12px;
+          }
+        }
+        .sloganSmallSec{
+          font-size: 24px;
+          color: $maincolor;
+          text-align: right;
+          @include phone(){
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+.classic{
+  @include pad(){
+    text-align: center;
+  }
+  .words{
+    font-size: 24px;
+    margin: 3% 0 0 8%;
+    @include pad(){
+      font-size: 24px;
+      margin-left: 0;
+    }
+    @include phone(){
+      font-size: 20px;
+    }
+    span{
+      font-size: 36px;
+      padding-right: 1%;
+      color: $maincolor;
+      @include phone(){
+        font-size: 20px;
+      }
+    }
+  }
+  .hotSale{
+    width: 85.4%;
+    height: 352px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    @include pad(){
+      height: 300px;
+    }
+    @include phone(){
+      height: 280px;
+      width: 100%;
+    }
+  }
+}
+.new{
+  @include pad(){
+    text-align: center;
+  }
+  .words{
+    font-size: 24px;
+    margin: 1% 0 0 8%;
+    @include pad(){
+      font-size: 24px;
+      margin-left: 0;
+    }
+    @include phone(){
+      font-size: 20px;
+    }
+    span{
+      font-size: 36px;
+      padding-right: 1%;
+      color: $maincolor;
+      @include phone(){
+        font-size: 20px;
+      }
+    }
+  }
+  .newArrival{
+    width: 85.4%;
+    height: 352px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    @include pad(){
+      height: 300px;
+    }
+    @include phone(){
+      height: 280px;
+      width: 100%;
+    }
+  }
+}
+.tips{
+  background-image: url(assets/img/bg.jpg);
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  @include phone(){
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .tipsBox{
+    padding: 3% 0 1.5% 0;
+    .insideBox{
+      text-align: center;
+      .tipsTitle{
+        font-size: 36px;
+        margin: 0 15px 0 15px;
+        border: 1px dotted white;
+        @include pad(){
+          font-size: 20px;
+        }
+        @include phone(){
+          font-size: 18px;
+        }
+      }
+    }
+    .tipsBoxBig{
+      padding: 0;
+      .tipsBoxSmall{
+        display: flex;
+        margin-bottom: 2%;
+        padding: 0;
+        @include phone(){
+          display: block;
+        }
+        .tipsBoxText{
+          width: 33%;
+          margin-right: 2%;
+          padding: 1% 5%;
+          @include pad(){
+            padding: 1% 0;
+          }
+          @include phone(){
+            width: 100%;
+            text-align: center;
+          }
+          p{
+            font-size: 24px;
+            margin-top: 5%;
+            padding-left: 13px;
+            @include pad(){
+              font-size: 18px;
+            }
+            @include phone(){
+              padding-left: 0;
+            }
+          }
+          ul{
+            @include phone(){
+              padding-left: 22%;
+            }
+            li{
+              @include pad(){
+                font-size: 16px;
+              }
+              @include phone(){
+                text-align: start;
+              }
+            }
+          }
+        }
+        .final-tips{
+          margin-right: 0;
+        }
+      }
+      .sec-tips{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.subscribe{
+  margin-top: 4%;
+  margin-bottom: 4%;
+  .subscribe-content{
+    @include pad(){
+      text-align: center;
+    }
+    label{
+      font-size: 32px;
+      color: $maincolor;
+      @include pad(){
+        font-size: 24px;
+      }
+      @include phone(){
+        font-size: 16px
+      }
+      span{
+        @include mark;
+      }
+    }
+    .inputBox{
+      align-content: center;
+      @include pad(){
+        margin-top: 2%;
+      }
+      input{
+        border-radius: 5px 0 0 5px;
+      }
+      button{
+        height: 100%;
+      }
+      button:hover{
+        background-color: $maincolor
+      }
+      button:not(:hover){
+        background-color: $maincolor
+      }
+    }
+  }
+}

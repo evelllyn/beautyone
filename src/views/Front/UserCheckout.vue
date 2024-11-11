@@ -1,24 +1,30 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
+  <LoaDing :active="isLoading"/>
   <div class="check-out container">
     <div class="flow-container">
       <ul class="flow-nav">
         <li class="flow-item">
-          <div class="fill flow-content fs-5">
+          <div class="fill flow-content">
             <i class="bi bi-1-circle-fill"></i>
-            FILL IN / 填寫資料
+            <div>
+              <span>FILL IN / </span>填寫資料
+            </div>
           </div>
         </li>
         <li class="flow-item" :class="{ current: !order.is_paid}">
-          <div class="check flow-content fs-5" :class="{ location: !order.is_paid}">
+          <div class="check flow-content" :class="{ location: !order.is_paid}">
             <i class="bi bi-2-circle-fill"></i>
-            CHECK OUT / 確認付款
+            <div>
+              <span>CHECK OUT / </span>確認付款
+            </div>
           </div>
         </li>
         <li class="flow-item" :class="{ current: order.is_paid}">
-          <div class="completed flow-content fs-5" :class="{ location: order.is_paid}">
+          <div class="completed flow-content" :class="{ location: order.is_paid}">
             <i class="bi bi-3-circle-fill"></i>
-            COMPLETED / 完成訂購
+            <div>
+              <span>COMPLETED / </span>完成訂購
+            </div>
           </div>
         </li>
       </ul>
@@ -29,10 +35,15 @@
         <p>感謝您的購買，我們將盡快為您出貨</p>
       </div>
     </div>
+    <div class="backToBuy" v-if="order.is_paid === true">
+        <router-link to="/products" class="btn surf-btn">繼續選購</router-link>
+      </div>
     <div class="payment-list fs-4" v-if="order.is_paid === true">訂單明細</div>
     <form class="checkout-form" @submit.prevent="payOrder">
       <div class="goods-list w-100">
-        <div class="detail" v-if="order.is_paid === false">購物清單</div>
+        <div class="detailBox">
+          <div class="detail" v-if="order.is_paid === false">購物清單</div>
+        </div>
         <table class="table align-middle">
           <thead>
             <tr>
@@ -45,7 +56,7 @@
             <tr v-for="item in order.products" :key="item.id">
               <td>{{ item.product.title }}</td>
               <td>{{ item.qty }}</td>
-              <td>{{ $filters.currency(item.final_total) }}</td>
+              <td>${{ $filters.currency(item.final_total) }}</td>
             </tr>
           </tbody>
           <tfoot>
@@ -57,7 +68,9 @@
         </table>
       </div>
       <div class="contact-information w-100">
-        <div class="customer" v-if="order.is_paid === false">訂購人資訊</div>
+        <div class="customerBox">
+          <div class="customer" v-if="order.is_paid === false">訂購人聯絡資訊</div>
+        </div>
         <table class="table">
           <tbody>
             <tr>
@@ -90,7 +103,7 @@
           </tbody>
         </table>
         <div class="pay" v-if="order.is_paid === false">
-          <button class="pay-btn btn w-100">確認付款</button>
+          <button type="submit" class="pay-btn btn w-100">確認付款</button>
         </div>
       </div>
     </form>
@@ -118,6 +131,9 @@ export default {
             this.order = res.data.order
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     payOrder () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`
@@ -126,6 +142,9 @@ export default {
           if (res.data.success) {
             this.getOrder()
           }
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

@@ -1,0 +1,121 @@
+// 頁首
+.frontNavbar{
+  width: 100%;
+  z-index: 99;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  marquee{
+    background-color: $maincolor;
+  }
+  .logo{
+    margin-left: 7.4%;
+    @include phone(){
+      margin-left: 0;
+    }
+    img{
+      height: 40px;
+      @include phone(){
+        height: 25px;
+      }
+    }
+  }
+  .nav-item{
+    .nav-link{
+      color: $mainopacity;
+      font-weight: bold;
+      transition: color 0.1s ease-in;
+    }
+    .nav-link.active{
+      color: $maincolor;
+      font-weight: bold;
+    }
+    .nav-link:hover{
+      color: $maincolor;
+    }
+  }
+  .right{
+    margin-right: 10%;
+    @include phone(){
+      margin-right: 0;
+    }
+    .cartLink{
+      margin-right: 10%;
+    }
+    .nav-link{
+      position: relative;
+      i{
+        font-size: 30px;
+      }
+      .badge{
+        position: absolute;
+        left: 50%;
+        @include phone(){
+          left: 8%;
+        }
+      }
+    }
+  }
+}
+// 頁尾
+footer{
+  background-color: $maincolor;
+  position: relative;
+  .social{
+    text-align: center;
+    margin-top: 5%;
+    padding-top: 2%;
+    ul{
+      @include phone(){
+        margin-bottom: 0;
+      }
+      a{
+        font-size: 28px;
+        @include phone(){
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .contact{
+    text-align: center;
+    @include phone(){
+      width: 86%;
+    }
+    a{
+      text-decoration: none;
+      @include phone(){
+        font-size: 12px;
+      }
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+    p{
+      display: inline-block;
+      @include phone(){
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .credit{
+    text-align: center;
+    img{
+      @include phone(){
+        width: 50px;
+        height: auto;
+      }
+    }
+  }
+  .copyright{
+    text-align: center;
+    padding-top: 1%;
+    p{
+      display: inline-block;
+      @include phone(){
+        font-size: 12px;
+      }
+    }
+  }
+}

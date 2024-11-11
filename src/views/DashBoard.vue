@@ -1,15 +1,16 @@
 <template>
-  <HomeNavbar></HomeNavbar>
+  <HomeNavbar/>
   <div class="position-relative">
-    <ToastMessages></ToastMessages>
+    <ToastMessages/>
     <router-view/>
   </div>
-  <FooterNav></FooterNav>
+  <FooterNav/>
 </template>
 
 <script>
 import emitter from '@/methods/emitter'
 import ToastMessages from '@/components/ToastMessages.vue'
+import 'bootstrap/dist/js/bootstrap.min'
 import HomeNavbar from '@/components/FrontNavbar.vue'
 import FooterNav from '@/components/FooterNav.vue'
 

@@ -23,7 +23,7 @@
                 </label>
                 <input type="file" id="customFile" class="form-control" ref="fileInput" @change="uploadFile">
               </div>
-              <img class="img-fluid" :src="tempProduct.imageUrl" alt="">
+              <img class="img-fluid" :src="tempProduct.imageUrl" alt="上傳的圖片">
               <!-- 延伸技巧，多圖 -->
               <div class="mt-5" v-if="tempProduct.images">
                 <div v-for="(image, key) in tempProduct.images" class="mb-3 input-group" :key="key">
@@ -37,7 +37,7 @@
                   </button>
                 </div>
                 <div v-if="tempProduct.images[tempProduct.images.length - 1] || !tempProduct.images.length">
-                  <button class="btn btn-outline-primary btn-sm d-block w-100"
+                  <button type="button" class="btn btn-outline-primary btn-sm d-block w-100"
                     @click="tempProduct.images.push('')">
                     新增圖片
                   </button>
@@ -148,6 +148,9 @@ export default {
           if (res.data.success) {
             this.tempProduct.imageUrl = res.data.imageUrl
           }
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

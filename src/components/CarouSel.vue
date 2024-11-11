@@ -2,19 +2,21 @@
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" ref="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../assets/banner01.jpg" class="d-block w-100" alt="">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="../assets/img/banner/banner01.jpg" class="d-block w-100" alt="歡迎光臨">
+        <div class="carousel-caption">
           <h2 class="fw-bold">BEAUTY ONE</h2>
-          <p class="fs-4">MAKES YOU BE THE BEAUTIFUL ONE</p>
-          <p class="fs-5 fw-bold">—— 讓我們與您一起尋找凍齡的秘密 ——</p>
+          <p class="fs-4 slogan">MAKES YOU BE THE BEAUTIFUL ONE</p>
+          <p class="fw-bold sloganSmall">—— 讓我們與您一起尋找凍齡的秘密 ——</p>
+          <router-link to="/products" class="btn">SHOP NOW</router-link>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../assets/newproduct.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="../assets/img/banner/newproduct.jpg" class="d-block w-100" alt="新品即將上市">
+        <div class="carousel-caption">
           <h2 class="fw-bold">BEAUTY ONE</h2>
-          <p class="fs-4">MAKES YOU BE THE BEAUTIFUL ONE</p>
-          <p class="fs-5 fw-bold">—— 冬季新品&emsp;即將上市 ——</p>
+          <p class="fs-4 slogan">MAKES YOU BE THE BEAUTIFUL ONE</p>
+          <p class="fw-bold sloganSmall">—— 冬季新品&emsp;即將上市 ——</p>
+          <router-link to="/products" class="btn">SHOP NOW</router-link>
         </div>
       </div>
     </div>

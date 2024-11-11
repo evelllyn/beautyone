@@ -1,5 +1,5 @@
 <template>
-  <LoaDing :active="isLoading"></LoaDing>
+  <LoaDing :active="isLoading"/>
   <table class="table mt-4">
     <thead>
       <tr>
@@ -37,17 +37,17 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">檢視</button>
-              <button class="btn btn-outline-danger btn-sm" @click="openDelOrderModal(item)">刪除</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal(false, item)">檢視</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" @click="openDelOrderModal(item)">刪除</button>
             </div>
           </td>
         </tr>
       </template>
     </tbody>
   </table>
-  <OrderModal ref="orderModal" :order="tempOrder" @update-paid="updatePaid"></OrderModal>
-  <DelModal ref="delModal" :item="tempOrder" @del-item="delOrder"></DelModal>
-  <PagiNation :pages="pagination" @emit-page="getOrders"></PagiNation>
+  <OrderModal ref="orderModal" :order="tempOrder" @update-paid="updatePaid"/>
+  <DelModal ref="delModal" :item="tempOrder" @del-item="delOrder"/>
+  <PagiNation :pages="pagination" @emit-page="getOrders"/>
 </template>
 
 <script>
@@ -83,6 +83,9 @@ export default {
             this.pagination = res.data.pagination
           }
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openModal (isNew, item) {
       this.tempOrder = { ...item }
@@ -101,6 +104,9 @@ export default {
           this.getOrders()
           this.$httpMessageState(res, '更新')
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     openDelOrderModal (item) {
       this.tempOrder = { ...item }
@@ -116,6 +122,9 @@ export default {
           const delComponent = this.$refs.delModal
           delComponent.hideModal()
           this.getOrders()
+        })
+        .catch(err => {
+          console.log(err)
         })
     },
     created () {

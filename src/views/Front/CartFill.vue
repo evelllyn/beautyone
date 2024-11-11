@@ -1,38 +1,46 @@
 <template>
-  <LoaDing :avtive="isLoading"></LoaDing>
+  <LoaDing :avtive="isLoading"/>
   <div class="container fill-in">
     <div class="flow-container">
       <ul class="flow-nav">
         <li class="flow-item current">
-          <div class="fill flow-content fs-5">
+          <div class="fill flow-content">
             <i class="bi bi-1-circle-fill"></i>
-            FILL IN / 填寫資料
+            <div>
+              <span>FILL IN / </span>填寫資料
+            </div>
           </div>
         </li>
         <li class="flow-item">
-          <div class="check flow-content fs-5">
+          <div class="check flow-content">
             <i class="bi bi-2-circle-fill"></i>
-            CHECK OUT / 確認付款
+            <div>
+              <span>CHECK OUT / </span>確認付款
+            </div>
           </div>
         </li>
         <li class="flow-item">
-          <div class="completed flow-content fs-5">
+          <div class="completed flow-content">
             <i class="bi bi-3-circle-fill"></i>
-            COMPLETED / 完成訂購
+            <div>
+              <span>COMPLETED / </span>完成訂購
+            </div>
           </div>
         </li>
       </ul>
     </div>
     <div class="cart-fill">
       <div class="buy-list w-100">
-        <div class="detail">購物清單</div>
+        <div class="detailBox">
+          <div class="detail">購物清單</div>
+        </div>
         <table class="table align-middle">
           <thead>
             <tr>
-              <th class="col-5">商品名稱</th>
+              <th class="col-4">商品名稱</th>
               <th class="col-3">數量</th>
-              <th class="col-2">單價</th>
-              <div></div>
+              <th class="col-3">單價</th>
+              <div class="blank"></div>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +56,7 @@
               </td>
               <td>
                 <small v-if="cart.final_total !== cart.total">折扣價</small>
-                $ {{ $filters.currency(item.final_total) }}
+                ${{ $filters.currency(item.final_total) }}
               </td>
             </tr>
           </tbody>
@@ -65,7 +73,9 @@
         </table>
       </div>
       <div class="contact-list w-100 justify-content-center">
-        <div class="customer">訂購人聯絡資訊</div>
+        <div class="customerBox">
+          <div class="customer">訂購人聯絡資訊</div>
+        </div>
         <VForm class="vform" v-slot="{ errors }" @submit="createOrder">
           <div class="mb-3">
             <label for="name" class="form-label">收件人姓名<span class="text-danger">*</span></label>
@@ -93,7 +103,7 @@
             <textarea name="備註" id="message" cols="30" rows="10" class="form-control" v-model="form.message"></textarea>
           </div>
           <div class="send">
-            <button class="send-btn btn w-100">送出訂單</button>
+            <button type="submit" class="send-btn btn w-100">送出訂單</button>
           </div>
         </VForm>
       </div>
@@ -136,6 +146,9 @@ export default {
           this.isLoading = false
           this.products = res.data.products
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getProduct (id) {
       this.$router.push(`/product/${id}`)
@@ -151,6 +164,9 @@ export default {
         .then(res => {
           this.status.loadingItem = ''
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getCart () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
@@ -160,6 +176,9 @@ export default {
           this.isLoading = false
           // data中的data下面有carts,total,final_total
           this.cart = res.data.data
+        })
+        .catch(err => {
+          console.log(err)
         })
     },
     updateCart (item) {
@@ -176,6 +195,9 @@ export default {
           this.status.loadingItem = ''
           this.getCart()
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     createOrder () {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`
@@ -185,6 +207,9 @@ export default {
         .then(res => {
           this.isLoading = false
           this.$router.push(`/checkout/${res.data.orderId}`)
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },
