@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar frontNavbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <marquee class="text-white p-1">即日起至 11 / 30 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站8折優惠!</marquee>
+    <marquee class="text-white p-1">即日起至 2 / 28 全站滿$1000免運費!&emsp;輸入優惠碼「BEAUTY2024」即可享有全站8折優惠!</marquee>
     <div class="container-fluid">
       <a class="logo navbar-brand" href="#">
         <img src="../assets/img/logo.png" alt="logo">
