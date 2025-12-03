@@ -24,7 +24,7 @@ BeautyOne 是一個以 Vue 3 (Vue CLI) 打造的電商網站專案，模擬完�
 
 ## 使用技術
 
-Frontend
+### Frontend
 
 - Vue 3
 - Vue CLI
@@ -35,9 +35,9 @@ Frontend
 - SCSS / RWD 設計
 - Bootstrap 5
 
-Backend（課程提供 API）
+### Backend（課程提供 API）
 
-六角學院電商 API（Swagger 文件）
+#### 六角學院電商 API（Swagger 文件）
 
 - 商品 CRUD
 - 購物車管理
