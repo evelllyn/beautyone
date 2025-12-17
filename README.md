@@ -1,5 +1,5 @@
 # 專案練習 - BeautyOne 電商平台
-Demo:https://evelllyn.github.io/beautyone/dist/#/
+Demo : https://evelllyn.github.io/beautyone/dist/#/
 ---
 
 BeautyOne 是一個以 Vue 3 (Vue CLI) 打造的電商網站專案，模擬完整購物流程，包含商品瀏覽、收藏、加入購物車、結帳流程等功能。
