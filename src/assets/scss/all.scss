@@ -2,11 +2,14 @@
 @import "./helpers/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/bootstrap";
+@import "./helpers/base";
+@import "./helpers/reset";
 @import "./helpers/var";
 @import "./helpers/mixin";
 @import "./helpers/grid";
 @import "./helpers/module";
 @import "./helpers/layout";
+@import "./helpers/components";
 @import "./helpers/page/index";
 @import "./helpers/page/category/products";
 @import "./helpers/page/category/category";

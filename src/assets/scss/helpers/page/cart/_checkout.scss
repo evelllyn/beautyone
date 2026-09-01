@@ -1,9 +1,9 @@
 .check-out{
   margin-top: 10%;
-  @include pad(){
+  @include mobile(){
     margin-bottom: 33.6%;
   }
-  @include phone(){
+  @include smallMobile(){
     width: 100%;
     margin-top: 30%;
   }
@@ -12,7 +12,7 @@
     padding-right: 1%;
     margin-bottom: 3%;
     font-size: 24px;
-    @include phone(){
+    @include smallMobile(){
       font-size: 14px;
     }
     .flow-nav{
@@ -30,7 +30,7 @@
           text-align: center;
           flex-direction: column;
           span{
-            @include phone(){
+            @include smallMobile(){
               display: none;
             }
           }
@@ -55,7 +55,7 @@
     .gratitude-content{
       padding-top: 12%;
       padding-bottom: 14%;
-      @include phone(){
+      @include smallMobile(){
         padding-top: 0;
         padding-bottom: 0;
       }
@@ -63,7 +63,7 @@
         color: $maincolor;
         font-weight: bold;
         transform: rotate(-7deg);
-        @include phone(){
+        @include smallMobile(){
           color: $emphaticcolor;
           transform: rotate(0);
           padding-top: 5%;
@@ -74,7 +74,7 @@
         color: $maincolor;
         font-weight: bold;
         transform: rotate(-7deg);
-        @include phone(){
+        @include smallMobile(){
           color: $emphaticcolor;
           transform: rotate(0);
           padding-bottom: 2%;
@@ -109,7 +109,7 @@
     display: flex;
     padding-left: 1%;
     padding-right: 1%;
-    @include phone(){
+    @include smallMobile(){
       flex-direction: column;
     }
     .goods-list{
@@ -169,12 +169,6 @@
       }
       .pay{
         margin-bottom: 3%;
-        .pay-btn{
-          @include send-btn
-        }
-        .pay-btn:hover{
-          background-color: $maincolor;
-        }
       }
     }
   }

@@ -1,7 +1,7 @@
 .fill-in{
   margin-top: 10%;
   margin-bottom: 2.5%;
-  @include phone(){
+  @include smallMobile(){
     width: 100%;
     margin-top: 30%;
   }
@@ -10,7 +10,7 @@
     padding-right: 1%;
     margin-bottom: 5%;
     font-size: 24px;
-    @include phone(){
+    @include smallMobile(){
       font-size: 14px;
     }
     .flow-nav{
@@ -28,7 +28,7 @@
           text-align: center;
           flex-direction: column;
           span{
-            @include phone(){
+            @include smallMobile(){
               display: none;
             }
           }
@@ -47,7 +47,7 @@
     display: flex;
     padding-left: 1%;
     padding-right: 1%;
-    @include phone(){
+    @include smallMobile(){
       flex-direction: column;
     }
     .buy-list{
@@ -64,7 +64,7 @@
         border: none;
       }
       .blank{
-        @include phone(){
+        @include smallMobile(){
           display: none;
         }
       }
@@ -97,14 +97,6 @@
       .vform{
         padding: 3%;
         background-color: $backgroundcolor;
-      }
-      .send{
-        .send-btn{
-          @include send-btn
-        }
-        .send-btn:hover{
-          background-color: $maincolor;
-        }
       }
     }
   }

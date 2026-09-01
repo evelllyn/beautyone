@@ -1,23 +1,23 @@
 .item-content{
   margin-top: 9%;
-  @include phone() {
+  @include smallMobile() {
     margin-top: 28%;
   }
   .row{
     padding-left: 1%;
     padding-right: 1%;
     nav{
-      @include phone() {
+      @include smallMobile() {
         margin: 3% auto;
       }
       .breadcrumb{
-        @include phone() {
+        @include smallMobile() {
           margin: 0;
         }
         .breadcrumb-item{
           font-weight: bold;
           font-size: large;
-          @include phone() {
+          @include smallMobile() {
             font-size: medium;
           }
           .item-link{
@@ -32,7 +32,7 @@
     }
     .img-content{
       width: 50%;
-      @include phone() {
+      @include smallMobile() {
         width: 100%;
       }
       img{
@@ -40,14 +40,14 @@
         width: 100%;
         height: 495px;
         object-fit: cover;
-        @include phone() {
+        @include smallMobile() {
           height: 350px;
         }
       }
     }
     .allContent{
       width: 50%;
-      @include phone() {
+      @include smallMobile() {
         width: 100%;
       }
       article{
@@ -71,19 +71,19 @@
           padding-left: 2%;
           border-left: 3px solid $maincolor;
           span{
-            @include mark;
+            background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
           }
         }
       }
       .addCart{
         display: flex;
-        @include phone() {
+        @include smallMobile() {
           display: block;
         }
         .input-group{
           width: 50%;
           margin-right: 8%;
-          @include phone() {
+          @include smallMobile() {
             width: 100%;
             margin-bottom: 4%;
           }
@@ -99,7 +99,7 @@
           color: $listcolor;
           background-color: $mainopacity;
           border-radius: 3px;
-          @include phone() {
+          @include smallMobile() {
             width: 100%;
           }
         }
@@ -116,7 +116,7 @@
         list-style: none;
         border: 3px solid;
         border-color: transparent transparent $dividedcolor transparent;
-        @include phone() {
+        @include smallMobile() {
           padding-left: 0;
         }
         .tab-item{
@@ -128,7 +128,7 @@
             color: $maincolor;
             border: none;
             font-size: x-large;
-            @include phone() {
+            @include smallMobile() {
               font-size: 16px;
             }
           }
@@ -136,7 +136,7 @@
             color: $maincolor;
             border: none;
             font-size: x-large;
-            @include phone() {
+            @include smallMobile() {
               font-size: 16px;
             }
           }
@@ -150,13 +150,13 @@
         align-items: center;
         color: $maincolor;
         background-color: $backgroundcolor;
-        @include phone() {
+        @include smallMobile() {
           height: 250px;
         }
         .tabBox{
           text-align: start;
           font-size: large;
-          @include phone() {
+          @include smallMobile() {
             font-size: 16px;
             padding: 2%;
           }

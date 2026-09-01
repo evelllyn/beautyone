@@ -13,15 +13,7 @@
     span{
       font-size: 24px;
       font-weight: bold;
-      @include mark
-    }
-  }
-  .modal-footer{
-    .btn{
-      @include send-btn
-    }
-    .btn:hover{
-      background-color: $maincolor;
+      background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
     }
   }
 }
@@ -30,52 +22,46 @@
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  @include pad(){
+  @include mobile(){
     margin-top: 15%;
   }
-  @include phone(){
+  @include smallMobile(){
     margin-top: 20%;
   }
   .carousel-inner{
     width: 83.7%;
-    @include pad(){
+    @include mobile(){
       width: 100%;
     }
     img{
       height: 665px;
       object-fit: cover;
-      @include pad(){
+      @include mobile(){
         height: 440px;
       }
-      @include phone(){
+      @include smallMobile(){
         height: 330px;
       }
     }
     .carousel-caption{
       position: absolute;
       top: 33%;
-      @include pad(){
+      @include mobile(){
         top: 28%;
       }
-      @include phone(){
+      @include smallMobile(){
         top: 25%;
       }
       .sloganSmall{
         font-size: larger;
-        @include phone(){
+        @include smallMobile(){
           font-size: medium;
         }
       }
       .slogan{
-        @include phone(){
+        @include smallMobile(){
           display: none;
         }
-      }
-      .btn{
-        @include button
-      }
-      .btn:hover{
-        background-color: $maincolor;
       }
     }
   }
@@ -86,18 +72,18 @@
       display: flex;
       margin-top: 4%;
       margin-bottom: 3%;
-      @include phone(){
+      @include smallMobile(){
         margin-top: 0;
         margin-bottom: 5%;
       }
       .skinImg{
         text-align: center;
-        @include phone(){
+        @include smallMobile(){
           display: none;
         }
         img{
           height: 450px;
-          @include pad(){
+          @include mobile(){
             height: 320px;
           }
         }
@@ -106,7 +92,7 @@
         border: 2px dashed $maincolor;
         border-radius: 10px;
         align-content: center;
-        @include phone(){
+        @include smallMobile(){
           width: 70%;
         }
         .skinText{
@@ -114,7 +100,7 @@
           color: #000;
           font-weight: 400;
           padding: 8%;
-          @include pad(){
+          @include mobile(){
             font-size: 16px;
             font-weight: 300;
           }
@@ -122,11 +108,11 @@
             font-size: 30px;
             font-weight: bold;
             color: $maincolor;
-            @include pad(){
+            @include mobile(){
               font-size: 24px;
               font-weight: 400;
             }
-            @include phone(){
+            @include smallMobile(){
               font-size: 20px;
             }
           }
@@ -138,24 +124,24 @@
       padding-bottom: 5%;
       display: flex;
       justify-content: center;
-      @include box;
+      background: linear-gradient(-45deg, #C5E8FE 33%, #FFF6BB 66%);
       .slogan{
         text-align: center;
         width: 60%;
-        @include pad(){
+        @include mobile(){
           width: 52%;
         }
-        @include phone(){
+        @include smallMobile(){
           width: 80%;
         }
         .aboutTitle{
           font-size: 30px;
           color: $maincolor;
           font-style: italic;
-          @include pad(){
+          @include mobile(){
             font-size: 20px;
           }
-          @include phone(){
+          @include smallMobile(){
             font-size: 14px;
           }
         }
@@ -169,7 +155,7 @@
             font-size: 18px;
             padding: 1% 2%;
             border: 2.5px solid $dividedcolor ;
-            @include phone(){
+            @include smallMobile(){
               font-size: 12px;
             }
           }
@@ -178,10 +164,10 @@
           font-size: 30px;
           font-style: italic;
           color: $maincolor;
-          @include pad(){
+          @include mobile(){
             font-size: 20px;
           }
-          @include phone(){
+          @include smallMobile(){
             font-size: 14px;
           }
           span{
@@ -193,7 +179,7 @@
           color: $maincolor;
           margin-top: 5%;
           text-align: left;
-          @include phone(){
+          @include smallMobile(){
             font-size: 12px;
           }
         }
@@ -201,7 +187,7 @@
           font-size: 24px;
           color: $maincolor;
           text-align: right;
-          @include phone(){
+          @include smallMobile(){
             font-size: 12px;
           }
         }
@@ -210,24 +196,24 @@
   }
 }
 .classic{
-  @include pad(){
+  @include mobile(){
     text-align: center;
   }
   .words{
     font-size: 24px;
     margin: 3% 0 0 8%;
-    @include pad(){
+    @include mobile(){
       font-size: 24px;
       margin-left: 0;
     }
-    @include phone(){
+    @include smallMobile(){
       font-size: 20px;
     }
     span{
       font-size: 36px;
       padding-right: 1%;
       color: $maincolor;
-      @include phone(){
+      @include smallMobile(){
         font-size: 20px;
       }
     }
@@ -238,34 +224,34 @@
     overflow: hidden;
     margin: 0 auto;
     padding: 0;
-    @include pad(){
+    @include mobile(){
       height: 300px;
     }
-    @include phone(){
+    @include smallMobile(){
       height: 280px;
       width: 100%;
     }
   }
 }
 .new{
-  @include pad(){
+  @include mobile(){
     text-align: center;
   }
   .words{
     font-size: 24px;
     margin: 1% 0 0 8%;
-    @include pad(){
+    @include mobile(){
       font-size: 24px;
       margin-left: 0;
     }
-    @include phone(){
+    @include smallMobile(){
       font-size: 20px;
     }
     span{
       font-size: 36px;
       padding-right: 1%;
       color: $maincolor;
-      @include phone(){
+      @include smallMobile(){
         font-size: 20px;
       }
     }
@@ -276,10 +262,10 @@
     overflow: hidden;
     margin: 0 auto;
     padding: 0;
-    @include pad(){
+    @include mobile(){
       height: 300px;
     }
-    @include phone(){
+    @include smallMobile(){
       height: 280px;
       width: 100%;
     }
@@ -291,7 +277,7 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  @include phone(){
+  @include smallMobile(){
     padding-left: 0;
     padding-right: 0;
     width: 100%;
@@ -304,10 +290,10 @@
         font-size: 36px;
         margin: 0 15px 0 15px;
         border: 1px dotted white;
-        @include pad(){
+        @include mobile(){
           font-size: 20px;
         }
-        @include phone(){
+        @include smallMobile(){
           font-size: 18px;
         }
       }
@@ -318,17 +304,17 @@
         display: flex;
         margin-bottom: 2%;
         padding: 0;
-        @include phone(){
+        @include smallMobile(){
           display: block;
         }
         .tipsBoxText{
           width: 33%;
           margin-right: 2%;
           padding: 1% 5%;
-          @include pad(){
+          @include mobile(){
             padding: 1% 0;
           }
-          @include phone(){
+          @include smallMobile(){
             width: 100%;
             text-align: center;
           }
@@ -336,22 +322,22 @@
             font-size: 24px;
             margin-top: 5%;
             padding-left: 13px;
-            @include pad(){
+            @include mobile(){
               font-size: 18px;
             }
-            @include phone(){
+            @include smallMobile(){
               padding-left: 0;
             }
           }
           ul{
-            @include phone(){
+            @include smallMobile(){
               padding-left: 22%;
             }
             li{
-              @include pad(){
+              @include mobile(){
                 font-size: 16px;
               }
-              @include phone(){
+              @include smallMobile(){
                 text-align: start;
               }
             }
@@ -371,25 +357,25 @@
   margin-top: 4%;
   margin-bottom: 4%;
   .subscribe-content{
-    @include pad(){
+    @include mobile(){
       text-align: center;
     }
     label{
       font-size: 32px;
       color: $maincolor;
-      @include pad(){
+      @include mobile(){
         font-size: 24px;
       }
-      @include phone(){
+      @include smallMobile(){
         font-size: 16px
       }
       span{
-        @include mark;
+        background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
       }
     }
     .inputBox{
       align-content: center;
-      @include pad(){
+      @include mobile(){
         margin-top: 2%;
       }
       input{

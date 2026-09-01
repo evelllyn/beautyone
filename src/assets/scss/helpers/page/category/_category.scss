@@ -1,6 +1,6 @@
 .category{
   margin-top: 9%;
-  @include phone(){
+  @include smallMobile(){
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -13,21 +13,21 @@
     padding-left: 0;
     padding-right: 0;
     border-bottom: 3px dotted $dividedcolor;
-    @include pad(){
+    @include mobile(){
       flex-wrap: wrap;
       margin-top: 25%;
     }
-    @include phone(){
+    @include smallMobile(){
       flex-direction: column;
     }
     .category-list{
       padding-bottom: 1%;
-      @include pad(){
+      @include mobile(){
         width: 30%;
         text-align: center;
         flex: 1 0 auto;
       }
-      @include phone(){
+      @include smallMobile(){
         width: 100%;
         padding-top: 1%;
         padding-bottom: 1%;
@@ -39,7 +39,7 @@
           color: $doubleopacity;
           font-weight: bold;
           transition: color 0.1s ease-in;
-          @include phone() {
+          @include smallMobile() {
             font-size: 16px;
           }
         }

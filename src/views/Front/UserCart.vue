@@ -36,7 +36,7 @@
                 <div class="text-danger" v-if="item.coupon">已套用優惠券</div>
               </td>
               <td class="deleteItem text-end">
-                <button type="button" class="btn btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id" @click="removeCartItem(item.id)">
+                <button type="button" class="btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id" @click="removeCartItem(item.id)">
                   <i class="bi bi-trash3"></i>
                 </button>
               </td>

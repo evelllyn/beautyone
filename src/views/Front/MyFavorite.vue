@@ -40,7 +40,7 @@
     <div v-else class="noFavorite">
       <i class="bi bi-chat-square-heart"></i>
       <div class="nothing-content fs-3">目前沒有收藏的產品喔</div>
-      <router-link to="/products" class="btn surf-btn">現在去逛逛</router-link>
+      <router-link to="/products" class="btn">現在去逛逛</router-link>
     </div>
   </div>
 </template>

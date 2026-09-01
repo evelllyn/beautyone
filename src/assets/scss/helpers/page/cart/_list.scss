@@ -1,14 +1,14 @@
 .cart{
   margin-top: 10%;
   margin-bottom: 2.5%;
-  @include phone(){
+  @include smallMobile(){
     width: 100%;
     margin-top: 30%;
   }
   .cartBox{
     padding-left: 1%;
     padding-right: 1%;
-    @include phone(){
+    @include smallMobile(){
       padding-left: 5%;
       padding-right: 5%;
     }
@@ -25,7 +25,7 @@
       table{
         border-collapse: collapse;
         thead{
-          @include phone(){
+          @include smallMobile(){
             display: none;
           }
           th{
@@ -37,7 +37,7 @@
         tbody{
           tr{
             border-bottom: 15px solid #fff;
-            @include phone(){
+            @include smallMobile(){
               display: flex;
               flex-direction: column;
               float: right;
@@ -46,7 +46,7 @@
               border: none;
             }
             .blank{
-              @include phone(){
+              @include smallMobile(){
                 display: none;
               }
             }
@@ -54,7 +54,7 @@
               height: 100px;
               background-size: cover;
               background-position: center;
-              @include phone(){
+              @include smallMobile(){
                 margin-top: 4%;
               }
             }
@@ -62,31 +62,31 @@
               padding: 2% 0 1% 0;
             }
             .list-qty{
-              @include phone(){
+              @include smallMobile(){
                 padding: 0;
               }
             }
             .list-price{
-              @include phone(){
+              @include smallMobile(){
                 padding: 1% 0 0 0;
               }
               small{
-                @include phone(){
+                @include smallMobile(){
                   display: none;
                 }
               }
               .text-danger{
-                @include phone(){
+                @include smallMobile(){
                   display: none;
                 }
               }
             }
             .deleteItem{
-              @include phone(){
+              @include smallMobile(){
                 padding: 0 0 5% 0;
               }
               .btn{
-                @include phone(){
+                @include smallMobile(){
                   width: 100%;
                 }
               }
@@ -95,7 +95,7 @@
         }
         tfoot{
           .blank{
-            @include phone(){
+            @include smallMobile(){
               display: none;
             }
           }
@@ -104,7 +104,7 @@
             border: none;
           }
           .totalPrice{
-            @include phone(){
+            @include smallMobile(){
               padding-left: 0;
               padding-right: 0;
             }
@@ -113,7 +113,7 @@
       }
       .use-coupon{
         .blank{
-          @include phone(){
+          @include smallMobile(){
             display: none;
           }
         }
@@ -130,13 +130,9 @@
         margin-top: 4.4%;
         padding-bottom: 1%;
         .go-btn{
-          @include button;
-          @include phone(){
+          @include smallMobile(){
             width: 100%;
           }
-        }
-        .go-btn:hover{
-          background-color: $maincolor;
         }
       }
     }
@@ -162,12 +158,6 @@
         color: $maincolor;
         margin-top: 3%;
         margin-bottom: 5%;
-      }
-      .surf-btn{
-        @include button
-      }
-      .surf-btn:hover{
-        background-color: $maincolor;
       }
     }
   }

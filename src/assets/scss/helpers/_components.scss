@@ -1,0 +1,24 @@
+.btn {
+  padding: 1% 5%;
+  color: $listcolor;
+  background-color: $mainopacity;
+  border-radius: 3px;
+  font-weight: bold;
+
+  &:hover{
+    color: $listcolor;
+    background-color: $maincolor;
+  }
+}
+
+.send-btn {
+  padding: 1% 5%;
+  color: $listcolor;
+  background-color: $doubleopacity;
+  border-radius: 3px;
+  margin: 2% auto;
+
+  &:hover{
+    background-color: $maincolor;
+  }
+}

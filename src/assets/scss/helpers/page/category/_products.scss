@@ -14,10 +14,10 @@
       background-size: cover;
       background-position:center;
       border-radius: 6px;
-      @include pad(){
+      @include mobile(){
         height: 150px;
       }
-      @include phone(){
+      @include smallMobile(){
         height: 115px;
       }
       .on{
@@ -27,10 +27,10 @@
         top: 3%;
         left: 3%;
         transform: rotate(-45deg);
-        @include pad(){
+        @include mobile(){
           top: 2%;
         }
-        @include phone(){
+        @include smallMobile(){
           top: 2%;
           font-size: 12px;
         }
@@ -42,10 +42,10 @@
         top: 8%;
         left: 6%;
         transform: rotate(-45deg);
-        @include pad(){
+        @include mobile(){
           top: 6%;
         }
-        @include phone(){
+        @include smallMobile(){
           top: 5%;
           left: 5%;
           font-size: 12px;
@@ -55,12 +55,12 @@
         border: 45px solid;
         border-color: red transparent transparent red;
         position: absolute;
-        @include pad(){
+        @include mobile(){
           border: 36px solid;
           border-color: red transparent transparent red;
           position: absolute;
         }
-        @include phone(){
+        @include smallMobile(){
           border: 30px solid;
           border-color: red transparent transparent red;
           position: absolute;
@@ -78,7 +78,7 @@
         padding-bottom: 3%;
         border-radius: 0 0 6px 6px;
         opacity: 0;
-        @include phone(){
+        @include smallMobile(){
           display: none;
         }
       }
@@ -92,7 +92,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        @include phone() {
+        @include smallMobile() {
           display: block;
           text-align: start;
         }
@@ -100,14 +100,14 @@
           font-size: 18px;
           font-weight: bold;
           margin-bottom: 0;
-          @include phone() {
+          @include smallMobile() {
             font-size: 16px;
           }
         }
         i{
           font-size: 20px;
           color: $maincolor;
-          @include phone() {
+          @include smallMobile() {
             font-size: 14px;
           }
         }
@@ -117,10 +117,10 @@
         justify-content: space-between;
         align-items: end;
         padding-left: 0.5%;
-        @include pad() {
+        @include mobile() {
           font-size: 16px;
         }
-        @include phone() {
+        @include smallMobile() {
           flex-direction: column;
           align-items: flex-start;
         }
