@@ -1,13 +1,17 @@
 <template>
   <LoaDing :active="isLoading"/>
-  <div class="container goods others-content">
+  <div class="product-card others-content">
     <div class="row">
       <div class="col col-6 col-md-3 my-4" v-for="item in filteredProduct" :key="item.id">
         <div class="card" @click="getProductDescription(item.id)">
           <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
             <div class="sale-logo" v-if="item.price != item.origin_price"></div>
-            <span class="on" v-if="item.price != item.origin_price">ON</span>
-            <span class="sale" v-if="item.price != item.origin_price">SALE</span>
+            <span
+              v-if="item.price !== item.origin_price"
+              class="sale-badge"
+            >
+              ON SALE
+            </span>
             <div class="more">查看更多</div>
           </div>
           <div class="card-body">

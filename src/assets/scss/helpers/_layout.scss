@@ -2,121 +2,175 @@
 .frontNavbar{
   width: 100%;
   z-index: 99;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
-  padding-top: 0;
+  padding-block: 0;
+
+  box-shadow: $shadow-y;
   display: flex;
   flex-direction: column;
-  marquee{
+
+  .marquee{
+    width: 100%;
+    overflow: hidden;
+    padding-block: $space-2;
+
     background-color: $maincolor;
-  }
-  .logo{
-    margin-left: 7.4%;
-    @include phone(){
-      margin-left: 0;
-    }
-    img{
-      height: 40px;
-      @include phone(){
-        height: 25px;
+    color: $txtlight;
+
+    font-size: clamp(1rem, .5vw + .5rem, 1.5rem);
+    font-weight: 600;
+    letter-spacing: .1em;
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+
+      span {
+        padding-right: 50rem;
       }
     }
   }
-  .nav-item{
-    .nav-link{
-      color: $mainopacity;
-      font-weight: bold;
-      transition: color 0.1s ease-in;
+
+  .container-fluid {
+
+    .logo {
+      width: 200px;
+      margin-right: $space-8;
     }
-    .nav-link.active{
-      color: $maincolor;
-      font-weight: bold;
-    }
-    .nav-link:hover{
-      color: $maincolor;
-    }
-  }
-  .right{
-    margin-right: 10%;
-    @include phone(){
-      margin-right: 0;
-    }
-    .cartLink{
-      margin-right: 10%;
-    }
-    .nav-link{
-      position: relative;
-      i{
-        font-size: 30px;
+
+    .navbar-nav {
+      gap: $space-4;
+
+      .nav-item{
+
+        .nav-link{
+          color: $mainopacity;
+          font-size: clamp(1rem, 1vw + .2rem, 1.5rem);
+          font-weight: bold;
+
+          transition: color .3s ease;
+
+          &.active {
+            color: $maincolor;
+          }
+
+          &:hover {
+            color: $maincolor;
+          }
+        }
       }
-      .badge{
-        position: absolute;
-        left: 50%;
-        @include phone(){
-          left: 8%;
+    }
+
+    .right{
+      display: flex;
+      gap: $space-2;
+
+      .nav-link{
+        position: relative;
+
+        i{
+          font-size: $text-lg;
+        }
+
+        .badge{
+          position: absolute;
+          left: 50%;
         }
       }
     }
   }
 }
+
 // 頁尾
 footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+
+  padding-block: $space-4;
   background-color: $maincolor;
-  position: relative;
-  .social{
-    text-align: center;
-    margin-top: 5%;
-    padding-top: 2%;
-    ul{
-      @include phone(){
-        margin-bottom: 0;
-      }
-      a{
-        font-size: 28px;
-        @include phone(){
-          font-size: 16px;
+
+  .social {
+    padding-block: $space-4;
+
+    .list-inline {
+      display: flex;
+      justify-content: center;
+      gap: $space-8;
+      margin-bottom: 0;
+
+      .list-inline-item {
+        margin-right: 0;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          font-size: $text-lg;
+          transition: transform .3s;
+
+          @media (hover: hover) and (pointer: fine) {
+            &:hover {
+              transform: translateY(-$space-2);
+            }
+          }
         }
       }
     }
   }
-  .contact{
-    text-align: center;
-    @include phone(){
-      width: 86%;
-    }
-    a{
-      text-decoration: none;
-      @include phone(){
-        font-size: 12px;
-      }
-    }
-    a:hover{
-      text-decoration: underline;
-    }
-    p{
-      display: inline-block;
-      @include phone(){
-        font-size: 12px;
-        margin-bottom: 0;
-      }
-    }
-  }
-  .credit{
-    text-align: center;
-    img{
-      @include phone(){
-        width: 50px;
-        height: auto;
-      }
-    }
-  }
-  .copyright{
-    text-align: center;
-    padding-top: 1%;
-    p{
-      display: inline-block;
-      @include phone(){
-        font-size: 12px;
+
+  .contact {
+    --contact-gap: #{$space-8};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--contact-gap);
+
+    a, p {
+      position: relative;
+      margin: 0;
+
+      display: flex;
+      gap: $space-2;
+
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: calc((var(--contact-gap) / 2) * -1);
+        transform: translateY(-50%);
+
+        width: 1.5px;
+        height: 1em;
+        background-color: $txtlight;
       }
     }
   }
+
+  .credit {
+    display: flex;
+    gap: $space-4;
+
+    img {
+      width: 80px;
+    }
+  }
+
+  .copyright {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

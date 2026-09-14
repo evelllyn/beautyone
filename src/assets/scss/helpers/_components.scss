@@ -1,9 +1,23 @@
+.container-fluid {
+  width: min(100% - 2rem, 1400px);
+  height: 100%;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
 .btn {
-  padding: 1% 5%;
+  padding: .8em 1.5em;
   color: $listcolor;
   background-color: $mainopacity;
-  border-radius: 3px;
-  font-weight: bold;
+  border-radius: $radius-sm;
+  font-weight: 600;
+
+  transition: color .3s, background-color .3s;
 
   &:hover{
     color: $listcolor;
@@ -11,14 +25,154 @@
   }
 }
 
+.sec-btn {
+  padding: .8em 1.5em;
+  border-radius: $radius-sm;
+  border: 1px solid $btnborder;
+
+  color: $txtdark;
+  background-color: #eae6dd;
+
+  font-weight: 600;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: rgba(234, 230, 221, .6);
+  }
+}
+
 .send-btn {
-  padding: 1% 5%;
+  padding: .8em 1.5em;
   color: $listcolor;
   background-color: $doubleopacity;
-  border-radius: 3px;
-  margin: 2% auto;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  transition: background-color .3s;
 
   &:hover{
     background-color: $maincolor;
+  }
+}
+
+.product-card{
+  text-align: end;
+
+  .card{
+    &:hover {
+      cursor: pointer;
+
+      .card-img-top {
+        .more {
+          opacity: 1;
+        }
+      }
+    }
+
+    cursor: default;
+    border: none;
+
+    .card-img-top{
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position:center;
+
+      border-radius: $radius-md;
+
+      position: relative;
+
+      .sale-badge {
+        position: absolute;
+        top: $space-2;
+        left: $space-2;
+
+        background-color: red;
+        color: $txtlight;
+
+        border-radius: $radius-md;
+
+        font-weight: bold;
+        font-size: clamp(0.65rem, 1vw, 1rem);
+        padding: .5em;
+      }
+
+      .more{
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        padding: $space-4;
+
+        background-color: $maincolor;
+        color: $backgroundcolor;
+        border-radius: 0 0 $radius-md $radius-md;
+
+        text-align: center;
+        font-weight: bold;
+
+        opacity: 0;
+
+        transition: opacity .2s ease-in;
+      }
+    }
+
+    .card-body{
+      padding-inline: 0;
+
+      .card-title{
+        color: $maincolor;
+        margin-bottom: 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include smallMobile() {
+          display: block;
+          text-align: start;
+        }
+
+        p{
+          font-size: $text-sm;
+          font-weight: bold;
+          margin-bottom: 0;
+
+          @include smallMobile() {
+            font-size: 16px;
+          }
+        }
+
+        i{
+          font-size: $text-md;
+          color: $maincolor;
+
+          @include smallMobile() {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .product-price{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+
+        font-size: $text-sm;
+
+        @include mobile() {
+          font-size: 16px;
+        }
+
+        @include smallMobile() {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .del-price{
+          opacity: 0.7;
+        }
+      }
+    }
   }
 }

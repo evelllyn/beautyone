@@ -1,6 +1,6 @@
 <template>
   <LoaDing :active="isLoading"/>
-  <div class="check-out container">
+  <div class="check-out container-fluid">
     <div class="flow-container">
       <ul class="flow-nav">
         <li class="flow-item">
@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="backToBuy" v-if="order.is_paid === true">
-        <router-link to="/products" class="btn surf-btn">繼續選購</router-link>
+        <router-link to="/products" class="sec-btn surf-btn">繼續選購</router-link>
       </div>
     <div class="payment-list fs-4" v-if="order.is_paid === true">訂單明細</div>
     <form class="checkout-form" @submit.prevent="payOrder">

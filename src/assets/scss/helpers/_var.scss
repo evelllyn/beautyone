@@ -1,5 +1,8 @@
+//color
 $maincolor: #004225;
 $mainopacity: #4C7A66;
+$txtdark: #282621;
+$txtlight: #FFFDF7;
 $doubleopacity:#BDC2BD;
 $emphaticcolor: #fff7bc;
 $pricecolor: #B95134;
@@ -9,3 +12,42 @@ $dividedcolor: #eae6dd;
 $gapcolor: #d1d1d1;
 $listcolor: #F4F4F4;
 $btnborder: #DEE2E6;
+
+//color
+// $primary: #F7F5EF;
+// $dark: #282621;
+// $light: #FFFDF7;
+// $bg-title: #a59b94;
+// $main-title:#554637;
+// $side-title: #86807a;
+// $alert:#C43E27;
+
+// space
+$space-2:.5rem;
+$space-4:1rem;
+$space-6:1.5rem;
+$space-8:2rem;
+$space-12:3rem;
+$space-14:3.5rem;
+$space-16:4rem;
+$space-20:5rem;
+$space-32:8rem;
+
+//font-size
+$text-xs:1rem;
+$text-sm:1.25rem;
+$text-md:1.5rem;
+$text-lg:2.25rem;
+$text-xl:3rem;
+$text-2xl:4rem;
+
+// radius
+$radius-sm:.5rem;
+$radius-md:2rem;
+$radius-lg:12.5rem;
+$radius-round:999px;
+
+// shadow
+$shadow:0 0 1.5rem rgba(0, 0, 0, 0.2);
+$shadow-y:0 1px 8px 0 rgba(0, 0, 0, 0.1);
+$shadow-xy:.5rem 1.5rem 3rem #4a463d;

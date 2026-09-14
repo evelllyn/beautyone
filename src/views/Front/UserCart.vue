@@ -1,6 +1,6 @@
 <template>
   <LoaDing :avtive="isLoading"/>
-  <div class="container cart">
+  <div class="container-fluid cart">
     <div class="row cartBox">
       <div class="boxContent" v-if="cart.carts.length">
         <h3>購物清單</h3>
@@ -59,7 +59,7 @@
           <div class="blank col-8"></div>
           <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
           <div class="input-group-append">
-            <button type="button" class="btn coupon-btn" @click="addCouponCode">
+            <button type="button" class="sec-btn coupon-btn" @click="addCouponCode">
               使用優惠券
             </button>
           </div>

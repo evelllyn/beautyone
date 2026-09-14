@@ -33,93 +33,118 @@
       </div>
     </div>
   </div>
-  <div class="classic">
-    <p class="words fw-bold"><span>HOT SALE</span>經典熱銷</p>
+  <div class="classic container-fluid">
+    <p class="words fw-bold">
+      <span>HOT SALE</span>
+      <span>經典熱銷</span>
+    </p>
     <div class="hotSale">
-      <BodyProducts/>
+      <BodyProducts :carousel="true"/>
     </div>
   </div>
-  <div class="new">
-    <p class="words fw-bold"><span>NEW ARRIVAL</span>新品上市</p>
+  <div class="new container-fluid">
+    <p class="words fw-bold">
+      <span>NEW ARRIVAL</span>
+      <span>新品上市</span>
+    </p>
     <div class="newArrival">
-      <HeadProducts/>
+      <HeadProducts :carousel="true"/>
     </div>
   </div>
   <div class="tips">
-    <div class="container text-light">
+    <div class="container-fluid text-light">
       <div class="tipsBox">
         <div class="insideBox py-3 bg-white bg-opacity-10">
           <div class="tipsTitle p-3 fw-bold">養成日常小習慣&emsp;讓你擁有好肌膚</div>
         </div>
-        <div class="py-3">
-          <div class="tipsBoxBig container">
-            <div class="tipsBoxSmall container fw-bold">
-              <div class="tipsBoxText bg-white bg-opacity-10">
-                <p class="fw-bold">WASHING FACE</p>
-                <ul>
-                  <li>一天洗臉1-2次即可</li>
-                  <li>沒化妝也要卸妝</li>
-                  <li>避免重複使用濕毛巾</li>
-                </ul>
-              </div>
-              <div class="tipsBoxText bg-white bg-opacity-10">
-                <p class="fw-bold">MOISTURIZING</p>
-                <ul>
-                  <li>肌膚水分充足就會自然透亮</li>
-                  <li>選擇適合自己的保養產品<br>避免太過營養導致毛孔堵塞</li>
-                </ul>
-              </div>
-              <div class="tipsBoxText final-tips bg-white bg-opacity-10">
-                <p class="fw-bold">GOOD DIET</p>
-                <ul>
-                  <li>喝足2000cc的開水</li>
-                  <li>飲食清淡並戒糖</li>
-                  <li>多吃蔬果攝取維他命C</li>
-                </ul>
-              </div>
-            </div>
-            <div class="tipsBoxSmall sec-tips container fw-bold">
-              <div class="tipsBoxText bg-white bg-opacity-10">
-                <p class="fw-bold">SUN PROTECTION</p>
-                <ul>
-                  <li>每2-3小時補擦防曬</li>
-                  <li>盡量避免於上午11點至<br>下午2點從事戶外活動</li>
-                </ul>
-              </div>
-              <div class="tipsBoxText bg-white bg-opacity-10">
-                <p class="fw-bold">IMPROVING SLEEP</p>
-                <ul>
-                  <li>早睡不熬夜<br>讓身體分泌退黑激素<br>增強皮膚屏障</li>
-                </ul>
-              </div>
-              <div class="tipsBoxText final-tips bg-white bg-opacity-10">
-                <p class="fw-bold">CLEAN ENVIRONMENT</p>
-                <ul>
-                  <li>養成良好的衛生習慣</li>
-                  <li>定期清洗更換枕頭套和床單</li>
-                  <li>避免在洗手前用手碰臉</li>
-                </ul>
-              </div>
-            </div>
+        <div class="tipsGrid">
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>WASHING FACE</p>
+            <ul>
+              <li>一天洗臉1-2次即可，沒化妝也要卸妝</li>
+              <li>避免重複使用濕毛巾</li>
+            </ul>
+          </div>
+
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>MOISTURIZING</p>
+            <ul>
+              <li>肌膚水分充足就會自然透亮</li>
+              <li>
+                選擇適合自己的保養產品，避免太過營養導致毛孔堵塞
+              </li>
+            </ul>
+          </div>
+
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>GOOD DIET</p>
+            <ul>
+              <li>喝足2000cc的開水</li>
+              <li>飲食清淡並戒糖，多吃蔬果攝取維他命C</li>
+            </ul>
+          </div>
+
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>SUN PROTECTION</p>
+            <ul>
+              <li>每2-3小時補擦防曬</li>
+              <li>
+                盡量避免於上午11點至下午2點從事戶外活動
+              </li>
+            </ul>
+          </div>
+
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>IMPROVING SLEEP</p>
+            <ul>
+              <li>充足睡眠 7 - 9 小時</li>
+              <li>
+                早睡不熬夜，讓身體分泌退黑激素增強皮膚屏障
+              </li>
+            </ul>
+          </div>
+
+          <div class="tipsText bg-white bg-opacity-10">
+            <p>CLEAN ENVIRONMENT</p>
+            <ul>
+              <li>定期清洗更換枕頭套和床單</li>
+              <li>避免在洗手前用手碰臉</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="subscribe container">
+  <div class="subscribe container-fluid">
     <VForm class="vform" v-slot="{ errors }">
       <div class="subscribe-content row">
         <div class="emailLabel col-md-7">
-          <label for="email" class="fw-bold">訂閱我們，取得<span>最新消息與優惠折扣 !</span></label>
+          <label for="email" class="fw-bold">訂閱我們，取得最新消息與優惠折扣 !</label>
         </div>
         <div class="inputBox col-md-5">
           <div class="input-group">
-            <div class="flex-grow-1">
-              <VField id="email" name="Email" type="email" class="form-control" :class="{ 'is-invalid': errors['Email'] }" placeholder="請輸入Email" rules="email|required" v-model="userEmail"></VField>
-              <VErrorMessage name="Email" class="invalid-feedback"></VErrorMessage>
-            </div>
-            <button class="btn text-light" type="button" :disabled="errors['Email'] || !userEmail">訂閱</button>
+            <VField
+              id="email"
+              name="Email"
+              type="email"
+              class="form-control"
+              :class="{ 'is-invalid': errors['Email'] }"
+              placeholder="請輸入Email"
+              rules="email|required"
+              v-model="userEmail">
+            </VField>
+            <button
+              class="btn text-light"
+              type="button"
+              :disabled="errors['Email'] || !userEmail"
+            >
+              訂閱
+            </button>
           </div>
+          <VErrorMessage
+            name="Email"
+            class="invalid-feedback">
+          </VErrorMessage>
         </div>
       </div>
     </VForm>

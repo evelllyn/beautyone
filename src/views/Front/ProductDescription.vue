@@ -1,7 +1,7 @@
 <template>
   <LoaDing :active="isLoading"/>
-  <div class="item-content container">
-    <div class="row justify-content-center">
+  <div class="item-box container-fluid">
+    <div class="item-breadcrumb">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -13,16 +13,24 @@
           <li class="breadcrumb-item active" aria-current="page">{{ product.title}}</li>
         </ol>
       </nav>
-      <div class="img-content">
-        <img :src="product.imageUrl" alt="商品圖片" class="img-fluid mb-3">
+    </div>
+    <div class="item-content row">
+      <div class="img-content col-12 col-md-6">
+        <img :src="product.imageUrl" alt="商品圖片">
       </div>
-      <div class="allContent">
+      <div class="allContent col-12 col-md-6">
         <article>
           <h2>{{ product.title}}</h2>
           <div class="description">
-            <span>【產品描述】</span><br>
-            {{ product.description}}<br>
-            {{ product.content}}
+            <span>產品描述</span>
+            <p>
+              <i class="fa-solid fa-circle"></i>
+              {{ product.description}}
+            </p>
+            <p>
+              <i class="fa-solid fa-circle"></i>
+              {{ product.content}}
+            </p>
           </div>
         </article>
         <div class="fs-3 text-danger" v-if="product.price">
@@ -40,59 +48,91 @@
         </div>
         <div class="addCart">
           <div class="input-group">
-            <button class="num-btn btn" type="button" @click="minusNumber(item)">
+            <button
+              class="sec-btn"
+              type="button"
+              @click="minusNumber(item)"
+            >
               <i class="bi bi-dash-lg"></i>
             </button>
+
             <input type="text" v-model.number="item.qty" min="1" class="form-control text-center" placeholder="" aria-label="" @input="manualInput">
-            <button class="num-btn btn" type="button" @click="addNumber(item)">
+
+            <button
+              class="sec-btn"
+              type="button"
+              @click="addNumber(item)"
+            >
               <i class="bi bi-plus-lg"></i>
             </button>
           </div>
-          <button type="button" class="cart-btn btn" :disabled="this.status.loadingItem === product.id" @click="addToCart(id)">
+
+          <button
+            type="button"
+            class="cart-btn btn"
+            :disabled="this.status.loadingItem === product.id"
+            @click="addToCart(id)"
+          >
             加入購物車
           </button>
         </div>
       </div>
-      <div class="tab-container">
-        <ul class="tab-nav">
-          <li class="tab-item">
-            <button type="button" class="tab-link buy bg-white" :class="{ active: selectedTab === 'buyTab'}" @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
-          </li>
-          <li class="tab-item">
-            <button type="button" class="tab-link carry bg-white" :class="{ active: selectedTab === 'carryTab'}" @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
-          </li>
-        </ul>
-        <component :is="selectTabComponent" class="tab-content">
-          <div class="buy-content" v-if="selectedTab === 'buyTab'"></div>
-          <div class="carry-content" v-else-if="selectedTab === 'carryTab'"></div>
-        </component>
-      </div>
     </div>
+
+    <div class="tab-container">
+      <ul class="tab-nav">
+        <li class="tab-item">
+          <button type="button" class="tab-link buy bg-white" :class="{ active:   selectedTab === 'buyTab' }"
+            @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
+        </li>
+        <li class="tab-item">
+          <button type="button" class="tab-link carry bg-white" :class="{ active:   selectedTab === 'carryTab' }"
+            @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
+        </li>
+      </ul>
+      <component :is="selectTabComponent" class="tab-content">
+        <div class="buy-content" v-if="selectedTab === 'buyTab'"></div>
+        <div class="carry-content" v-else-if="selectedTab === 'carryTab'"></div>
+      </component>
+    </div>
+
     <div class="question">
-      <h5 class="words fw-bold"><span class="fs-2">FAQ</span>常見問題</h5>
+      <p class="words fw-bold">
+        <span>FAQ</span>
+        <span>常見問題</span>
+      </p>
       <div class="questionBox">
         <AccorDion/>
       </div>
     </div>
-    <div class="goods">
-      <h5 class="words fw-bold"><span class="fs-2">ON SALE</span>促銷商品</h5>
-      <div class="onSaleGoods">
-        <div class="col col-6 col-md-3 my-4" v-for="item in onSaleProducts" :key="item.id">
-          <div class="card" @click="getProductDescription(item.id)">
-            <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
-                <div class="sale-logo" v-if="item.price !== item.origin_price"></div>
-                <span class="on" v-if="item.price !== item.origin_price">ON</span>
-                <span class="sale" v-if="item.price !== item.origin_price">SALE</span>
-                <div class="more">查看更多</div>
-              </div>
-              <div class="card-body">
-                <div class="card-title">
-                  <p>{{ item.title }}</p>
+    <div class="onSaleGoods">
+      <p class="words fw-bold">
+        <span>ON SALE</span>
+        <span>促銷商品</span>
+      </p>
+      <div class="product-card">
+        <div class="product-carousel">
+          <div class="product-slide" v-for="item in onSaleProducts" :key="item.id">
+            <div class="card" @click="getProductDescription(item.id)">
+              <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
+                  <div class="sale-logo" v-if="item.price !== item.origin_price"></div>
+                  <span
+                    v-if="item.price !== item.origin_price"
+                    class="sale-badge"
+                  >
+                    ON SALE
+                  </span>
+                  <div class="more">查看更多</div>
                 </div>
-                <div class="product-price">
-                  <span class="text-danger" v-if="item.price">NT ${{ item.price }}</span>
-                  <span v-if="!item.price">{{ item.origin_price }}元</span>
-                  <del class="del-price float-end" v-if="item.price != item.origin_price">原價NT${{ item.origin_price }}</del>
+                <div class="card-body">
+                  <div class="card-title">
+                    <p>{{ item.title }}</p>
+                  </div>
+                  <div class="product-price">
+                    <span class="text-danger" v-if="item.price">NT ${{ item.price }}</span>
+                    <span v-if="!item.price">{{ item.origin_price }}元</span>
+                    <del class="del-price float-end" v-if="item.price != item.origin_price">原價NT${{ item.origin_price }}</del>
+                </div>
               </div>
             </div>
           </div>

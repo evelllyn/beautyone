@@ -1,6 +1,6 @@
 <template>
   <LoaDing :avtive="isLoading"/>
-  <div class="category container">
+  <div class="category container-fluid">
     <ul class="category-nav container">
       <li class="category-list">
         <button type="button" class="category-link" :class="{ active: selectedCategory === 'all'}" @click="selectedCategory = 'all'">
@@ -63,7 +63,8 @@ export default {
         lips: LipsProducts,
         body: BodyProducts,
         others: OtherProducts
-      }
+      },
+      isLoading: false
     }
   },
   components: {

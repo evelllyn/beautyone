@@ -1,6 +1,6 @@
 .cart{
-  margin-top: 10%;
-  margin-bottom: 2.5%;
+  margin-block: clamp(7rem, 9vw + 1rem, 11.5rem);
+
   @include smallMobile(){
     width: 100%;
     margin-top: 30%;
@@ -112,20 +112,14 @@
         }
       }
       .use-coupon{
+
         .blank{
           @include smallMobile(){
             display: none;
           }
         }
-        .coupon-btn{
-          color: $listcolor;
-          background-color: $priceopacity;
-          border-radius: 0 3px 3px 0;
-        }
-        .coupon-btn:hover{
-          background-color: $pricecolor;
-        }
       }
+
       .go-pay{
         margin-top: 4.4%;
         padding-bottom: 1%;

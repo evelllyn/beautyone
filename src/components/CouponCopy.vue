@@ -7,10 +7,12 @@
         </div>
         <div class="modal-body">
           <img src="../assets/img/logo.png" alt="logo">
-          <hr>
-          <span>輸入優惠碼「BEAUTY2024」<br>即可享有全站8折優惠!</span>
+          <div class="coupon-content">
+            <span>輸入優惠碼「BEAUTY2026」</span>
+            <span>即可享有全站8折優惠!</span>
+          </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer justify-content-center">
           <button type="button" class="send-btn" @click="couponCopy">領取優惠券</button>
         </div>
       </div>
@@ -30,7 +32,7 @@ export default {
   inject: ['emitter'],
   methods: {
     couponCopy () {
-      const textCopy = 'BEAUTY2024'
+      const textCopy = 'BEAUTY2026'
       navigator.clipboard.writeText(textCopy)
         .then(res => {
           this.emitter.emit('push-message', {

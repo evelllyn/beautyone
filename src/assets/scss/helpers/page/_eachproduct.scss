@@ -1,199 +1,245 @@
-.item-content{
-  margin-top: 9%;
-  @include smallMobile() {
-    margin-top: 28%;
-  }
-  .row{
-    padding-left: 1%;
-    padding-right: 1%;
+.item-box{
+  margin-top: clamp(6.5rem, 7.5vw + 1rem, 9rem);
+
+  .item-breadcrumb{
+
     nav{
       @include smallMobile() {
         margin: 3% auto;
       }
+
       .breadcrumb{
         @include smallMobile() {
           margin: 0;
         }
+
         .breadcrumb-item{
           font-weight: bold;
-          font-size: large;
-          @include smallMobile() {
-            font-size: medium;
-          }
+          font-size: clamp(1rem, 1vw + .2rem, 1.5rem);
+
           .item-link{
             color: $doubleopacity;
             text-decoration: none;
-          }
-          .item-link:hover{
-            color: $maincolor;
+
+            transition: color .3s ease;
+
+            &:hover {
+              color: $maincolor;
+            }
           }
         }
       }
     }
+  }
+
+  .item-content {
+
     .img-content{
-      width: 50%;
-      @include smallMobile() {
-        width: 100%;
-      }
+
       img{
-        border-radius: 6px;
+
+        border-radius: $radius-md;
         width: 100%;
-        height: 495px;
+        aspect-ratio: 1 / 1;
         object-fit: cover;
+
         @include smallMobile() {
           height: 350px;
         }
       }
     }
+
     .allContent{
-      width: 50%;
-      @include smallMobile() {
-        width: 100%;
-      }
+      display: flex;
+      flex-direction: column;
+
       article{
         color: $maincolor;
+        width: 100%;
+        height: 100%;
+
         h2{
-          padding-bottom: 5%;
+          padding-bottom: $space-8;
           font-weight: bold;
           border-bottom: 3px solid $dividedcolor;
         }
+
         .description{
-          margin: 7% auto;
+          margin-block: $space-12;
+
+          display: flex;
+          flex-direction: column;
+          gap: $space-4;
+
+          span {
+            font-size: $text-sm;
+          }
+
+          p {
+            display: flex;
+            align-items: center;
+            gap: $space-2;
+
+            i {
+              font-size: .5em;
+            }
+          }
         }
       }
+
       .discount{
         color: $maincolor;
-        margin-top: 8%;
-        margin-bottom: 6%;
-        padding-top: 5%;
+        margin-top: $space-8;
+
+        padding-block: $space-8;
         border-top: 3px solid $dividedcolor;
+
         p{
           padding-left: 2%;
           border-left: 3px solid $maincolor;
+
           span{
             background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
           }
         }
       }
+
       .addCart{
         display: flex;
+
         @include smallMobile() {
           display: block;
         }
+
         .input-group{
           width: 50%;
           margin-right: 8%;
+
           @include smallMobile() {
             width: 100%;
             margin-bottom: 4%;
           }
-          .num-btn{
-            border-radius: 3px;
-            border: 1px solid $btnborder;
-          }
-          .num-btn:hover{
-            background-color: $listcolor;
-          }
         }
+
         .cart-btn{
-          color: $listcolor;
-          background-color: $mainopacity;
-          border-radius: 3px;
           @include smallMobile() {
             width: 100%;
-          }
-        }
-        .cart-btn:hover{
-          background-color: $maincolor;
-        }
-      }
-    }
-    .tab-container{
-      margin-top: 5%;
-      .tab-nav{
-        display: flex;
-        justify-content: space-evenly;
-        list-style: none;
-        border: 3px solid;
-        border-color: transparent transparent $dividedcolor transparent;
-        @include smallMobile() {
-          padding-left: 0;
-        }
-        .tab-item{
-          padding-bottom: 2%;
-          .tab-link.active{
-            font-weight: bold;
-          }
-          .buy{
-            color: $maincolor;
-            border: none;
-            font-size: x-large;
-            @include smallMobile() {
-              font-size: 16px;
-            }
-          }
-          .carry{
-            color: $maincolor;
-            border: none;
-            font-size: x-large;
-            @include smallMobile() {
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      .tab-content{
-        height: 200px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $maincolor;
-        background-color: $backgroundcolor;
-        @include smallMobile() {
-          height: 250px;
-        }
-        .tabBox{
-          text-align: start;
-          font-size: large;
-          @include smallMobile() {
-            font-size: 16px;
-            padding: 2%;
           }
         }
       }
     }
   }
-  .question{
-    text-align: center;
-    margin-top: 5%;
-    .words{
-      margin-bottom: 2.5%;
-      span{
-        padding-right: 1%;
-        color: $maincolor;
+
+  .tab-container{
+    margin-block: $space-32;
+
+    .tab-nav{
+      display: flex;
+      justify-content: space-evenly;
+      border: 3px solid;
+      border-color: transparent transparent $dividedcolor transparent;
+
+      @include smallMobile() {
+        padding-left: 0;
+      }
+
+      .tab-item{
+        padding-block: $space-8;
+
+        .tab-link.active{
+          font-weight: bold;
+        }
+
+        .buy{
+          color: $maincolor;
+          border: none;
+          font-size: clamp(1.2rem, 1vw + .6rem, 1.8rem);
+        }
+
+        .carry{
+          color: $maincolor;
+          border: none;
+          font-size: clamp(1.2rem, 1vw + .6rem, 1.8rem);
+        }
       }
     }
+
+    .tab-content{
+      width: 100%;
+      margin-block: $space-12;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $maincolor;
+      background-color: $backgroundcolor;
+
+      @include smallMobile() {
+        height: 250px;
+      }
+
+      .tabBox{
+        padding-block: $space-16;
+
+        text-align: start;
+        font-size: clamp(1rem, 1vw + .2rem, 1.5rem);
+      }
+    }
+  }
+
+  .question{
+    margin-block: $space-32;
+
+    .words{
+      font-size: $text-md;
+      width: max-content;
+
+      margin: 0 auto;
+      padding-block: $space-6;
+
+      @include mobile(){
+        font-size: $text-md;
+        margin-left: 0;
+      }
+      @include smallMobile(){
+        font-size: $text-sm;
+      }
+
+      span{
+        &:first-child {
+          font-size: $text-lg;
+          padding-right: $space-4;
+          color: $maincolor;
+        }
+      }
+    }
+
     .questionBox{
       display: flex;
       justify-content: center;
       text-align: start;
+
       .accordion{
-        width: 97.7%;
+        width: 100%;
         --bs-accordion-btn-bg: #eae6dd;
         --bs-accordion-active-color: #004225;
         --bs-accordion-active-bg: #95bcab;
+
         .accordion-item{
           .accordion-button{
             font-weight: bold;
           }
+
           .accordion-button:focus{
             outline: none;
             box-shadow: none;
           }
+
           .accordion-button::after{
             background-image: url(assets/img/icon/plus-lg.svg);
           }
+
           .accordion-button:not(.collapsed)::after{
             background-image: url(assets/img/icon/dash-lg.svg);
           }
@@ -201,23 +247,45 @@
       }
     }
   }
-  .goods{
-    text-align: center;
-    margin-top: 8%;
+
+  .onSaleGoods{
+    margin-block: $space-32;
     overflow: hidden;
+
     .words{
+      font-size: $text-md;
+      width: max-content;
+
+      margin: 0 auto;
+      padding-block: $space-6;
+
+      @include mobile(){
+        font-size: $text-md;
+        margin-left: 0;
+      }
+      @include smallMobile(){
+        font-size: $text-sm;
+      }
+
       span{
-        padding-right: 1%;
-        color: $maincolor;
+        &:first-child {
+          font-size: $text-lg;
+          padding-right: $space-4;
+          color: $maincolor;
+        }
       }
     }
-    .onSaleGoods{
-      display: flex;
-      .col{
-        padding: 0 1%;
-        p{
-          font-size: 18px;
-        }
+
+    .product-carousel {
+      --gap: 3rem;
+
+      @include carousel;
+
+      .product-slide {
+        flex: 0 0 calc((100% - var(--gap) * 2) / 3);
+        min-width: 0;
+
+        scroll-snap-align: start;
       }
     }
   }

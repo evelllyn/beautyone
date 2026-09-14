@@ -15,3 +15,46 @@
     @content;
   }
 }
+
+@mixin carousel {
+  display: flex;
+  gap: var(--gap);
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::scroll-button(left),
+  &::scroll-button(right) {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+
+    border: none;
+    background-color: $maincolor;
+    color: $txtlight;
+
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &::scroll-button(left) {
+    content: '\f104';
+    margin-right: $space-4;
+  }
+
+  &::scroll-button(right) {
+    content: '\f105';
+  }
+}

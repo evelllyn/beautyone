@@ -1,6 +1,6 @@
 <template>
   <LoaDing :avtive="isLoading"/>
-  <div class="container fill-in">
+  <div class="container-fluid fill-in">
     <div class="flow-container">
       <ul class="flow-nav">
         <li class="flow-item current">

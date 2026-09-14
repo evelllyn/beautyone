@@ -1,71 +1,54 @@
 .discountModal{
   .modal-body{
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
     text-align: center;
-    img{
-      height: 40px;
-    }
-    hr{
-      border-width: 15px;
-      border-color: #fff;
-      margin: 0;
 
+    img {
+      padding-inline: $space-8;
     }
-    span{
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
+
+    .coupon-content {
+      span {
+        display: block;
+        color: $txtdark;
+        font-size: $text-md;
+        font-weight: 600;
+        &:nth-child(2) {
+          background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
+        }
+      }
     }
   }
 }
 .carousel-fade{
-  margin-top: 8.5%;
-  margin-bottom: 30px;
+  margin-top: clamp(6rem, 7vw + 1rem, 8rem);
   display: flex;
   justify-content: center;
-  @include mobile(){
-    margin-top: 15%;
-  }
-  @include smallMobile(){
-    margin-top: 20%;
-  }
+
   .carousel-inner{
-    width: 83.7%;
-    @include mobile(){
-      width: 100%;
-    }
-    img{
-      height: 665px;
-      object-fit: cover;
-      @include mobile(){
-        height: 440px;
+    .carousel-item {
+      height: 85vh;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-      @include smallMobile(){
-        height: 330px;
-      }
-    }
-    .carousel-caption{
-      position: absolute;
-      top: 33%;
-      @include mobile(){
-        top: 28%;
-      }
-      @include smallMobile(){
-        top: 25%;
-      }
-      .sloganSmall{
-        font-size: larger;
-        @include smallMobile(){
-          font-size: medium;
-        }
-      }
-      .slogan{
-        @include smallMobile(){
-          display: none;
-        }
+
+      .carousel-caption{
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $space-4;
       }
     }
   }
 }
+
 .aboutAs{
   .whyToChoose{
     .skinProblem{
@@ -196,78 +179,84 @@
   }
 }
 .classic{
+  margin-block: $space-20;
   @include mobile(){
     text-align: center;
   }
+
   .words{
-    font-size: 24px;
-    margin: 3% 0 0 8%;
+    font-size: $text-md;
     @include mobile(){
-      font-size: 24px;
+      font-size: $text-md;
       margin-left: 0;
     }
     @include smallMobile(){
-      font-size: 20px;
+      font-size: $text-sm;
     }
+
     span{
-      font-size: 36px;
-      padding-right: 1%;
-      color: $maincolor;
-      @include smallMobile(){
-        font-size: 20px;
+      &:first-child {
+        font-size: $text-lg;
+        padding-right: $space-4;
+        color: $maincolor;
       }
     }
   }
   .hotSale{
-    width: 85.4%;
-    height: 352px;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-    @include mobile(){
-      height: 300px;
-    }
-    @include smallMobile(){
-      height: 280px;
-      width: 100%;
-    }
-  }
-}
-.new{
-  @include mobile(){
-    text-align: center;
-  }
-  .words{
-    font-size: 24px;
-    margin: 1% 0 0 8%;
-    @include mobile(){
-      font-size: 24px;
-      margin-left: 0;
-    }
-    @include smallMobile(){
-      font-size: 20px;
-    }
-    span{
-      font-size: 36px;
-      padding-right: 1%;
-      color: $maincolor;
-      @include smallMobile(){
-        font-size: 20px;
+
+    .product-carousel {
+      --gap: 3rem;
+
+      @include carousel;
+
+      .product-slide {
+        flex: 0 0 calc((100% - var(--gap) * 2) / 3);
+        min-width: 0;
+
+        scroll-snap-align: start;
       }
     }
   }
-  .newArrival{
-    width: 85.4%;
-    height: 352px;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
+}
+
+.new{
+  margin-block: $space-20;
+  @include mobile(){
+    text-align: center;
+  }
+
+  .words{
+    font-size: $text-md;
     @include mobile(){
-      height: 300px;
+      font-size: $text-md;
+      margin-left: 0;
     }
     @include smallMobile(){
-      height: 280px;
-      width: 100%;
+      font-size: $text-sm;
+    }
+
+    span{
+      &:first-child {
+        font-size: $text-lg;
+        padding-right: $space-4;
+        color: $maincolor;
+      }
+    }
+  }
+
+  .newArrival{
+
+    .product-carousel {
+      --gap: 3rem;
+
+      @include carousel;
+
+      .product-slide {
+        flex: 0 0 calc((100% - var(--gap) * 2) / 3);
+        min-width: 0;
+
+        scroll-snap-align: start;
+      }
     }
   }
 }
@@ -277,118 +266,98 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+
   @include smallMobile(){
     padding-left: 0;
     padding-right: 0;
     width: 100%;
   }
+
   .tipsBox{
-    padding: 3% 0 1.5% 0;
+    padding-block: $space-20;
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+
     .insideBox{
       text-align: center;
+
       .tipsTitle{
-        font-size: 36px;
-        margin: 0 15px 0 15px;
+        font-size: clamp(1.5rem, 2vw + .5rem, 3rem);
+        margin-inline: $space-4;
         border: 1px dotted white;
-        @include mobile(){
-          font-size: 20px;
-        }
-        @include smallMobile(){
-          font-size: 18px;
-        }
       }
     }
-    .tipsBoxBig{
-      padding: 0;
-      .tipsBoxSmall{
-        display: flex;
-        margin-bottom: 2%;
-        padding: 0;
-        @include smallMobile(){
-          display: block;
-        }
-        .tipsBoxText{
-          width: 33%;
-          margin-right: 2%;
-          padding: 1% 5%;
-          @include mobile(){
-            padding: 1% 0;
-          }
-          @include smallMobile(){
-            width: 100%;
-            text-align: center;
-          }
-          p{
-            font-size: 24px;
-            margin-top: 5%;
-            padding-left: 13px;
-            @include mobile(){
-              font-size: 18px;
-            }
-            @include smallMobile(){
-              padding-left: 0;
-            }
-          }
-          ul{
-            @include smallMobile(){
-              padding-left: 22%;
-            }
-            li{
-              @include mobile(){
-                font-size: 16px;
-              }
-              @include smallMobile(){
-                text-align: start;
-              }
-            }
-          }
-        }
-        .final-tips{
-          margin-right: 0;
-        }
+
+    .tipsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $space-6;
+
+      @include tablet() {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      .sec-tips{
-        margin-bottom: 0;
+
+      @include smallMobile() {
+        grid-template-columns: 1fr;
+      }
+
+      .tipsText {
+        padding: $space-8;
+
+        p {
+          font-size: clamp(1.2rem, 1vw + .6rem, 2rem);
+          font-weight: bold;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: $space-2;
+
+          font-size: clamp(1rem, 1vw + .1rem, 1.5rem);
+          margin-bottom: 0;
+          padding-left: 0;
+          list-style-position: inside;
+        }
       }
     }
   }
 }
 .subscribe{
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-block: $space-16;
+
   .subscribe-content{
     @include mobile(){
       text-align: center;
     }
+
     label{
-      font-size: 32px;
+      font-size: $text-lg;
       color: $maincolor;
+
       @include mobile(){
-        font-size: 24px;
+        font-size: $text-md;
       }
       @include smallMobile(){
-        font-size: 16px
-      }
-      span{
-        background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
+        font-size: $text-xs;
       }
     }
+
     .inputBox{
       align-content: center;
-      @include mobile(){
-        margin-top: 2%;
-      }
-      input{
-        border-radius: 5px 0 0 5px;
-      }
-      button{
-        height: 100%;
-      }
-      button:hover{
-        background-color: $maincolor
-      }
-      button:not(:hover){
-        background-color: $maincolor
+
+      .input-group {
+        align-items: stretch;
+
+        input {
+          border-radius: $radius-sm 0 0 $radius-sm;
+        }
+
+        button{
+          border-radius: 0 $radius-sm $radius-sm 0;
+          background-color: $maincolor;
+        }
       }
     }
   }
