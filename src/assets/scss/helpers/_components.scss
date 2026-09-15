@@ -62,6 +62,11 @@ img {
       cursor: pointer;
 
       .card-img-top {
+
+        .card-overlay {
+          clip-path: circle(150% at 100% 0);
+        }
+
         .more {
           opacity: 1;
         }
@@ -79,6 +84,7 @@ img {
       border-radius: $radius-md;
 
       position: relative;
+      overflow: hidden;
 
       .sale-badge {
         position: absolute;
@@ -95,25 +101,32 @@ img {
         padding: .5em;
       }
 
-      .more{
+      .card-overlay {
         position: absolute;
+        inset: 0;
 
-        left: 0;
-        right: 0;
-        bottom: 0;
+        background-color: rgba(255, 255, 255, .7);
+        clip-path: circle(25% at 100% 0);
 
-        padding: $space-4;
+        transition: clip-path .6s ease;
+      }
 
-        background-color: $maincolor;
-        color: $backgroundcolor;
-        border-radius: 0 0 $radius-md $radius-md;
+      .more {
+        position: absolute;
+        inset: 0;
 
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $maincolor;
+        font-size: $text-md;
         font-weight: bold;
 
         opacity: 0;
+        transition: opacity .3s ease .2s;
 
-        transition: opacity .2s ease-in;
+        pointer-events: none;
       }
     }
 

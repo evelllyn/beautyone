@@ -115,13 +115,13 @@
           <div class="product-slide" v-for="item in onSaleProducts" :key="item.id">
             <div class="card" @click="getProductDescription(item.id)">
               <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
-                  <div class="sale-logo" v-if="item.price !== item.origin_price"></div>
                   <span
                     v-if="item.price !== item.origin_price"
                     class="sale-badge"
                   >
                     ON SALE
                   </span>
+                  <div class="card-overlay"></div>
                   <div class="more">查看更多</div>
                 </div>
                 <div class="card-body">

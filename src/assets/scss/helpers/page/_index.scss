@@ -28,6 +28,7 @@
   justify-content: center;
 
   .carousel-inner{
+
     .carousel-item {
       height: 85vh;
 
@@ -267,6 +268,10 @@
   background-size: cover;
   background-attachment: fixed;
 
+  animation: spotlight linear;
+  animation-timeline: view();
+  animation-range: entry;
+
   @include smallMobile(){
     padding-left: 0;
     padding-right: 0;
@@ -360,5 +365,20 @@
         }
       }
     }
+  }
+}
+
+@keyframes spotlight {
+  0%, 100% {
+    clip-path: circle(100% at 50% 50%);
+  }
+  25% {
+    clip-path: circle(50% at 50% 50%);
+  }
+  50% {
+    clip-path: circle(25% at 20% 60%);
+  }
+  75% {
+    clip-path: circle(25% at 90% 40%);
   }
 }
