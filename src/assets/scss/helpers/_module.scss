@@ -1,19 +1,23 @@
 //分頁
 .page-item{
+
+  &.active{
+    .page-link{
+      color: $txtlight;
+      background-color: $maincolor;
+      border-color: $maincolor;
+    }
+  }
+
   .page-link{
     color: $maincolor;
-  }
-  .page-link:focus{
-    outline: 4px solid $gapcolor;
-  }
-}
-.page-item.active{
-  .page-link{
-    color: $backgroundcolor;
-    background-color: $maincolor;
-    border-color: $maincolor;
+
+    &:focus{
+      outline: 4px solid $lightgray;
+    }
   }
 }
+
 
 //吐司列表
 .toast-container{
@@ -21,7 +25,7 @@
   left: 38.5%;
 }
 .toast{
-  background-color: #fff;
+  background-color: $lightgray;
   .toast-header{
     padding-top: 6%;
     padding-bottom: 6%;

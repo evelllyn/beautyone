@@ -103,7 +103,7 @@
             <textarea name="備註" id="message" cols="30" rows="10" class="form-control" v-model="form.message"></textarea>
           </div>
           <div class="send">
-            <button type="submit" class="send-btn w-100">送出訂單</button>
+            <button type="submit" class="btn w-100">送出訂單</button>
           </div>
         </VForm>
       </div>

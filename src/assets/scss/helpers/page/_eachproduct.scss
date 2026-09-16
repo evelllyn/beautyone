@@ -18,13 +18,13 @@
           font-size: clamp(1rem, 1vw + .2rem, 1.5rem);
 
           .item-link{
-            color: $doubleopacity;
+            color: $maincolor;
             text-decoration: none;
 
             transition: color .3s ease;
 
             &:hover {
-              color: $maincolor;
+              color: $low-main;
             }
           }
         }
@@ -61,7 +61,7 @@
         h2{
           padding-bottom: $space-8;
           font-weight: bold;
-          border-bottom: 3px solid $dividedcolor;
+          border-bottom: 3px solid $lightyellow;
         }
 
         .description{
@@ -92,14 +92,14 @@
         margin-top: $space-8;
 
         padding-block: $space-8;
-        border-top: 3px solid $dividedcolor;
+        border-top: 3px solid $lightyellow;
 
         p{
           padding-left: 2%;
           border-left: 3px solid $maincolor;
 
           span{
-            background: linear-gradient(to top, $emphaticcolor 0%, transparent 80%)
+            background: linear-gradient(to top, $darkyellow 0%, transparent 80%)
           }
         }
       }
@@ -137,7 +137,7 @@
       display: flex;
       justify-content: space-evenly;
       border: 3px solid;
-      border-color: transparent transparent $dividedcolor transparent;
+      border-color: transparent transparent $lightgray transparent;
 
       @include smallMobile() {
         padding-left: 0;
@@ -173,7 +173,7 @@
       align-items: center;
 
       color: $maincolor;
-      background-color: $backgroundcolor;
+      background-color: $lightgray;
 
       @include smallMobile() {
         height: 250px;
@@ -224,7 +224,7 @@
         width: 100%;
         --bs-accordion-btn-bg: #eae6dd;
         --bs-accordion-active-color: #004225;
-        --bs-accordion-active-bg: #95bcab;
+        --bs-accordion-active-bg: rgba(0, 66, 37, .3);
 
         .accordion-item{
           .accordion-button{

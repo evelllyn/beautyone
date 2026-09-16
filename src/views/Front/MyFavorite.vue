@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="addCart">
-          <button type="button" class="cart-btn" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">
+          <button type="button" class="cart-btn sec-btn" @click="addCart(item.id)" :disabled="this.status.loadingItem === item.id">
               加入購物車
           </button>
         </div>

@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="send-btn" @click="couponCopy">領取優惠券</button>
+          <button type="button" class="btn" @click="couponCopy">領取優惠券</button>
         </div>
       </div>
     </div>

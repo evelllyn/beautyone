@@ -17,10 +17,10 @@
       list-style: none;
       padding-left: 0;
       .flow-item{
-        color: $doubleopacity;
+        color: $darkgray;
         flex-grow: 1;
         padding: 0 6% 1% 6%;
-        border-bottom: 6px solid $doubleopacity;
+        border-bottom: 6px solid rgba(189, 194, 189, .5);
         .flow-content{
           display: flex;
           text-align: center;
@@ -56,7 +56,7 @@
         font-size: large;
       }
       th{
-        background-color: $backgroundcolor;
+        background-color: $lightgray;
         border: none;
       }
       .blank{
@@ -68,7 +68,7 @@
         border: none;
       }
       .top-line{
-        border-top: 3px solid $dividedcolor;
+        border-top: 3px solid $lightgray;
       }
       tfoot{
         td{
@@ -86,13 +86,13 @@
         .customer{
           font-weight: bold;
           font-size: large;
-          color: $listcolor;
+          color: $lightgray;
           border-radius: 3px;
         }
       }
       .vform{
         padding: 3%;
-        background-color: $backgroundcolor;
+        background-color: $lightgray;
       }
     }
   }

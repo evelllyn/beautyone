@@ -12,45 +12,32 @@ img {
 
 .btn {
   padding: .8em 1.5em;
-  color: $listcolor;
-  background-color: $mainopacity;
+  color: contrast-color($maincolor);
+  background-color: $maincolor;
   border-radius: $radius-sm;
   font-weight: 600;
 
   transition: color .3s, background-color .3s;
 
   &:hover{
-    color: $listcolor;
-    background-color: $maincolor;
+    color: contrast-color($low-main);
+    background-color: $low-main;
   }
 }
 
 .sec-btn {
   padding: .8em 1.5em;
   border-radius: $radius-sm;
-  border: 1px solid $btnborder;
+  border: 1px solid $lightyellow;
 
   color: $txtdark;
-  background-color: #eae6dd;
+  background-color: $lightyellow;
 
   font-weight: 600;
   transition: background-color .3s;
 
   &:hover {
     background-color: rgba(234, 230, 221, .6);
-  }
-}
-
-.send-btn {
-  padding: .8em 1.5em;
-  color: $listcolor;
-  background-color: $doubleopacity;
-  border-radius: $radius-sm;
-  font-weight: 600;
-  transition: background-color .3s;
-
-  &:hover{
-    background-color: $maincolor;
   }
 }
 
@@ -91,7 +78,7 @@ img {
         top: $space-2;
         left: $space-2;
 
-        background-color: red;
+        background-color: rgb(227, 0, 0);
         color: $txtlight;
 
         border-radius: $radius-md;

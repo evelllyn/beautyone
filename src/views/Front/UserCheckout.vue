@@ -103,7 +103,7 @@
           </tbody>
         </table>
         <div class="pay" v-if="order.is_paid === false">
-          <button type="submit" class="send-btn w-100">確認付款</button>
+          <button type="submit" class="btn w-100">確認付款</button>
         </div>
       </div>
     </form>
