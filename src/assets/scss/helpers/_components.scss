@@ -28,7 +28,7 @@ img {
 .sec-btn {
   padding: .8em 1.5em;
   border-radius: $radius-sm;
-  border: 1px solid $lightyellow;
+  border: 1px solid $darkgray;
 
   color: $txtdark;
   background-color: $lightyellow;
@@ -45,6 +45,8 @@ img {
   text-align: end;
 
   .card{
+    background-color: #f5f4ee;
+
     &:hover {
       cursor: pointer;
 

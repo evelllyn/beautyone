@@ -82,11 +82,11 @@
     <div class="tab-container">
       <ul class="tab-nav">
         <li class="tab-item">
-          <button type="button" class="tab-link buy bg-white" :class="{ active:   selectedTab === 'buyTab' }"
+          <button type="button" class="tab-link buy" :class="{ active:   selectedTab === 'buyTab' }"
             @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
         </li>
         <li class="tab-item">
-          <button type="button" class="tab-link carry bg-white" :class="{ active:   selectedTab === 'carryTab' }"
+          <button type="button" class="tab-link carry" :class="{ active:   selectedTab === 'carryTab' }"
             @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
         </li>
       </ul>

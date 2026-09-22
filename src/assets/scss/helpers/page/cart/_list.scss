@@ -14,13 +14,12 @@
     }
     .boxContent{
       padding: 0;
+
       h3{
         text-align: center;
         color: $maincolor;
         font-weight: bold;
-        margin-bottom: 2%;
-        padding-bottom: 2%;
-        border-bottom: 3px solid $lightgray;
+        margin-block: $space-8;
       }
       table{
         border-collapse: collapse;
@@ -29,8 +28,8 @@
             display: none;
           }
           th{
-            color: contrast-color($lightgray);
-            background-color: $lightgray;
+            color: contrast-color($maincolor);
+            background-color: $maincolor;
             border: none;
           }
         }

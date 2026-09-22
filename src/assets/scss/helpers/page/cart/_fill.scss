@@ -1,6 +1,6 @@
 .fill-in{
-  margin-top: 10%;
-  margin-bottom: 2.5%;
+  margin-block: $space-32;
+
   @include smallMobile(){
     width: 100%;
     margin-top: 30%;
@@ -43,39 +43,45 @@
   }
   .cart-fill{
     display: flex;
+    gap: $space-20;
+
     @include smallMobile(){
       flex-direction: column;
     }
+
     .buy-list{
-      .detail{
-        padding-top: 3%;
-        padding-bottom: 3%;
-        padding-left: 34%;
-        color: $maincolor;
-        font-weight: bold;
-        font-size: large;
-      }
-      th{
-        background-color: $lightgray;
-        border: none;
-      }
-      .blank{
-        @include smallMobile(){
-          display: none;
+
+      .table{
+
+        thead {
+
+          th{
+            color: contrast-color($maincolor);
+            background-color: $maincolor;
+            border: none;
+          }
+        }
+
+        tbody {
+
+          td{
+            border: none;
+          }
+        }
+
+        tfoot{
+
+          td{
+            font-weight: bold;
+          }
+          .top-line{
+            border-top: 3px solid $lightgray;
+          }
         }
       }
-      td{
-        border: none;
-      }
-      .top-line{
-        border-top: 3px solid $lightgray;
-      }
-      tfoot{
-        td{
-          font-weight: bold;
-        }
-      }
+
     }
+
     .contact-list{
       .customerBox{
         display: flex;

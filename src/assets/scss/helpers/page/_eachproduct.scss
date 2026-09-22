@@ -136,6 +136,7 @@
     .tab-nav{
       display: flex;
       justify-content: space-evenly;
+
       border: 3px solid;
       border-color: transparent transparent $lightgray transparent;
 
@@ -150,13 +151,7 @@
           font-weight: bold;
         }
 
-        .buy{
-          color: $maincolor;
-          border: none;
-          font-size: clamp(1.2rem, 1vw + .6rem, 1.8rem);
-        }
-
-        .carry{
+        .buy, .carry{
           color: $maincolor;
           border: none;
           font-size: clamp(1.2rem, 1vw + .6rem, 1.8rem);

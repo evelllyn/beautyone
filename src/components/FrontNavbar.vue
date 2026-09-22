@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar frontNavbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav class="navbar frontNavbar navbar-expand-lg navbar-light fixed-top">
     <div class="marquee">
       <div class="marquee-track">
         <span>

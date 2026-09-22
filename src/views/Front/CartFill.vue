@@ -31,16 +31,12 @@
     </div>
     <div class="cart-fill">
       <div class="buy-list w-100">
-        <div class="detailBox">
-          <div class="detail">購物清單</div>
-        </div>
         <table class="table align-middle">
           <thead>
             <tr>
               <th class="col-4">商品名稱</th>
               <th class="col-3">數量</th>
               <th class="col-3">單價</th>
-              <div class="blank"></div>
             </tr>
           </thead>
           <tbody>

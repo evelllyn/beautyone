@@ -1,5 +1,6 @@
 .check-out{
-  margin-top: 10%;
+  margin-block: $space-32;
+
   @include mobile(){
     margin-bottom: 33.6%;
   }
@@ -96,25 +97,24 @@
   }
   .checkout-form{
     display: flex;
+    gap: $space-20;
+
+
     @include smallMobile(){
       flex-direction: column;
     }
+
     .goods-list{
-      margin-right: 5%;
-      .detailBox{
-        text-align: center;
-        padding-top: 3%;
-        padding-bottom: 3%;
-        .detail{
-          color: $maincolor;
-          font-weight: bold;
-          font-size: large;
+
+      thead {
+        th{
+          background-color: $maincolor;
+          color: contrast-color($maincolor);
+          border: none;
         }
       }
-      th{
-        background-color: $lightgray;
-        border: none;
-      }
+
+
       td{
         border: none;
       }

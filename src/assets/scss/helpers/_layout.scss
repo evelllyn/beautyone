@@ -1,10 +1,13 @@
 // 頁首
 .frontNavbar{
+  background-color: #f5f4ee;
+
   width: 100%;
   z-index: 99;
   padding-block: 0;
 
-  box-shadow: $shadow-y;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
   display: flex;
   flex-direction: column;
 

@@ -1,39 +1,93 @@
 <template>
   <CarouSel/>
-  <div class="aboutAs">
-    <div class="whyToChoose">
-      <div class="skinProblem">
-        <div class="col-2"></div>
-        <div class="summerSkin col-4">
-          <div class="skinText">
-            <span>夏天到了</span><br>空氣悶熱，肌膚出油讓毛孔愈來愈大，老廢角質和髒汙不易排除怎麼辦？
-          </div>
-          <div class="skinText">
-            <span>冬天到了</span><br>皮膚的新陳代謝降低，汗水及油脂分泌減少，肌膚容易乾癢、脫屑怎麼辦？
-          </div>
-        </div>
-        <div class="skinImg col-5">
-          <img src="../assets/img/skin.png" alt="換季膚況問題">
-        </div>
-        <div class="col-1"></div>
+  <section class="seasonProblem container-fluid">
+    <div class="season-title">
+      <h3>OUR SKIN STORY</h3>
+      <div class="season-content">
+        <p>肌膚天天鬧脾氣，保養功課做不完該怎麼辦？</p>
+        <p>不用做功課 ! 我們為你準備好了一年四季的肌膚劇本。</p>
       </div>
-      <div class="aboutContent">
-        <div class="slogan">
-          <p class="aboutTitle fw-bold">別擔心 ! 不管是敏感肌、混和肌還是乾燥肌<br>在這裡，都能找到屬於您的命定產品</p>
-          <div class="dividedLine"></div>
-          <p class="sloganBig fw-bold">讓 我 們 與 您 一 起 尋 找 <span>凍 齡</span> 的 秘 密</p>
-          <div class="factor">
-            <span>肌膚水嫩透亮</span>
-            <span>肌底保有彈性</span>
-            <span>零細紋平滑肌</span>
+    </div>
+    <div class="seasonCards">
+      <!-- card-01 -->
+      <div class="season-card">
+        <div class="front">
+          <div class="card-overlay">
+            <i class="fa-solid fa-hand-point-down"></i>
+            <span>spring</span>
           </div>
-          <p class="sloganSmall">『 BEAUTY ONE 』&emsp;———————————</p>
-          <p class="sloganSmallSec">makes you be the beautiful one 。</p>
+        </div>
+        <div class="back">
+          <div class="card-content">
+            <h3>春天到了</h3>
+            <p>氣溫起伏大，肌膚屏障功能不穩</p>
+            <div class="card-capsule">
+              <span>溫和清潔</span>
+              <span>抗品舒緩</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card-02 -->
+      <div class="season-card">
+        <div class="front">
+          <div class="card-overlay">
+            <i class="fa-solid fa-hand-point-down"></i>
+            <span>summer</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="card-content">
+            <h3>夏天到了</h3>
+            <p>皮脂腺活躍，臉部大量出油，汗水與髒污卡在粗大毛孔，引發痘痘發炎</p>
+            <div class="card-capsule">
+              <span>清爽控油</span>
+              <span>高係數防曬</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card-03 -->
+      <div class="season-card">
+        <div class="front">
+          <div class="card-overlay">
+            <i class="fa-solid fa-hand-point-down"></i>
+            <span>autumn</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="card-content">
+            <h3>秋天到了</h3>
+            <p>濕度降低，油水失衡，導致肌膚粗糙、緊繃、暗沉無光</p>
+            <div class="card-capsule">
+              <span>強化肌膚屏障</span>
+              <span>補水</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card-04 -->
+      <div class="season-card">
+        <div class="front">
+          <div class="card-overlay">
+            <i class="fa-solid fa-hand-point-down"></i>
+            <span>winter</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="card-content">
+            <h3>冬天到了</h3>
+            <p>皮脂與汗水分泌量大減，缺乏油脂鎖水，出現乾癢、脫屑、龜裂</p>
+            <div class="card-capsule">
+              <span>深層滋潤</span>
+              <span>鎖水</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="classic container-fluid">
+  </section>
+  <section class="classic container-fluid">
     <p class="words fw-bold">
       <span>HOT SALE</span>
       <span>經典熱銷</span>
@@ -41,8 +95,8 @@
     <div class="hotSale">
       <BodyProducts :carousel="true"/>
     </div>
-  </div>
-  <div class="new container-fluid">
+  </section>
+  <section class="new container-fluid">
     <p class="words fw-bold">
       <span>NEW ARRIVAL</span>
       <span>新品上市</span>
@@ -50,8 +104,14 @@
     <div class="newArrival">
       <HeadProducts :carousel="true"/>
     </div>
+  </section>
+  <div class="slide">
+    <div class="slide-line">
+      <span>BEAUTY ONE</span>
+      <span>BEAUTY ONE</span>
+    </div>
   </div>
-  <div class="tips">
+  <section class="tips">
     <div class="container-fluid text-light">
       <div class="tipsBox">
         <div class="insideBox py-3 bg-white bg-opacity-10">
@@ -114,8 +174,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="subscribe container-fluid">
+  </section>
+  <section class="subscribe container-fluid">
     <VForm class="vform" v-slot="{ errors }">
       <div class="subscribe-content row">
         <div class="emailLabel col-md-7">
@@ -148,7 +208,7 @@
         </div>
       </div>
     </VForm>
-  </div>
+  </section>
   <CouponCopy/>
 </template>
 
