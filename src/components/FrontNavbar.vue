@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar frontNavbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar frontNavbar navbar-expand-md navbar-light fixed-top">
     <div class="marquee">
       <div class="marquee-track">
         <span>
@@ -14,11 +14,24 @@
       <a class="logo navbar-brand" href="#">
         <img src="../assets/img/logo.png" alt="logo">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#frontNav" aria-controls="frontNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#frontNav"
+        aria-controls="frontNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <div class="ham-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
       <div class="collapse navbar-collapse" id="frontNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
             <router-link to="/products" class="nav-link">所有產品</router-link>
           </li>
@@ -26,7 +39,7 @@
             <router-link to="/favorite" class="nav-link">我的最愛</router-link>
           </li>
         </ul>
-        <ul class="right navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="right navbar-nav ms-auto mb-2 mb-md-0">
           <li class="nav-item cartLink">
             <router-link to="/cart" class="nav-link">
               <i class="bi bi-cart-fill"></i>

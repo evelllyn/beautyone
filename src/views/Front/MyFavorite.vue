@@ -1,8 +1,11 @@
 <template>
   <LoaDing :avtive="isLoading"/>
-  <div class="container-fluid favContainer product-card pt-3 all-content">
+  <div
+    class="container-fluid favContainer product-card all-content"
+    :class="{ 'is-empty': !favoriteProducts.length && !isLoading }"
+  >
     <div class="row" v-if="favoriteProducts.length">
-      <div class="col col-6 col-md-3 my-4" v-for="item in favoriteProducts" :key="item.id">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-4" v-for="item in favoriteProducts" :key="item.id">
         <div class="card" @click="getProductDescription(item.id)">
           <div class="card-img-top" :style="{ backgroundImage: `url(${item.imageUrl})` }">
             <span

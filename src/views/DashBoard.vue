@@ -1,10 +1,12 @@
 <template>
   <HomeNavbar/>
-  <div class="position-relative">
+
+  <main class="main-content position-relative">
     <ToastMessages/>
     <router-view/>
-  </div>
+  </main>
   <FooterNav/>
+
 </template>
 
 <script>

@@ -17,12 +17,32 @@
 }
 
 @mixin carousel {
+  --gap: 2rem;
+
   display: flex;
   gap: var(--gap);
 
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+
+  @include tablet() {
+    --gap: 1.5rem;
+  }
+
+  .product-slide {
+    flex: 0 0 calc((100% - var(--gap)*2)/3);
+    min-width: 0;
+    scroll-snap-align: start;
+
+    @include mobile {
+      flex: 0 0 calc((100% - var(--gap))/2);
+    }
+
+    @include smallMobile {
+      flex: 0 0 100%;
+    }
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -57,4 +77,58 @@
   &::scroll-button(right) {
     content: '\f105';
   }
+}
+
+@mixin text-slide-up(
+  $height: 2.25rem,
+  $duration: .5s
+) {
+  .btn-txt {
+    display: flex;
+    flex-direction: column;
+    height: $height;
+    overflow: hidden;
+
+    span {
+      height: $height;
+      flex-shrink: 0;
+      line-height: $height;
+      transition: transform $duration ease;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      .btn-txt span {
+        transform: translateY(-$height);
+      }
+    }
+  }
+}
+
+@mixin blank-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-8;
+
+  i{
+    font-size: $text-2xl;
+    color: $maincolor;
+  }
+
+  .nothing-content{
+    font-weight: bold;
+    color: $maincolor;
+  }
+}
+
+@mixin glass-box {
+  background-color: rgba(255, 255, 255, .3);
+  backdrop-filter: blur(6px);
+
+  border-radius: $radius-md;
+  border-top: 1px solid rgba(255, 255, 255, .4);
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, .088);
 }

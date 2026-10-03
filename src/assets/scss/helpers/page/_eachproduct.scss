@@ -23,8 +23,10 @@
 
             transition: color .3s ease;
 
-            &:hover {
-              color: $low-main;
+            @media (hover: hover) and (pointer: fine) {
+              &:hover {
+                color: $low-main;
+              }
             }
           }
         }
@@ -38,10 +40,10 @@
 
       img{
 
-        border-radius: $radius-md;
         width: 100%;
-        aspect-ratio: 1 / 1;
+        height: 100%;
         object-fit: cover;
+        border-radius: $radius-md;
 
         @include smallMobile() {
           height: 350px;
@@ -53,10 +55,13 @@
       display: flex;
       flex-direction: column;
 
+      @include mobile() {
+        margin-top: $space-8;
+      }
+
       article{
         color: $maincolor;
         width: 100%;
-        height: 100%;
 
         h2{
           padding-bottom: $space-8;
@@ -138,11 +143,7 @@
       justify-content: space-evenly;
 
       border: 3px solid;
-      border-color: transparent transparent $lightgray transparent;
-
-      @include smallMobile() {
-        padding-left: 0;
-      }
+      border-color: transparent transparent rgba(212, 219, 194, .4) transparent;
 
       .tab-item{
         padding-block: $space-8;
@@ -168,14 +169,11 @@
       align-items: center;
 
       color: $maincolor;
-      background-color: $lightgray;
-
-      @include smallMobile() {
-        height: 250px;
-      }
+      background-color: rgba(212, 219, 194, .4);
 
       .tabBox{
         padding-block: $space-16;
+        padding-inline: $space-4;
 
         text-align: start;
         font-size: clamp(1rem, 1vw + .2rem, 1.5rem);
@@ -187,19 +185,11 @@
     margin-block: $space-32;
 
     .words{
-      font-size: $text-md;
+      font-size: clamp(1.25rem, 1vw + 5rem, 1.8rem);
       width: max-content;
 
       margin: 0 auto;
       padding-block: $space-6;
-
-      @include mobile(){
-        font-size: $text-md;
-        margin-left: 0;
-      }
-      @include smallMobile(){
-        font-size: $text-sm;
-      }
 
       span{
         &:first-child {
@@ -254,14 +244,6 @@
       margin: 0 auto;
       padding-block: $space-6;
 
-      @include mobile(){
-        font-size: $text-md;
-        margin-left: 0;
-      }
-      @include smallMobile(){
-        font-size: $text-sm;
-      }
-
       span{
         &:first-child {
           font-size: $text-lg;
@@ -272,16 +254,7 @@
     }
 
     .product-carousel {
-      --gap: 3rem;
-
       @include carousel;
-
-      .product-slide {
-        flex: 0 0 calc((100% - var(--gap) * 2) / 3);
-        min-width: 0;
-
-        scroll-snap-align: start;
-      }
     }
   }
 }

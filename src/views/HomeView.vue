@@ -177,11 +177,11 @@
   </section>
   <section class="subscribe container-fluid">
     <VForm class="vform" v-slot="{ errors }">
-      <div class="subscribe-content row">
-        <div class="emailLabel col-md-7">
+      <div class="subscribe-content">
+        <div class="emailLabel">
           <label for="email" class="fw-bold">訂閱我們，取得最新消息與優惠折扣 !</label>
         </div>
-        <div class="inputBox col-md-5">
+        <div class="inputBox">
           <div class="input-group">
             <VField
               id="email"

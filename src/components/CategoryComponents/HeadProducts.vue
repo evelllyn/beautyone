@@ -3,7 +3,7 @@
   <div class="product-card head-content">
     <div :class="carousel ? 'product-carousel' : 'row'">
       <div
-        :class="carousel ? 'product-slide' : 'col col-6 col-md-3 my-4'"
+        :class="carousel ? 'product-slide' : 'col-12 col-sm-6 col-md-4 col-lg-3 my-4'"
         v-for="item in filteredProduct"
         :key="item.id"
         >

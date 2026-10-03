@@ -7,7 +7,12 @@
           <h2 class="fw-bold">BEAUTY ONE</h2>
           <p class="fs-4">MAKES YOU BE THE BEAUTIFUL ONE</p>
           <p class="fw-bold">—— 讓我們與您一起尋找凍齡的秘密 ——</p>
-          <router-link to="/products" class="btn">SHOP NOW</router-link>
+          <router-link to="/products" class="btn">
+            <div class="btn-txt">
+              <span>SHOP NOW</span>
+              <span>SHOP NOW</span>
+            </div>
+          </router-link>
         </div>
       </div>
       <div class="carousel-item">
@@ -16,7 +21,12 @@
           <h2 class="fw-bold">BEAUTY ONE</h2>
           <p class="fs-4">MAKES YOU BE THE BEAUTIFUL ONE</p>
           <p class="fw-bold">—— 冬季新品&emsp;即將上市 ——</p>
-          <router-link to="/products" class="btn">SHOP NOW</router-link>
+          <router-link to="/products" class="btn">
+            <div class="btn-txt">
+              <span>SHOP NOW</span>
+              <span>SHOP NOW</span>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>

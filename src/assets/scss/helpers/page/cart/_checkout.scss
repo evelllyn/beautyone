@@ -1,106 +1,87 @@
 .check-out{
-  margin-block: $space-32;
+  margin-top: 9rem;
+  margin-bottom: $space-20;
 
   @include mobile(){
-    margin-bottom: 33.6%;
-  }
-  @include smallMobile(){
     width: 100%;
-    margin-top: 30%;
   }
-  .flow-container{
-    margin-bottom: 3%;
-    font-size: 24px;
-    @include smallMobile(){
-      font-size: 14px;
-    }
-    .flow-nav{
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      .flow-item{
-        color: $darkgray;
-        flex-grow: 1;
-        padding: 0 6% 1% 6%;
-        border-bottom: 6px solid rgba(189, 194, 189, .3);
-        .flow-content{
-          display: flex;
-          text-align: center;
-          flex-direction: column;
-          span{
-            @include smallMobile(){
-              display: none;
-            }
-          }
-        }
-        .location{
-          color: $maincolor;
-          font-weight: bold;
-        }
-      }
-      .current{
-        border-bottom: 6px solid $maincolor;
-      }
-    }
-  }
-  .gratitude{
-    text-align: center;
-    background-image: url(assets/img/thanks.jpg);
-    background-position: center;
-    background-size: cover;
-    .gratitude-content{
-      padding-top: 12%;
-      padding-bottom: 14%;
-      @include smallMobile(){
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-      h2{
-        color: $maincolor;
-        font-weight: bold;
-        transform: rotate(-7deg);
-        @include smallMobile(){
-          color: $darkyellow;
-          transform: rotate(0);
-          padding-top: 5%;
-          padding-bottom: 20%;
-        }
-      }
-      p{
-        color: $maincolor;
-        font-weight: bold;
-        transform: rotate(-7deg);
-        @include smallMobile(){
-          transform: rotate(0);
-          padding-bottom: 2%;
-        }
-      }
-    }
-  }
-  .backToBuy{
-    text-align: center;
-    margin: 3% auto;
 
-    .surf-btn{
-      padding: 1.5em 4em;
+  .flow-container{
+    .location{
+      color: $maincolor;
+      font-weight: bold;
     }
   }
+
+  .gratitude{
+    background-image: url(assets/img/bg.jpg);
+    background-position: top;
+    background-size: cover;
+
+    padding: $space-32 $space-4;
+
+    .glass-box {
+      @include glass-box;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $space-14;
+
+      width: fit-content;
+      max-width: 100%;
+
+      margin: 0 auto;
+      padding: $space-16;
+      text-align: center;
+
+      .gratitude-content{
+
+        h2{
+          color: $lightgray;
+          margin-bottom: $space-8;
+          font-size: clamp(1.8rem, 1vw + 1.5rem, 3rem);
+        }
+
+        p{
+          color: $lightgray;
+          font-size: clamp(1rem, 1vw + .2rem, 2rem);
+        }
+      }
+
+      .backToBuy{
+
+        .surf-btn{
+          display: inline-block;
+          letter-spacing: .1em;
+
+          @include text-slide-up;
+        }
+      }
+    }
+  }
+
   .payment-list{
     text-align: center;
-    margin-block: 3%;
-    padding: 1%;
     font-weight: bold;
-    color: contrast-color($maincolor);
+
+    padding: $space-4;
+    margin-bottom: $space-6;
+
+    color: $lightgray;
     background-color: $maincolor;
-    border-radius: 3px;
+
   }
+
   .checkout-form{
     display: flex;
-    gap: $space-20;
+    gap: $space-12;
 
+    @include tablet(){
+      gap: $space-6;
+    }
 
-    @include smallMobile(){
+    @include mobile(){
       flex-direction: column;
     }
 
@@ -109,7 +90,7 @@
       thead {
         th{
           background-color: $maincolor;
-          color: contrast-color($maincolor);
+          color: $lightgray;
           border: none;
         }
       }
@@ -118,44 +99,47 @@
       td{
         border: none;
       }
+
       .top-line{
         border-top: 3px solid $lightgray;
       }
+
       tfoot{
         td{
           font-weight: bold;
         }
       }
     }
+
     .contact-information{
       .customerBox{
         display: flex;
         justify-content: center;
         background-color: $maincolor;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        padding-block: $space-4;
+
         .customer{
           font-weight: bold;
-          font-size: large;
-          color: contrast-color($maincolor);
-          border-radius: 3px;
+          font-size: $text-sm;
+          color: $lightgray;
         }
       }
+
       table{
-        th{
-          border: 18px solid $lightgray;
+        th, td{
+          padding: $space-4;
           background-color: $lightgray;
         }
+
         td{
-          border: 18px solid $lightgray;
-          background-color: $lightgray;
           span{
             font-weight: bold;
           }
         }
       }
+
       .pay{
-        margin-bottom: 3%;
+        margin-block: $space-6;
       }
     }
   }

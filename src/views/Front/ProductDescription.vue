@@ -83,11 +83,11 @@
       <ul class="tab-nav">
         <li class="tab-item">
           <button type="button" class="tab-link buy" :class="{ active:   selectedTab === 'buyTab' }"
-            @click="selectedTab = 'buyTab'">ORDER NOTIFICATION / 訂購須知</button>
+            @click="selectedTab = 'buyTab'">訂購須知</button>
         </li>
         <li class="tab-item">
           <button type="button" class="tab-link carry" :class="{ active:   selectedTab === 'carryTab' }"
-            @click="selectedTab = 'carryTab'">SHIPPING NOTIFICATION / 配送須知</button>
+            @click="selectedTab = 'carryTab'">配送須知</button>
         </li>
       </ul>
       <component :is="selectTabComponent" class="tab-content">

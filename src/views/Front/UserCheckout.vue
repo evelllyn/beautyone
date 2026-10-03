@@ -29,15 +29,25 @@
         </li>
       </ul>
     </div>
+
+    <!-- 付款完成 -->
     <div class="gratitude" v-if="order.is_paid === true">
-      <div class="gratitude-content">
-        <h2>訂單已成立</h2>
-        <p>感謝您的購買，我們將盡快為您出貨</p>
+      <div class="glass-box">
+        <div class="gratitude-content">
+          <h2>訂單已成立</h2>
+          <p>感謝您的購買，我們將盡快為您出貨</p>
+        </div>
+        <div class="backToBuy" v-if="order.is_paid === true">
+          <router-link to="/products" class="sec-btn surf-btn">
+            <div class="btn-txt">
+              <span>繼續選購</span>
+              <span>繼續選購</span>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
-    <div class="backToBuy" v-if="order.is_paid === true">
-        <router-link to="/products" class="sec-btn surf-btn">繼續選購</router-link>
-      </div>
+
     <div class="payment-list fs-4" v-if="order.is_paid === true">訂單明細</div>
     <form class="checkout-form" @submit.prevent="payOrder">
       <div class="goods-list w-100">

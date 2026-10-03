@@ -1,83 +1,86 @@
 <template>
-  <LoaDing :avtive="isLoading"/>
-  <div class="container-fluid cart">
-    <div class="row cartBox">
-      <div class="boxContent" v-if="cart.carts.length">
-        <h3>購物清單</h3>
-        <table class="table align-middle">
-          <thead>
-            <tr>
-              <th class="col-1">圖片</th>
-              <th class="col-1"></th>
-              <th class="col-3">商品名稱</th>
-              <th class="col-2">數量</th>
-              <th class="col-1"></th>
-              <th>單價</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in cart.carts" :key="item.id">
-              <td class="list-pic" :style="{ backgroundImage: `url(${item.product.imageUrl})` }"></td>
-              <td class="blank"></td>
-              <td class="list-title">
-                {{ item.product.title }}
-              </td>
-              <td class="list-qty">
-                <div class="input-group input-group-sm">
-                  <input type="number" class="form-control" min="1" :disabled="status.loadingItem === item.id" v-model.number="item.qty" @change="updateCart(item)">
-                  <div class="input-group-text">{{ item.product.unit }}</div>
-                </div>
-              </td>
-              <td class="blank"></td>
-              <td class="list-price">
-                <small v-if="cart.final_total !== cart.total">折扣價</small>
-                $ {{ $filters.currency(item.final_total) }}
-                <div class="text-danger" v-if="item.coupon">已套用優惠券</div>
-              </td>
-              <td class="deleteItem text-end">
-                <button type="button" class="btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id" @click="removeCartItem(item.id)">
-                  <i class="bi bi-trash3"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="5" class="blank"></td>
-              <td class="text-end">總計</td>
-              <td class="totalPrice text-end">${{ $filters.currency(cart.total)}}</td>
-            </tr>
-            <tr v-if="cart.final_total !== cart.total">
-              <td colspan="5" class="blank"></td>
-              <td class="text-end text-danger">折扣價</td>
-              <td class="totalPrice text-end text-danger">${{ $filters.currency(cart.final_total) }}</td>
-            </tr>
-          </tfoot>
-        </table>
-        <div class="use-coupon input-group input-group-sm mb-3">
-          <div class="blank col-8"></div>
-          <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
-          <div class="input-group-append">
-            <button type="button" class="sec-btn coupon-btn" @click="addCouponCode">
-              使用優惠券
-            </button>
-          </div>
-        </div>
-        <div class="go-pay text-end">
-          <router-link to="/fillin" class="btn go-btn">前往結帳</router-link>
-        </div>
-      </div>
-      <div class="container spin" v-else-if="isLoading">
-        <div class="spinner-border text-success" role="status">
-          <span class="visually-hidden">Loading...</span>
+  <LoaDing :avtive="isLoading" />
+  <div
+    class="container-fluid cart"
+    :class="{ 'is-empty': !cart.carts.length && !isLoading }"
+  >
+    <div class="boxContent" v-if="cart.carts.length">
+      <h3>購物清單</h3>
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th class="col-1"></th>
+            <th class="col-1">圖片</th>
+            <th class="col-1"></th>
+            <th class="col-3">商品名稱</th>
+            <th class="col-2">數量</th>
+            <th class="col-1"></th>
+            <th class="col-3">單價</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in cart.carts" :key="item.id">
+            <td class="deleteItem">
+              <button type="button" class="btn-outline-danger btn-sm" :disabled="status.loadingItem === item.id"
+                @click="removeCartItem(item.id)">
+                <i class="bi bi-trash3 text-danger"></i>
+              </button>
+            </td>
+            <td class="list-pic" :style="{ backgroundImage: `url(${item.product.imageUrl})` }"></td>
+            <td class="blank"></td>
+            <td class="list-title">
+              {{ item.product.title }}
+            </td>
+            <td class="list-qty">
+              <div class="input-group input-group-sm">
+                <input type="number" class="form-control" min="1" :disabled="status.loadingItem === item.id"
+                  v-model.number="item.qty" @change="updateCart(item)">
+                <div class="input-group-text">{{ item.product.unit }}</div>
+              </div>
+            </td>
+            <td class="blank"></td>
+            <td class="list-price">
+              <small v-if="cart.final_total !== cart.total">折扣價</small>
+              $ {{ $filters.currency(item.final_total) }}
+              <div class="used-coupon text-danger" v-if="item.coupon">已套用優惠券</div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="blank"></td>
+            <td>總計</td>
+            <td class="totalPrice">$ {{ $filters.currency(cart.total) }}</td>
+          </tr>
+          <tr v-if="cart.final_total !== cart.total">
+            <td colspan="5" class="blank"></td>
+            <td class="text-danger">折扣價</td>
+            <td class="totalPrice text-danger">${{ $filters.currency(cart.final_total) }}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="use-coupon input-group input-group-sm mb-3">
+        <div class="blank col-7"></div>
+        <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
+        <div class="input-group-append">
+          <button type="button" class="sec-btn coupon-btn" @click="addCouponCode">
+            使用優惠券
+          </button>
         </div>
       </div>
-      <div v-else class="nothing">
-        <i class="bi bi-cart-dash"></i>
-        <div class="nothing-content fs-3">哎呀，購物車目前是空的喔</div>
-        <router-link to="/products" class="btn surf-btn">現在去逛逛</router-link>
+      <div class="go-pay text-end">
+        <router-link to="/fillin" class="btn go-btn">前往結帳</router-link>
       </div>
+    </div>
+    <div class="container spin" v-else-if="isLoading">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div v-else class="nothing">
+      <i class="bi bi-cart-dash"></i>
+      <div class="nothing-content fs-3">哎呀，購物車目前是空的喔</div>
+      <router-link to="/products" class="btn">現在去逛逛</router-link>
     </div>
   </div>
 </template>

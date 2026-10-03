@@ -1,157 +1,232 @@
 .cart{
-  margin-block: clamp(7rem, 9vw + 1rem, 11.5rem);
+  flex: 1;
+  padding-block: $space-32;
 
-  @include smallMobile(){
+  @include mobile(){
     width: 100%;
-    margin-top: 30%;
   }
-  .cartBox{
-    padding-left: 1%;
-    padding-right: 1%;
-    @include smallMobile(){
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-    .boxContent{
-      padding: 0;
 
-      h3{
-        text-align: center;
-        color: $maincolor;
-        font-weight: bold;
-        margin-block: $space-8;
+  &.is-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nothing{
+    @include blank-box
+  }
+
+  .boxContent{
+    padding: 0;
+
+    @include mobile() {
+      .blank {
+        display: none;
       }
-      table{
-        border-collapse: collapse;
-        thead{
-          @include smallMobile(){
-            display: none;
-          }
-          th{
-            color: contrast-color($maincolor);
-            background-color: $maincolor;
-            border: none;
-          }
+    }
+
+    h3{
+      text-align: center;
+      color: $maincolor;
+      font-weight: bold;
+      margin-block: $space-8;
+    }
+
+    table{
+      border-collapse: collapse;
+
+      @include mobile(){
+        display: block;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+
+        tbody,
+        tfoot {
+          display: block;
+          width: 100%;
         }
-        tbody{
-          tr{
-            border-bottom: 15px solid #fff;
-            @include smallMobile(){
-              display: flex;
-              flex-direction: column;
-              float: right;
+      }
+
+      thead{
+
+        @include mobile(){
+          display: none;
+        }
+
+        th{
+          color: contrast-color($maincolor);
+          background-color: $maincolor;
+          border: none;
+        }
+      }
+
+      tbody{
+
+        tr{
+          border-bottom: 15px solid #fff;
+
+          @include mobile(){
+            display: grid;
+            grid-template-columns: 90px minmax(0, 1fr) auto;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+              "pic title delete"
+              "pic qty price";
+
+            column-gap: 1rem;
+            row-gap: .5rem;
+
+            width: 100%;
+            box-sizing: border-box;
+            padding: 1rem;
+            margin-bottom: 1rem;
+
+            background-color: #fff;
+            border-bottom: none;
+          }
+
+          td{
+            border: none;
+
+            @include mobile() {
+              display: block;
+              min-width: 0;
+              padding: 0.25rem 0;
             }
-            td{
-              border: none;
+          }
+
+          .deleteItem {
+            text-align: center;
+
+            @include mobile() {
+              grid-area: delete;
+              padding: 0;
+              text-align: right;
             }
-            .blank{
-              @include smallMobile(){
+
+            .btn {
+              @include mobile() {
+                width: auto;
+              }
+            }
+          }
+
+          .list-pic{
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+
+            @include mobile() {
+              grid-area: pic;
+              width: 90px;
+              height: 100px;
+              margin-top: 0;
+            }
+          }
+
+          .list-title{
+            padding: 2% 0 1% 0;
+
+            @include mobile() {
+              grid-area: title;
+              padding: 0;
+              align-self: center;
+            }
+          }
+
+          .list-qty {
+            @include mobile() {
+              grid-area: qty;
+              padding: 0;
+              align-self: center;
+
+              .input-group {
+                width: 130px;
+              }
+
+              input {
+                min-width: 0;
+              }
+            }
+          }
+
+          .list-price {
+            @include mobile() {
+              grid-area: price;
+              padding: 0;
+              align-self: center;
+              text-align: right;
+            }
+
+            small {
+              @include mobile() {
                 display: none;
               }
             }
-            .list-pic{
-              height: 100px;
-              background-size: cover;
-              background-position: center;
-              @include smallMobile(){
-                margin-top: 4%;
-              }
-            }
-            .list-title{
-              padding: 2% 0 1% 0;
-            }
-            .list-qty{
-              @include smallMobile(){
-                padding: 0;
-              }
-            }
-            .list-price{
-              @include smallMobile(){
-                padding: 1% 0 0 0;
-              }
-              small{
-                @include smallMobile(){
-                  display: none;
-                }
-              }
-              .text-danger{
-                @include smallMobile(){
-                  display: none;
-                }
-              }
-            }
-            .deleteItem{
-              @include smallMobile(){
-                padding: 0 0 5% 0;
-              }
-              .btn{
-                @include smallMobile(){
-                  width: 100%;
-                }
-              }
-            }
-          }
-        }
-        tfoot{
-          .blank{
-            @include smallMobile(){
-              display: none;
-            }
-          }
-          td{
-            font-weight: bold;
-            border: none;
-          }
-          .totalPrice{
-            @include smallMobile(){
-              padding-left: 0;
-              padding-right: 0;
-            }
-          }
-        }
-      }
-      .use-coupon{
 
-        .blank{
-          @include smallMobile(){
-            display: none;
+            .used-coupon {
+              @include mobile() {
+                display: none;
+              }
+            }
           }
         }
       }
 
-      .go-pay{
-        margin-top: 4.4%;
-        padding-bottom: 1%;
-        .go-btn{
-          @include smallMobile(){
-            width: 100%;
+      tfoot{
+
+        tr {
+          @include mobile() {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+          }
+        }
+
+        td{
+          font-weight: bold;
+          border: none;
+
+          @include mobile() {
+            &:nth-child(2) {
+              text-align: end;
+            }
           }
         }
       }
     }
-    .spin{
-      margin-top: 16%;
-      margin-bottom: 16%;
-      text-align: center;
-      .spinner-border{
-        width: 60px;
-        height: 60px;
+
+    .use-coupon {
+      @include mobile() {
+        width: 100%;
+      }
+
+      input {
+        @include mobile() {
+          min-width: 0;
+        }
       }
     }
-    .nothing{
-      text-align: center;
-      padding-top: 10%;
-      padding-bottom: 8%;
-      i{
-        font-size: 64px;
-        color: $maincolor;
+
+    .go-pay{
+      margin-top: $space-8;
+
+      .go-btn{
+        @include mobile(){
+          width: 100%;
+        }
       }
-      .nothing-content{
-        font-weight: bold;
-        color: $maincolor;
-        margin-top: 3%;
-        margin-bottom: 5%;
-      }
+    }
+  }
+
+  .spin{
+    margin-top: 16%;
+    margin-bottom: 16%;
+    text-align: center;
+
+    .spinner-border{
+      width: 60px;
+      height: 60px;
     }
   }
 }
