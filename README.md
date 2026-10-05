@@ -48,49 +48,11 @@ BeautyOne 是一個以 Vue 3 (Vue CLI) 打造的電商網站專案，模擬完�
 
 ---
 
-## 領取優惠券
-<img width="1642" height="1017" alt="領取優惠券" src="https://github.com/user-attachments/assets/cd9c0839-b96d-4904-9649-f00c82720a23" />
+## 專案展示
 
----
-
-## 首頁
-<img width="1638" height="2349" alt="首頁01" src="https://github.com/user-attachments/assets/0d7df82f-5212-4b1d-9a58-c64ed4d389c0" />
-<img width="1634" height="984" alt="首頁02" src="https://github.com/user-attachments/assets/37136a1e-ba5d-496c-befa-b127ced3fda3" />
-<img width="1672" height="868" alt="首頁03" src="https://github.com/user-attachments/assets/76b0fd0e-3a3d-4758-b763-e7720d575f4f" />
-
----
-
-## 產品分類
-<img width="1634" height="1854" alt="產品分類" src="https://github.com/user-attachments/assets/e72d81c5-a59b-43f7-a14f-37895262ecad" />
-
----
-
-## 我的最愛（收藏清單）
-<img width="1624" height="751" alt="我的最愛" src="https://github.com/user-attachments/assets/49e881a2-69c6-499f-ad9d-b6682f4afbf8" />
-
----
-
-## 產品詳情
-<img width="1632" height="2565" alt="產品詳情" src="https://github.com/user-attachments/assets/72fea188-339b-4e53-ab34-a0505b6f58be" />
-
----
-
-## 購物車
-<img width="1665" height="984" alt="購物車" src="https://github.com/user-attachments/assets/57e64883-c408-4fab-ba52-58252065e55c" />
-
----
-
-## 購買流程
-
-<div style="display: flex; gap: 20px; margin-top: 20px;">
-  <h4>「填寫資料 / 確認付款 / 完成訂購」</h4>
-  <div style="flex: 1;">
-    <img width="100%" height="1112" alt="填寫資料" src="https://github.com/user-attachments/assets/f057d860-efa0-4db8-a0ed-b2de6f048c0c" />
-  </div>
-  <div style="flex: 1;">
-    <img width="100%" height="979" alt="確認付款" src="https://github.com/user-attachments/assets/f4e32d7c-bed8-4974-b793-2f1bed6fa5bd" />
-  </div>
-  <div style="flex: 1;">
-    <img width="100%" height="1978" alt="完成訂購" src="https://github.com/user-attachments/assets/191b1f97-6cbf-4088-9ade-86cbdf2f2c68" />
-  </div>
-</div>
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/223f2279-1086-4110-9ff1-bae795456d1b" />
+<img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/58ae15fd-b179-40a4-964e-9ead9ecf05f3" />
+<img width="1920" height="1080" alt="3" src="https://github.com/user-attachments/assets/f1964f43-9c28-4915-9d5a-b857befb58fb" />
+<img width="1920" height="1080" alt="4" src="https://github.com/user-attachments/assets/b643d3e6-1b8f-4404-90a0-87b93af6d152" />
+<img width="1920" height="1080" alt="5" src="https://github.com/user-attachments/assets/e2fba62c-0b74-47aa-9e32-b8c16ede6f9e" />
+<img width="1920" height="1080" alt="6" src="https://github.com/user-attachments/assets/982b1b6b-fa85-4206-b5b3-e8a273e1d0cb" />
