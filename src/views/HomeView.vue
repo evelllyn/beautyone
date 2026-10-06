@@ -10,7 +10,11 @@
     </div>
     <div class="seasonCards">
       <!-- card-01 -->
-      <div class="season-card">
+      <div
+        class="season-card"
+        :class="{ 'is-flipped': flippedCards[0] }"
+        @click="toggleCard(0)"
+      >
         <div class="front">
           <div class="card-overlay">
             <i class="fa-solid fa-hand-point-down"></i>
@@ -29,7 +33,11 @@
         </div>
       </div>
       <!-- card-02 -->
-      <div class="season-card">
+      <div
+        class="season-card"
+        :class="{ 'is-flipped': flippedCards[1] }"
+        @click="toggleCard(1)"
+      >
         <div class="front">
           <div class="card-overlay">
             <i class="fa-solid fa-hand-point-down"></i>
@@ -48,7 +56,11 @@
         </div>
       </div>
       <!-- card-03 -->
-      <div class="season-card">
+      <div
+        class="season-card"
+        :class="{ 'is-flipped': flippedCards[2] }"
+        @click="toggleCard(2)"
+      >
         <div class="front">
           <div class="card-overlay">
             <i class="fa-solid fa-hand-point-down"></i>
@@ -67,7 +79,11 @@
         </div>
       </div>
       <!-- card-04 -->
-      <div class="season-card">
+      <div
+        class="season-card"
+        :class="{ 'is-flipped': flippedCards[3] }"
+        @click="toggleCard(3)"
+      >
         <div class="front">
           <div class="card-overlay">
             <i class="fa-solid fa-hand-point-down"></i>
@@ -221,7 +237,8 @@ import HeadProducts from '@/components/CategoryComponents/HeadProducts.vue'
 export default {
   data () {
     return {
-      userEmail: ''
+      userEmail: '',
+      flippedCards: [false, false, false, false]
     }
   },
   components: {
@@ -229,6 +246,12 @@ export default {
     CarouSel,
     BodyProducts,
     HeadProducts
+  },
+
+  methods: {
+    toggleCard (index) {
+      this.flippedCards[index] = !this.flippedCards[index]
+    }
   }
 }
 </script>

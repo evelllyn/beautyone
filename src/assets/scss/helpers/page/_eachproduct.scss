@@ -35,8 +35,14 @@
   }
 
   .item-content {
+    align-items: stretch;
 
     .img-content{
+      display: flex;
+
+      @include mobile() {
+        display: block;
+      }
 
       img{
 
@@ -111,6 +117,7 @@
 
       .addCart{
         display: flex;
+        margin-top: auto;
 
         @include smallMobile() {
           display: block;

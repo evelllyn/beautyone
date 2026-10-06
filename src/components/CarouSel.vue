@@ -2,7 +2,7 @@
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" ref="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../assets/img/banner/banner01.jpg" class="d-block" alt="歡迎光臨">
+        <img src="../assets/img/banner/banner.jpg" class="d-block" alt="歡迎光臨">
         <div class="carousel-caption">
           <h2 class="fw-bold">BEAUTY ONE</h2>
           <p class="fs-4">MAKES YOU BE THE BEAUTIFUL ONE</p>

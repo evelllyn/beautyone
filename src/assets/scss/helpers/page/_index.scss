@@ -107,10 +107,18 @@
 
   .seasonCards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: $space-8;
 
     perspective: 3000px;
+
+    @include tablet(){
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include smallMobile(){
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     .season-card {
       position: relative;
@@ -131,10 +139,16 @@
         }
       }
 
+      @include tablet(){
+        &.is-flipped {
+          transform: rotateY(180deg);
+        }
+      }
+
       .front, .back {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        inset: 0;
+        box-sizing: border-box;
         border-radius: $radius-md;
 
         backface-visibility: hidden;
@@ -198,11 +212,12 @@
       }
 
       .back {
-        padding: $space-12;
+        padding: 2em;
         transform: rotateY(180deg);
 
         .card-content {
           height: 100%;
+          min-height: 0;
           color: $txtdark;
 
           display: flex;
@@ -212,12 +227,16 @@
           h3 {
             letter-spacing: .08em;
             align-self: center;
+            margin: 0;
           }
 
           p {
+            flex: 1;
+            min-height: 0;
+            margin: 0;
+
             font-size: $text-sm;
             letter-spacing: .08em;
-            flex: 1;
           }
 
           .card-capsule {
@@ -228,9 +247,23 @@
             span {
               color: #39352f;
               background-color: rgba(255, 255, 255, 0.55);
-              padding: $space-2;
+              padding: .5em;
+
+              flex-shrink: 0;
+              white-space: nowrap;
+
               border-radius: $radius-lg;
               border: 0.05rem solid rgba(0, 0, 0, 0.9);
+
+              font-size: clamp(.8rem, .8vw + .2rem, 1rem);
+
+              @include tablet() {
+                font-size: clamp(.8rem, 1vw + .5rem, 1.5rem);
+              }
+
+              @include smallMobile() {
+                font-size: clamp(.8rem, 2vw + .5rem, 2.5rem);
+              }
             }
           }
         }
